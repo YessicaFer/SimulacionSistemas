@@ -1,135 +1,148 @@
-library(foreach)
-library(doParallel)
+library(parallel)
 
-cl<-makeCluster(detectCores()-1)
-registerDoParallel(cl)
+cluster <- makeCluster(detectCores() - 1)
+
 
 l <- 1.5
 n <- 50
 pi <- 0.05
 pr <- 0.02
+pv <- 0.05
 v <- l / 30
-pv <- 0.2
+
+clusterExport(cluster,"l")
+clusterExport(cluster,"pi")
+clusterExport(cluster,"pr")
+
+clusterExport(cluster,"v")
+
 
 agente=function(i){
-  e <- "S"
+  e <- 5
   if (runif(1) < pi) {
-    e <- "I"
+    e <- 1
+  }else if(runif(1)<pv){
+    e <- 4
   }
-  if (runif(1) < pv){
-    e <- "R"
-  }
-  return(data.frame(x = runif(1, 0, l), y = runif(1, 0, l),
-                    dx = runif(1, -v, v), dy = runif(1, -v, v),
-                    estado = e))
+  
+  return(c(x = runif(1, 0, l), y = runif(1, 0, l),
+           dx = runif(1, -v, v), dy = runif(1, -v, v),
+           estado = e))
 }
 
 
-agentes=foreach(i = 1:n, .combine = rbind)  %dopar%  agente(i)
-levels(agentes$estado) <- c("S", "I", "R")
-
-epidemia <- integer()
-r <- 0.1
-tmax <- 100
-digitos <- floor(log(tmax, 10)) + 1
-nombres=c()
-for (tiempo in 1:tmax) {
-  infectados <- dim(agentes[agentes$estado == "I",])[1]
-  epidemia <- c(epidemia, infectados)
-  if (infectados == 0) {
-    break
-  }
-  
-  
-  
-  contagios <- rep(FALSE, n)
-  for (i in 1:n) { # posibles contagios
-    a1 <- agentes[i, ]
-    if (a1$estado == "I") { # desde los infectados
-      for (j in 1:n) {
-        if (!contagios[j]) { # aun sin contagio
-          a2 <- agentes[j, ]
-          if (a2$estado == "S") { # hacia los susceptibles
-            dx <- a1$x - a2$x
-            dy <- a1$y - a2$y
-            d <- sqrt(dx^2 + dy^2)
-            if (d < r) { # umbral
-              p <- (r - d) / r
-              if (runif(1) < p) {
-                contagios[j] <- TRUE
-              }
-            }
+contagiar=function(i){
+  a1 <- agentes[i, ]
+  if (a1$estado == 5) {# desde los susceptibles
+    for (j in 1:n) {
+      a2 <- agentes[j, ]
+      if (a2$estado == 1) { # hacia los infectados
+        dx <- a1$x - a2$x
+        dy <- a1$y - a2$y
+        d <- sqrt(dx^2 + dy^2)
+        if (d < r) { # umbral
+          p <- (r - d) / r
+          if (runif(1) < p) {
+            return(TRUE)
           }
         }
       }
     }
+    return(FALSE)
+  }else{
+    return(FALSE)
   }
   
-  
-  mov_act=function(i) { # movimientos y actualizaciones
-    a <- agentes[i, ]
-    if (contagios[i]) {
-      a$estado <- "I"
-    } else if (a$estado == "I") { # ya estaba infectado
-      if (runif(1) < pr) {
-        a$estado <- "R" # recupera
-      }
-    }
-    a$x <- a$x + a$dx
-    a$y <- a$y + a$dy
-    if (a$x > l) {
-      a$x <- a$x - l
-    }
-    if (a$y > l) {
-      a$y <- a$y - l
-    }
-    if (a$x < 0) {
-      a$x <- a$x + l
-    }
-    if (a$y < 0) {
-      a$y <- a$y + l
-    }
-    return( a )
-    
-    
-  }
-  
-  agentes=foreach(i=1:n,.combine=rbind) %dopar% mov_act(i)
-  aS <- agentes[agentes$estado == "S",]
-  aI <- agentes[agentes$estado == "I",]
-  aR <- agentes[agentes$estado == "R",]
-  tl <- paste(tiempo, "", sep="")
-  while (nchar(tl) < digitos) {
-    tl <- paste("0", tl, sep="")
-  }
-  salida <- paste("Imagenes_R1/p6_t", tl, ".png", sep="")
-  nombres=c(nombres,salida)
-  tiempo <- paste("Paso", tiempo)
-  #png(salida)
-  #par(mar=c(0.2,0.2,0.2,0.2))
-  #plot(l, type="n", main='', xlim=c(0, l), ylim=c(0, l),xaxt='n',yaxt='n',xlab='',ylab='')
-  #if (dim(aS)[1] > 0) {
-  #  points(aS$x, aS$y, pch=15, col="blue", bg="blue",cex=1.5)
-  #}
-  #if (dim(aI)[1] > 0) {
-  #  points(aI$x, aI$y, pch=16, col="red", bg="red",cex=2)
-  #}
-  #if (dim(aR)[1] > 0) {
-  #  points(aR$x, aR$y, pch=17, col="green", bg="green",cex=2)
-  #}
-  #graphics.off()
 }
 
-stopImplicitCluster()
+mov_act=function(i) { # movimientos y actualizaciones
+  a <- agentes[i, ]
+  if (contagios[i]) {
+    a$estado <- 1
+  } else if (a$estado == 1) { # ya estaba infectado
+    if (runif(1) < pr) {
+      a$estado <- 4 # recupera
+    }
+  }
+  a$x <- a$x + a$dx
+  a$y <- a$y + a$dy
+  if (a$x > l) {
+    a$x <- a$x - l
+  }
+  if (a$y > l) {
+    a$y <- a$y - l
+  }
+  if (a$x < 0) {
+    a$x <- a$x + l
+  }
+  if (a$y < 0) {
+    a$y <- a$y + l
+  }
+  return(c(x=a$x,y=a$y,dx=a$dx,dy=a$dy,estado=a$estado))
+}
 
-#hacer gif
-library(magick)
-frames=lapply(nombres,function(x) image_read(x))
-animation <- image_animate(image_join(frames),fps=100)
-print(animation)
-image_write(animation, "automatas.gif")
-#sapply(nombres,function(x) file.remove(x))
+clusterExport(cluster,"agente")
+clusterExport(cluster,"contagiar")
+clusterExport(cluster,"mov_act")
 
-#epidemia2R=epidemia2R+epidemia
+datos=data.frame()
 
+  clusterExport(cluster,"n")
+for(pv in seq(0,1,0.05)){
+  clusterExport(cluster,"pv")
+  for(rep in 1:10){
+    #Version paralela
+    
+    #creacion de agentes
+    agentes=parSapply(cluster,1:n,agente)
+    agentes=data.frame(t(agentes))
+    #levels(agentes$estado) <- c(5, 1, 4)
+    
+    epidemia <- integer()
+    r <- 0.1
+    tmax <- 100
+    clusterExport(cluster,"r")
+    for (tiempo in 1:tmax) {
+      infectados <- dim(agentes[agentes$estado == 1,])[1]
+      epidemia <- c(epidemia, infectados)
+      if (infectados == 0) {
+        break
+      }
+      
+      #contagios
+      clusterExport(cluster,"agentes")
+      contagios=parSapply(cluster,1:n,contagiar)
+      
+      #actualización
+      clusterExport(cluster,"contagios")
+      agentes=data.frame(t(parSapply(cluster,1:n,mov_act)))
+      
+    }
+    datos=rbind(datos,epidemia)
+  } 
+}
+ 
+  
+stopCluster()
 
+c0=colSums(datos[1:10,],1)/10 #pv=0
+c1=colSums(datos[11:20,],1)/10 #pv=0.05
+c2=colSums(datos[21:30,],1)/10 #pv=0.1
+c3=colSums(datos[101:110,],1)/10 #pv=0.5
+c4=colSums(datos[201:210,],1)/10 #pv=0.95
+c5=colSums(datos[161:170,],1)/10 #pv=0.8
+
+png("comparacion.png", width=600, height=300)
+par(mar=c(5.1, 4.1, 4.1, 9), xpd=TRUE)
+plot(1:100,c0,type='l',col='blue',xlab='Tiempo',ylab='Porcentaje de infectados',main='Simulación de epidemia con vacunación')
+lines(1:100,c1,col='red')
+lines(1:100,c2,col='green')
+lines(1:100,c3,col='purple')
+lines(1:100,c5,col='black')
+#lines(1:100,c4,col='orange')
+legend("topright",legend=c(0,0.05,0.1,0.5,0.8),fill=c('blue','red','green','purple','black'),inset=c(-0.3,0),title='probabilidad vacuna')
+graphics.off()
+
+png("p6e.png", width=600, height=300)
+plot(1:100,c0,type='l',xlab='Tiempo',ylab='Porcentaje de infectados',main='Simulación de epidemia')
+graphics.off()

@@ -5,7 +5,7 @@ cl<-makeCluster(detectCores()-1)
 registerDoParallel(cl)
 
 l <- 1.5
-n <- 50
+n <- 500
 #pi <- 0.05
 pr <- 0.02
 v <- l / 30
@@ -52,6 +52,29 @@ mov_act=function(i) { # movimientos y actualizaciones
   
 }
 
+contagiar=function(i){
+  contagios=c()
+  a1 <- agentes[i, ]
+  print(a1)
+  if (a1$estado == "I") { # desde los infectados
+    for (j in 1:n) {
+      a2 <- agentes[j, ]
+      if (a2$estado == "S") { # hacia los susceptibles
+        dx <- a1$x - a2$x
+        dy <- a1$y - a2$y
+        d <- sqrt(dx^2 + dy^2)
+        if (d < r) { # umbral
+          p <- (r - d) / r
+          if (runif(1) < p) {
+            contagios=c(contagios,j)
+          }
+        }
+      }
+    }
+    
+  }
+  return(contagios)
+}
 
 datos=data.frame()
 for(pi in seq(0.05,0.95,0.05)){
@@ -72,31 +95,10 @@ for(pi in seq(0.05,0.95,0.05)){
         break
       }
       
-      
-      
-      contagios <- rep(FALSE, n)
-      for (i in 1:n) { # posibles contagios
-        a1 <- agentes[i, ]
-        if (a1$estado == "I") { # desde los infectados
-          for (j in 1:n) {
-            if (!contagios[j]) { # aun sin contagio
-              a2 <- agentes[j, ]
-              if (a2$estado == "S") { # hacia los susceptibles
-                dx <- a1$x - a2$x
-                dy <- a1$y - a2$y
-                d <- sqrt(dx^2 + dy^2)
-                if (d < r) { # umbral
-                  p <- (r - d) / r
-                  if (runif(1) < p) {
-                    contagios[j] <- TRUE
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      
+      #contagiar
+      temp=foreach(i=1:n,.combine=c)%dopar% contagiar(i)
+      contagios=rep(FALSE,n)
+      contagios[temp]=TRUE
       
       #Actualizacion y movimientos
       agentes=foreach(i=1:n,.combine=rbind) %dopar% mov_act(i)
@@ -111,7 +113,7 @@ stopImplicitCluster()
 
 names(datos)=c("ProbabilidadInfeccion","MaximoPorcentaje")
 datos$ProbabilidadInfeccion=as.factor(datos$ProbabilidadInfeccion)
-boxplot(datos$MaximoPorcentaje~datos$ProbabilidadInfeccion,xlab="Probabilidad de infección",ylab="Porcentaje máximo de infección")
+boxplot(datos$MaximoPorcentaje~datos$ProbabilidadInfeccion,xlab="Probabilidad de infecci?n",ylab="Porcentaje m?ximo de infecci?n")
 
 library(ggplot2)
 png("P6_Violines_Infeccion.png",width=1200,height=1000)  #recuerda acomodar ylim
@@ -120,13 +122,15 @@ ggplot(data=datos,aes(x=ProbabilidadInfeccion,y=MaximoPorcentaje))+
   geom_violin(position = dodge)+
   geom_boxplot(position=dodge,width=0.1)+
   stat_summary(fun.y=median, geom="smooth", aes(group=1))+
-  xlab("Probabilidad de infección")+
-  ylab("Porcentaje máximo de infección")+
+  xlab("Probabilidad de infecci?n")+
+  ylab("Porcentaje m?ximo de infecci?n")+
+  labs(title="Variando la probabilidad de infecci?n")+
   theme(text = element_text(size=36),
-                                                        axis.text.x = element_text(size=36,angle = 90, hjust = 1),
-                                                        axis.text.y = element_text(size=36),
+                                                        axis.text.x = element_text(size=30,angle = 90, hjust = 1),
+                                                        axis.text.y = element_text(size=30),
                                                         plot.title = element_text(size=36))+
-  theme(plot.title = element_text(hjust = 0.5))
+  theme(plot.title = element_text(hjust = 0.5))+
+  ylim(38,100)
 graphics.off()
 
-
+kruskal.test(datos$MaximoPorcentaje~datos$ProbabilidadInfeccion)
