@@ -20,5 +20,5 @@ para
 </p>
 
 <p align="justified">
-La forma de búsqueda del máximo de la función es elegir un punto  <img src="http://latex.codecogs.com/gif.latex?x_0" border="0"/>aleatoriamente en el dominio y luego generar un vector de movimiento <img src="http://latex.codecogs.com/gif.latex?(\Delta{x},\Delta{y})" border="0"/>. A partir de este vector podemos formar cuatro nuevos puntos <img src="http://latex.codecogs.com/gif.latex?p_i=(x,y)+(\pm\Delta{x},\pm\Delta{y})" border="0"/>. Luego, seleccionamos <img src="http://latex.codecogs.com/gif.latex?\hat{p}=\text{argmax}\{g(p_i);\;i=1:4\}" border="0"/>a
+La forma de búsqueda del máximo de la función es elegir un punto  <img src="http://latex.codecogs.com/svg.latex?x_0" border="0"/>aleatoriamente en el dominio y luego generar un vector de movimiento <img src="http://latex.codecogs.com/svg.latex?(\Delta{x},\Delta{y})" border="0"/>. A partir de este vector podemos formar cuatro nuevos puntos <img src="http://latex.codecogs.com/svg.latex?p_i=(x,y)+(\pm\Delta{x},\pm\Delta{y})" border="0"/>. Luego, seleccionamos <img src="http://latex.codecogs.com/svg.latex?\hat{p}=\text{argmax}\{g(p_i);\;i=1:4\}" border="0"/>a
 </p>
