@@ -14,7 +14,9 @@ para
   
   <p align="center">
 <div id="fig3" style="width:300px; height=200px">
-<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p7/p7_2d.png" height="70%" width="70%"/><br>
-<b>Figura 1.</b> Visualización 3D de <i>g(x,y)</i>
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p7/p7_2d.svg" height="70%" width="70%"/><br>
+<b>Figura 1.</b> Visualización 3D de <img src="http://latex.codecogs.com/gif.latex?z=g(x,y)" border="0"/>. 
 </div>
 </p>
+La forma de búsqueda del máximo de la función es elegir un punto <img src="http://latex.codecogs.com/gif.latex?(x,y)" border="0"/>  aleatoriamente en el dominio y luego generar un vector de movimiento <img src="http://latex.codecogs.com/gif.latex?(\Delta{x},\Delta{y})" border="0"/>. A partir de este vector podemos formar cuatro nuevos puntos <img src="http://latex.codecogs.com/gif.latex?p_i" border="0"/> como se aprecia en la  <a href="#fig2"> Figura 2</a>.
+
