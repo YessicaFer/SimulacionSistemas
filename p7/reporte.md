@@ -14,7 +14,7 @@ para
   
   <p align="center">
 <div id="fig3" style="width:300px; height=200px">
-<img src="https://github.com/xoce15/Simulacion_Sistemas/blob/master/Practica_6/Graficas/P6_Todos.png" height="70%" width="70%"/><br>
-<b>Figura 3.</b> Comparación de tiempos secuencial (s) contra paralelo (p) global
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p7/p7_2d.png" height="70%" width="70%"/><br>
+<b>Figura 1.</b> Visualización 3D de <img src="http://latex.codecogs.com/gif.latex?g(x,y)." border="0"/> 
 </div>
 </p>
