@@ -15,10 +15,10 @@ para
   <p align="center">
 <div id="fig3" style="width:300px; height=200px">
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p7/p7_2d.png" height="50%" width="50%"/><br>
-<b>Figura 1.</b> Visualización 3D de <img src="http://latex.codecogs.com/gif.latex?z=g(x,y)" border="0"/>. 
+<b>Figura 1.</b> Visualización 3D de <img src="http://latex.codecogs.com/svg.latex?z=g(x,y)" border="0"/>. 
 </div>
 </p>
 
 <p align="justified">
-La forma de búsqueda del máximo de la función es elegir un punto  <img src="http://latex.codecogs.com/svg.latex?x_0" border="0"/>aleatoriamente en el dominio y luego generar un vector de movimiento <img src="http://latex.codecogs.com/svg.latex?(\Delta{x},\Delta{y})" border="0"/>. A partir de este vector podemos formar cuatro nuevos puntos <img src="http://latex.codecogs.com/svg.latex?p_i=(x,y)+(\pm\Delta{x},\pm\Delta{y})" border="0"/>. Luego, seleccionamos <img src="http://latex.codecogs.com/svg.latex?\hat{p}=\text{argmax}\{g(p_i);\;i=1:4\}" border="0"/>a
+La forma de búsqueda del máximo de la función es elegir un punto  <img src="http://latex.codecogs.com/svg.latex?(x_0,y_0)" border="0"/> aleatoriamente en el dominio y luego generar un vector de movimiento <img src="http://latex.codecogs.com/svg.latex?(\Delta{x},\Delta{y})" border="0"/>. A partir de éste vector podemos formar cuatro nuevos puntos <img src="http://latex.codecogs.com/svg.latex?p_i=(x,y)+(\pm\Delta{x},\pm\Delta{y})" border="0"/>. Luego, seleccionamos aquel que tenga mejor evaluación de la función; es decir, <img src="http://latex.codecogs.com/svg.latex?\hat{p_1}=\text{argmax}\{g(p_i);\;i=1:4\}" border="0"/>. Hacemos <img src="http://latex.codecogs.com/svg.latex?(x_i,y_i)=\hat{p_i};\quad{i\geq1" border="0"/> y repetimos el mismo proceso una cierta cantidad <img src="http://latex.codecogs.com/svg.latex?n" border="0"/> de veces. En cada iteración, se va actualizando y guardando la solución incumbente.
 </p>
