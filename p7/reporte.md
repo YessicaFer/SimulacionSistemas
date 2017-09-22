@@ -25,7 +25,7 @@ La forma de búsqueda del máximo de la función es elegir un punto  <img src="
 
 <p align="center">
 <div id="fig3" style="width:300px; height=200px">
-<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p7/p7_1000.png" height="30%" width="30%"/><br>
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p7/p7_100.png" height="30%" width="30%"/><br>
 <b>Figura 1.</b> Visualización 3D de <img src="http://latex.codecogs.com/svg.latex?z=g(x,y)" border="0"/>. 
 </div>
 </p>
