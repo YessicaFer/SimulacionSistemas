@@ -25,7 +25,7 @@ Hay que hacer notar que en el proceso descrito no se ha tomado en cuenta la fact
 
 En este caso, se permite que el punto sea infactible pero que no se aleje demasiado de la región factible, en caso de hacerlo, se recupera parte de su información para factibilizarlo. Podemos distinguir tres casos
 <ol>
-  <li>Coffee</li>
+  <li><img src="http://latex.codecogs.com/svg.latex?x\not\in[-6,5]" border="0"/></li>
   <li>Tea</li>
   <li>Milk</li>
 </ol>
