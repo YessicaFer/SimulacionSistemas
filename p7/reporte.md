@@ -1,7 +1,7 @@
 # Práctica 7: Búsqueda local
 ## 18 de septiembre de 2017
 
-## Introducción
+## Maximización de <img src="http://latex.codecogs.com/svg.latex?g(x,y)" border="0"/> 
 En está práctica se implementa una búsqueda local para encontrar el máximo de la función
 <p align="center">
 <img src="http://latex.codecogs.com/svg.latex?g(x,y)=\frac{(x+\frac{1}{2})^4-30x^2-20x+(y+\frac{1}{2})^4-30y^2-20y}{100}" border="0"/>
@@ -20,5 +20,5 @@ para
 </p>
 
 <p align="justified">
-La forma de búsqueda del máximo de la función es elegir un punto  <img src="http://latex.codecogs.com/svg.latex?(x_0,y_0)" border="0"/> aleatoriamente en el dominio y luego generar un vector de movimiento <img src="http://latex.codecogs.com/svg.latex?(\Delta{x},\Delta{y})" border="0"/>. A partir de éste vector podemos formar cuatro nuevos puntos <img src="http://latex.codecogs.com/svg.latex?p_i=(x,y)+(\pm\Delta{x},\pm\Delta{y})" border="0"/>. Luego, seleccionamos aquel que tenga mejor evaluación de la función; es decir, <img src="http://latex.codecogs.com/svg.latex?\hat{p_1}=\text{argmax}\{g(p_i);\;i=1:4\}" border="0"/>. Hacemos <img src="http://latex.codecogs.com/svg.latex?(x_i,y_i)=\hat{p_i};\quad{i\geq1" border="0"/> y repetimos el mismo proceso una cierta cantidad <img src="http://latex.codecogs.com/svg.latex?n" border="0"/> de veces. En cada iteración, se va actualizando y guardando la solución incumbente.
+La forma de búsqueda del máximo de la función es elegir un punto  <img src="http://latex.codecogs.com/svg.latex?(x_0,y_0)" border="0"/> aleatoriamente en el dominio y luego generar un vector de movimiento <img src="http://latex.codecogs.com/svg.latex?(\Delta{x_0},\Delta{y_0})" border="0"/>. A partir de éste vector podemos formar cuatro nuevos puntos <img src="http://latex.codecogs.com/svg.latex?p_j=(x_0,y_0)+(\pm\Delta{x_0},\pm\Delta{y_0})" border="0"/>. Luego, seleccionamos aquel que tenga mejor evaluación de la función; es decir, <img src="http://latex.codecogs.com/svg.latex?\hat{p_1}=\text{argmax}\{g(p_j);\;j=1:4\}" border="0"/>. Hacemos <img src="http://latex.codecogs.com/svg.latex?(x_i,y_i)=\hat{p_i};\quad{i\geq1" border="0"/> y repetimos el mismo proceso una cierta cantidad <img src="http://latex.codecogs.com/svg.latex?n" border="0"/> de veces. En cada iteración, se va actualizando y guardando la solución incumbente. Este proceso sencillo nos permite encontrar fácilmente un máximo local de la función.
 </p>
