@@ -6,9 +6,9 @@ En está práctica se implementa una búsqueda local para encontrar el máximo d
 <p align="center">
 <img src="http://latex.codecogs.com/svg.latex?g(x,y)=\frac{(x+\frac{1}{2})^4-30x^2-20x+(y+\frac{1}{2})^4-30y^2-20y}{100}" border="0"/>
 </p>
-<p align="justified">
-para <img src="http://latex.codecogs.com/svg.latex?-6\leq{x,y}\leq5." border="0"/>. La <a href="#fig1"> Figura 1</a> ilustra a la función en tres dimensiones.
-</p>  
+
+para <img src="http://latex.codecogs.com/svg.latex?-6\leq{x,y}\leq5" border="0"/>. La <a href="#fig1"> Figura 1</a> ilustra a la función en tres dimensiones.
+  
 <p align="center">
 <div id="fig3" style="width:300px; height=200px">
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p7/p7_2d.png" height="50%" width="50%"/><br>
