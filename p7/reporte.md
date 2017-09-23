@@ -36,6 +36,8 @@ En este caso, se permite que el punto sea infactible pero que no se aleje demasi
 <p align="justified">
 Para medir cuánto se aleja, se utiliza la distancia de un punto a un conjunto, la cual denominaremos como <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/>; por definición, si <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/> es factible, entonces <img src="http://latex.codecogs.com/svg.latex?d(x,y)=0" border="0"/>. En los primeros dos casos, podemos usar la información de la componente que si cumple la restricción y a la que lo incumple volverla factible restando (o sumando, según sea el caso) <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/> y un valor aleatorio pequeño, que actúa como una perturbación. El código en R que realiza la búsqueda local es el siguiente:
 </p>
+
+
 ```R
 replica <- function(t) {
   
