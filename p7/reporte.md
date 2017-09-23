@@ -110,13 +110,22 @@ Se dibuja la curva de nivel con <img src="http://latex.codecogs.com/svg.latex?-7
 
 Para tener una mejor visualización, se considera que <img src="http://latex.codecogs.com/svg.latex?z\in[-5.5,1.5]" border="0"/>; como la función crece muy rápido fuera del conjunto factible, los cambios en los colores que diferencian las curvas de nivel son casi inperceptibles. En cambio, con este ajuste de los limites en <img src="http://latex.codecogs.com/svg.latex?z" border="0"/>, aparece en blanco todo punto no coniderado. En especifico para esta función, su valor mínimo es de <img src="http://latex.codecogs.com/svg.latex?-5.23276" border="0"/> de acuerdo a Wolfram Alpha y su máximo como ya se había mencionado es <img src="http://latex.codecogs.com/svg.latex?1.30125" border="0"/>. La zona factible está delimitada por un rectangulo en lineas punteadas.
 
-Como puede observar en la Figura , <img src="http://latex.codecogs.com/svg.latex?z" border="0"/> aumenta a medida que el color es más oscuro. Observe como la posición de <img src="http://latex.codecogs.com/svg.latex?(x,y)" border="0"/> se acerca cada vez a las zonas más altas de la función, en este caso como se encuentra en un óptimo local, la búsqueda se queda atrapada pues con esta forma de exploración no es posible salir. 
+Como puede observar en la Figura <a href="#fig2">2</a>, <img src="http://latex.codecogs.com/svg.latex?z" border="0"/> aumenta a medida que el color es más oscuro. Observe como la posición de <img src="http://latex.codecogs.com/svg.latex?(x,y)" border="0"/> se acerca cada vez a las zonas más altas de la función, en este caso como se encuentra en un óptimo local, la búsqueda se queda atrapada pues con esta forma de exploración no es posible salir. 
 </p>
 
 <p align="center">
 <div id="fig2" style="width:300px; height=200px">
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p7/busqueda_local_centro.gif" height="40%" width="40%"/><br>
-<b>Figura 2.</b> Visualización 3D de <img src="http://latex.codecogs.com/svg.latex?z=g(x,y)" border="0"/>. 
+<b>Figura 2.</b> Búsqueda local atascada en un óptimo local. 
+</div>
+</p>
+
+Por otro lado, si la búsqueda se movió cercano a una orilla en donde la función crece, repetidamente las soluciones se vuelven infactibles, pero se recupera su factibilad cuando se encuentran a distancia uno del conjunto factible (visualmente al tocar el borde exterior). La Figura <a href="#fig3">3</a> ilustra este comportamiento. Observe como el mantener información de la posición de la solución, aunque sea "ligeramente" infactible, permite encontar un nuevo incumbente. Note además, como el incumbente nunca se considera infactible, por lo que no puede salir del recuadro punteado interior.
+
+<p align="center">
+<div id="fig2" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p7/busqueda_local_orilla.gif" height="40%" width="40%"/><br>
+<b>Figura 2.</b> Búsqueda local que hace uso de soluciones infactibles. 
 </div>
 </p>
 
