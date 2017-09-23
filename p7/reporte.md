@@ -100,12 +100,31 @@ replica <- function(t) {
 }
 ```
 ### ¿Cuál es el óptimo?
-De acuerdo a Wolfram Alpha, la función <img src="http://latex.codecogs.com/svg.latex?g(x,y)" border="0"/> tiene una solución máxima en <img src="http://latex.codecogs.com/svg.latex?(5,5)" border="0"/>, con un valor óptimo de <img src="http://latex.codecogs.com/svg.latex?\◘frac{1041}{800}\approx1.30125." border="0"/>
+De acuerdo a Wolfram Alpha, la función <img src="http://latex.codecogs.com/svg.latex?g(x,y)" border="0"/> tiene una solución máxima en <img src="http://latex.codecogs.com/svg.latex?(5,5)" border="0"/>, con un valor óptimo de <img src="http://latex.codecogs.com/svg.latex?\frac{1041}{800}\approx1.30125." border="0"/>
 
 ## Visualización del funcionamiento
-Ahora se describe una forma de visualizar el funcionamiento de la búsqueda local. Como la función a optimizar está en tres dimensiones se toma una gráfica plana de las curvas de nivel correspondientes. En R, una forma de dibujar estas curvas es con la función `filled.contour()`. Por fa
+<p align="justified">
+Ahora se describe una forma de visualizar el funcionamiento de la búsqueda local. Como la función a optimizar está en tres dimensiones se toma una gráfica plana de las curvas de nivel correspondientes. En R, una forma de dibujar estas curvas es con la función `filled.contour()`. Además, podemos graficar en cada iteración de la búsqueda la posición de la solución <img src="http://latex.codecogs.com/svg.latex?(x,y)" border="0"/> (en rojo) y la del incumbente (en verde). Éste último incluyendo unas lineas  verdes en cruz como delimitando un objetivo en una mirilla de un arma.
+
+Se dibuja la curva de nivel con <img src="http://latex.codecogs.com/svg.latex?-7\leq{x,y\leq6" border="0"/> para poder visualizar las soluciones que dejan de ser factibles durante la búsqueda. La razón por la que se considera un entero más en cada dirección del dominio es porque la máxima distancia <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/> permitida es 1.
+
+Para tener una mejor visualización, se considera que <img src="http://latex.codecogs.com/svg.latex?z\in[-5.5,1.5]" border="0"/>; como la función crece muy rápido fuera del conjunto factible, los cambios en los colores que diferencian las curvas de nivel son casi inperceptibles. En cambio, con este ajuste de los limites en <img src="http://latex.codecogs.com/svg.latex?z" border="0"/>, aparece en blanco todo punto no coniderado. En especifico para esta función, su valor mínimo es de <img src="http://latex.codecogs.com/svg.latex?-5.23276" border="0"/> de acuerdo a Wolfram Alpha y su máximo como ya se había mencionado es <img src="http://latex.codecogs.com/svg.latex?1.30125" border="0"/>. La zona factible está delimitada por un rectangulo en lineas punteadas.
+
+Como puede observar en la Figura , <img src="http://latex.codecogs.com/svg.latex?z" border="0"/> aumenta a medida que el color es más oscuro. Observe como la posición de <img src="http://latex.codecogs.com/svg.latex?(x,y)" border="0"/> se acerca cada vez a las zonas más altas de la función, en este caso como se encuentra en un óptimo local, la búsqueda se queda atrapada pues con esta forma de exploración no es posible salir. 
+</p>
+
+<p align="center">
+<div id="fig2" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p7/busqueda_local_centro.gif" height="40%" width="40%"/><br>
+<b>Figura 2.</b> Visualización 3D de <img src="http://latex.codecogs.com/svg.latex?z=g(x,y)" border="0"/>. 
+</div>
+</p>
+
 ## Paralelismo
 Para tener una buena aproximación de la solución óptima, podemos ejecutar el método `replica(t)` muchas veces. `t`se refiere a la cantidad de pasos que debe ejecutar la búsqueda para parar. Como cada búsqueda se hace por separado, aumentando `t`y haciendo múltiples búsquedas en paralelo, se puede encontar el incumbente de todas el cuál sería nuestra mejor aproximación hasta el momento. Las Figuras <a href="#fig2">2</a>, <a href="#fig3">3</a> y <a href="#fig4">4</a> muestran las
+
+
+
 
 <p align="center">
 <div id="fig2" style="width:300px; height=200px">
