@@ -120,24 +120,35 @@ Como puede observar en la Figura <a href="#fig2">2</a>, <img src="http://latex.c
 </div>
 </p>
 
-Por otro lado, si la búsqueda se movió cercano a una orilla en donde la función crece, repetidamente las soluciones se vuelven infactibles, pero se recupera su factibilad cuando se encuentran a distancia uno del conjunto factible (visualmente al tocar el borde exterior). La Figura <a href="#fig3">3</a> ilustra este comportamiento. Observe como el mantener información de la posición de la solución, aunque sea "ligeramente" infactible, permite encontar un nuevo incumbente. Note además, como el incumbente nunca se considera infactible, por lo que no puede salir del recuadro punteado interior.
+Por otro lado, si la búsqueda se movió cercano a una orilla en donde la función crece, repetidamente las soluciones se vuelven infactibles, pero se recupera su factibilad cuando se encuentran a distancia uno del conjunto factible (visualmente al tocar el borde exterior). La Figura <a href="#fig3">3</a> ilustra este comportamiento. Observe como el mantener información de la posición de la solución, aunque sea "ligeramente" infactible, permite encontar un nuevo incumbente. Note además, como el incumbente nunca se considera infactible, por lo que no puede salir del recuadro punteado interior. Éste también es un caso en donde la búsqueda se atrapa en un óptimo local.
 
 <p align="center">
-<div id="fig2" style="width:300px; height=200px">
+<div id="fig3" style="width:300px; height=200px">
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p7/busqueda_local_orilla.gif" height="40%" width="40%"/><br>
-<b>Figura 2.</b> Búsqueda local que hace uso de soluciones infactibles. 
+<b>Figura 3.</b> Búsqueda local que hace uso de soluciones infactibles. 
 </div>
 </p>
 
 ## Paralelismo
-Para tener una buena aproximación de la solución óptima, podemos ejecutar el método `replica(t)` muchas veces. `t`se refiere a la cantidad de pasos que debe ejecutar la búsqueda para parar. Como cada búsqueda se hace por separado, aumentando `t`y haciendo múltiples búsquedas en paralelo, se puede encontar el incumbente de todas el cuál sería nuestra mejor aproximación hasta el momento. Las Figuras <a href="#fig2">2</a>, <a href="#fig3">3</a> y <a href="#fig4">4</a> muestran las
-
-
-
+Para tener una mejor aproximación de la solución óptima, podemos ejecutar el método `replica(t)` muchas veces. `t`se refiere a la cantidad de pasos que debe ejecutar la búsqueda para parar. Como cada búsqueda se hace por separado, aumentando `t`y haciendo múltiples búsquedas en paralelo, se puede encontar el incumbente de todas el cuál sería nuestra mejor aproximación hasta el momento. Las Figuras <a href="#fig4">4</a>, <a href="#fig5">5</a> y <a href="#fig5">5</a> muestran las soluciones encontradas para valores de `t`de 100, 1000 y 10,000, respectivamente para 100 búsquedas locales en cada caso.
 
 <p align="center">
-<div id="fig2" style="width:300px; height=200px">
+<div id="fig4" style="width:300px; height=200px">
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p7/p7_100.png" height="40%" width="40%"/><br>
-<b>Figura 2.</b> Visualización 3D de <img src="http://latex.codecogs.com/svg.latex?z=g(x,y)" border="0"/>. 
+<b>Figura 4.</b> Incumbente para 100 pasos. 
+</div>
+</p>
+
+<p align="center">
+<div id="fig5" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p7/p7_1000.png" height="40%" width="40%"/><br>
+<b>Figura 5.</b> Incumbente para 1000 pasos.
+</div>
+</p>
+
+<p align="center">
+<div id="fig6" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p7/p7_10000.png" height="40%" width="40%"/><br>
+<b>Figura 6.</b> Incumbente para 10,000 pasos.
 </div>
 </p>
