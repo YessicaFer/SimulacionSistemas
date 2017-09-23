@@ -7,7 +7,7 @@ En está práctica se implementa una búsqueda local para encontrar el máximo d
 <img src="http://latex.codecogs.com/svg.latex?g(x,y)=\frac{(x+\frac{1}{2})^4-30x^2-20x+(y+\frac{1}{2})^4-30y^2-20y}{100}" border="0"/>
 </p>
 <p align="justified">
-para <img src="http://latex.codecogs.com/svg.latex?-6\leq{x,y}\leq5" border="0"/>. La <a href="#fig1"> Figura 1</a> ilustra a la función en tres dimensiones.
+para <img src="http://latex.codecogs.com/svg.latex?-6\leq{x,y}\leq5" border="0"/>. La Figura <a href="#fig1">1</a> ilustra a la función en tres dimensiones.
 </p>  
 <p align="center">
 <div id="fig3" style="width:300px; height=200px">
@@ -99,10 +99,10 @@ replica <- function(t) {
   
 }
 ```
-Para tener una buena aproximación de la solución óptima, podemos ejecutar el método `replica(t)` muchas veces. `t`se refiere a la cantidad de pasos que debe ejecutar la búsqueda para parar. Como cada búsqueda se hace por separado, aumentando `t`y haciendo múltiples búsquedas en paralelo, se puede encontar el incumbente de todas el cuál sería nuestra mejor aproximación hasta el momento. Las Figuras
+Para tener una buena aproximación de la solución óptima, podemos ejecutar el método `replica(t)` muchas veces. `t`se refiere a la cantidad de pasos que debe ejecutar la búsqueda para parar. Como cada búsqueda se hace por separado, aumentando `t`y haciendo múltiples búsquedas en paralelo, se puede encontar el incumbente de todas el cuál sería nuestra mejor aproximación hasta el momento. Las Figuras <a href="#fig2">2</a>, <a href="#fig3">3</a> y <a href="#fig4">4</a> muestran las
 
 <p align="center">
-<div id="fig3" style="width:300px; height=200px">
+<div id="fig2" style="width:300px; height=200px">
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p7/p7_100.png" height="40%" width="40%"/><br>
 <b>Figura 2.</b> Visualización 3D de <img src="http://latex.codecogs.com/svg.latex?z=g(x,y)" border="0"/>. 
 </div>
