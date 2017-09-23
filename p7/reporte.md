@@ -34,8 +34,70 @@ En este caso, se permite que el punto sea infactible pero que no se aleje demasi
 </ul>
 
 <p align="justified">
-Para medir cuánto se aleja, se utiliza la distancia de un punto a un conjunto, la cual denominaremos como <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/>; por definición, si <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/> es factible, entonces <img src="http://latex.codecogs.com/svg.latex?d(x,y)=0" border="0"/>. En los primeros dos casos, podemos usar la información de la componente que si cumple la restricción y a la que lo incumple volverla factible restando (o sumando, según sea el caso) <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/> y un valor aleatorio pequeño, como una perturbación.
+Para medir cuánto se aleja, se utiliza la distancia de un punto a un conjunto, la cual denominaremos como <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/>; por definición, si <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/> es factible, entonces <img src="http://latex.codecogs.com/svg.latex?d(x,y)=0" border="0"/>. En los primeros dos casos, podemos usar la información de la componente que si cumple la restricción y a la que lo incumple volverla factible restando (o sumando, según sea el caso) <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/> y un valor aleatorio pequeño, que actúa como una perturbación. El código en R que realiza la búsqueda local es el siguiente:
 </p>
+```R
+replica <- function(t) {
+  
+  #Iniciar con punto aleatorio en el dominio
+  curr <- runif(2, low, high)
+  best <- curr
+  
+  for (tiempo in 1:t) {
+    #vector de movimiento
+    delta <- runif(2, 0, step)
+    #8 nuevas posibles posiciones para curr
+    north_east <- curr +c(-1,1)* delta
+    north_west <- curr +c(1,1)* delta
+    south_east <- curr +c(-1,-1)* delta
+    south_west <- curr +c(1,-1)* delta
+    left <- curr +c(-1,0)* delta
+    right <- curr +c(1,0)* delta
+    top <- curr +c(0,1)* delta
+    bottom <- curr +c(0,-1)* delta
+    #seleccionar la mejor de las 8
+    mov=data.frame(rbind(north_east,north_west,south_east,south_west,left,right,top,bottom))
+    names(mov)=c("x","y")
+    mov$g=sapply(1:nrow(mov),function(i){ return( gc(mov[i,]))})
+    curr=as.numeric(mov[mov$g==max(mov$g),][1:2])
+    
+    #verificar que tan infactible es curr
+    if(dist(curr)>1){
+      x=curr[1]
+      y=curr[2]
+      if(x>=low & x<=high){#esta dentro del rango x
+        if(y<low){ #esta debajo
+          y=y+dist(curr)+runif(1,0,step)
+        }else{#esta arriba
+          y=y-dist(curr)-runif(1,0,step)
+        }
+        #x=x+runif(1,-step,step)
+        curr=c(x,y)
+      }else if(y>=low & y<=high){ #está dentro del rango y
+        if(x<low){ #esta a la izquierda
+          x=x+dist(curr)+runif(1,0,step)
+        }else{#esta a la derecha
+          x=x-dist(curr)-runif(1,0,step)
+        }
+        #y=y+runif(1,-step,step)
+        curr=c(x,y)
+      }else{ #incumple ambas (anda por las esquinas)
+        curr <- best+runif(2, -0.1,0.1)
+      }
+      
+    }
+    #si mejora y es factible
+    if (gc(curr) > gc(best) & dist(curr)==0) { 
+      #actualizar incumbente
+      best <- curr
+    }
+    
+    
+  }
+    return(best)
+  
+}
+```
 
 <p align="center">
 <div id="fig3" style="width:300px; height=200px">
