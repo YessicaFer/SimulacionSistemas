@@ -99,6 +99,12 @@ replica <- function(t) {
   
 }
 ```
+### ¿Cuál es el óptimo?
+De acuerdo a Wolfram Alpha, la función <img src="http://latex.codecogs.com/svg.latex?g(x,y)" border="0"/> tiene una solución máxima en <img src="http://latex.codecogs.com/svg.latex?(5,5)" border="0"/>, con un valor óptimo de <img src="http://latex.codecogs.com/svg.latex?\◘frac{1041}{800}\approx1.30125." border="0"/>
+
+## Visualización del funcionamiento
+Ahora se describe una forma de visualizar el funcionamiento de la búsqueda local. Como la función a optimizar está en tres dimensiones se toma una gráfica plana de las curvas de nivel correspondientes. En R, una forma de dibujar estas curvas es con la función `filled.contour()`. Por fa
+## Paralelismo
 Para tener una buena aproximación de la solución óptima, podemos ejecutar el método `replica(t)` muchas veces. `t`se refiere a la cantidad de pasos que debe ejecutar la búsqueda para parar. Como cada búsqueda se hace por separado, aumentando `t`y haciendo múltiples búsquedas en paralelo, se puede encontar el incumbente de todas el cuál sería nuestra mejor aproximación hasta el momento. Las Figuras <a href="#fig2">2</a>, <a href="#fig3">3</a> y <a href="#fig4">4</a> muestran las
 
 <p align="center">
