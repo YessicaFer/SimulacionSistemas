@@ -24,11 +24,11 @@ La forma de búsqueda del máximo de la función es elegir un punto  <img src="
 Hay que hacer notar que en el proceso descrito no se ha tomado en cuenta la factibilidad de la solución. en primer instancia, es fácil considerarla si cuando actualizamos el incumbente, nos aseguramos de que éste sea factible. Sin embargo, puede suceder que nuestro punto de exploración <img src="http://latex.codecogs.com/svg.latex?(x_i,y_i)" border="0"/> sea infactible durante gran parte del proceso; esto afecta a la búsqueda pues es probable que toda la exploración en delante no sirva de nada al no proveer un nuevo incumbente. Por otro lado, si hacemos factible a <img src="http://latex.codecogs.com/svg.latex?(x_i,y_i)" border="0"/> de inmediato, se corre el riesgo de perder una valiosa exploración. 
 
 En este caso, se permite que el punto sea infactible pero que no se aleje demasiado de la región factible, en caso de hacerlo, se recupera parte de su información para factibilizarlo. Podemos distinguir tres casos
-<ol>
+<ul>
   <li><img src="http://latex.codecogs.com/svg.latex?x\not\in[-6,5]" border="0"/></li>
-  <li>Tea</li>
-  <li>Milk</li>
-</ol>
+  <li><img src="http://latex.codecogs.com/svg.latex?y\not\in[-6,5]" border="0"/></li>
+  <li><img src="http://latex.codecogs.com/svg.latex?x,y\not\in[-6,5]" border="0"/></li>
+</ul>
 
 
 
