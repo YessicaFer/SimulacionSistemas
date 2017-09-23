@@ -34,9 +34,8 @@ En este caso, se permite que el punto sea infactible pero que no se aleje demasi
 </ul>
 
 <p align="justified">
-Para medir cuánto se aleja, se utiliza la distancia de un punto a un conjunto, la cual denominaremos como <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/>; por definición, si <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/> es factible, entonces <img src="http://latex.codecogs.com/svg.latex?d(x,y)=0" border="0"/>. En los primeros dos casos, podemos usar la información de la componente que si cumple la restricción y a la que lo incumple volverla factible restando (o sumando, según sea el caso) <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/> y un valor aleatorio pequeño, que actúa como una perturbación. El código en R que realiza la búsqueda local es el siguiente:
+Para medir cuánto se aleja, se utiliza la distancia de un punto a un conjunto, la cual denominaremos como <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/>; por definición, si <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/> es factible, entonces <img src="http://latex.codecogs.com/svg.latex?d(x,y)=0" border="0"/>. En los primeros dos casos, podemos usar la información de la componente que si cumple la restricción y a la que lo incumple volverla factible restando (o sumando, según sea el caso) <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/> y un valor aleatorio pequeño, que actúa como una perturbación. Para el último caso, se hace una pequeña perturbación en el incumbente, con la esperanza de que cuando la solución dejó de ser factible, lo hizo saliendo por una esquina porque se maximizaba en esa dirección; por tanto, el incumbente está próximo a la esquina. El código en R que realiza la búsqueda local es el siguiente:
 </p>
-
 
 ```R
 replica <- function(t) {
@@ -100,6 +99,7 @@ replica <- function(t) {
   
 }
 ```
+Para tener una buena aproximación de la solución óptima, podemos ejecutar el método `replica(t)` muchas veces. `t`se refiere a la cantidad de pasos que debe ejecutar la búsqueda para parar. Como cada búsqueda se hace por separado, aumentando `t`y haciendo múltiples búsquedas en paralelo, se puede encontar el incumbente de todas el cuál sería nuestra mejor aproximación hasta el momento. Las Figuras
 
 <p align="center">
 <div id="fig3" style="width:300px; height=200px">
