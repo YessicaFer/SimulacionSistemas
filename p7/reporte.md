@@ -23,17 +23,18 @@ La forma de búsqueda del máximo de la función es elegir un punto  <img src="
 ### Sobre la factibilidad de las soluciones
 <p align="justified">
 Hay que hacer notar que en el proceso descrito no se ha tomado en cuenta la factibilidad de la solución. en primer instancia, es fácil considerarla si cuando actualizamos el incumbente, nos aseguramos de que éste sea factible. Sin embargo, puede suceder que nuestro punto de exploración <img src="http://latex.codecogs.com/svg.latex?(x_i,y_i)" border="0"/> sea infactible durante gran parte del proceso; esto afecta a la búsqueda pues es probable que toda la exploración en delante no sirva de nada al no proveer un nuevo incumbente. Por otro lado, si hacemos factible a <img src="http://latex.codecogs.com/svg.latex?(x_i,y_i)" border="0"/> de inmediato, se corre el riesgo de perder una valiosa exploración. 
+</p>
 
 En este caso, se permite que el punto sea infactible pero que no se aleje demasiado de la región factible, en caso de hacerlo, se recupera parte de su información para factibilizarlo.  Podemos distinguir tres casos:
-</p>
+
 <ul>
   <li><img src="http://latex.codecogs.com/svg.latex?x\not\in[-6,5]" border="0"/></li>
   <li><img src="http://latex.codecogs.com/svg.latex?y\not\in[-6,5]" border="0"/></li>
   <li><img src="http://latex.codecogs.com/svg.latex?x,y\not\in[-6,5]" border="0"/></li>
 </ul>
+
 <p align="justified">
-Para medir cuánto se aleja, se utiliza la distancia de un punto a un conjunto, la cual denominaremos como <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/>; por definición, si <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/> es factible, entonces <img src="http://latex.codecogs.com/svg.latex?d(x,y)=0" border="0"/>.En los primeros dos casos, podemos usar la información de la componente que si cumple la restricción. Para facilitar los calculos se introduce una función que calcula la distancia de un punto a la región factible de acuerdo a lo siguiente:
-<img src="http://latex.codecogs.com/svg.latex?d(x,y)=\left\{\begin{array}{ll}0,&\text{si }-6\leq{x,y}\leq5\\\min\{|x+6|,|x-5|,|y+6|,|y-5|\}&\text{en caso contrario}\end{array}\right." border="0"/>
+Para medir cuánto se aleja, se utiliza la distancia de un punto a un conjunto, la cual denominaremos como <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/>; por definición, si <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/> es factible, entonces <img src="http://latex.codecogs.com/svg.latex?d(x,y)=0" border="0"/>. En los primeros dos casos, podemos usar la información de la componente que si cumple la restricción y a la que lo incumple volverla factible restando (o sumando, según sea el caso) <img src="http://latex.codecogs.com/svg.latex?d(x,y)" border="0"/> y un valor aleatorio pequeño, como una perturbación.
 </p>
 
 <p align="center">
