@@ -110,7 +110,7 @@ Se dibuja la curva de nivel con <img src="http://latex.codecogs.com/svg.latex?-7
 
 Para tener una mejor visualización, se considera que <img src="http://latex.codecogs.com/svg.latex?z\in[-5.5,1.5]" border="0"/>; como la función crece muy rápido fuera del conjunto factible, los cambios en los colores que diferencian las curvas de nivel son casi inperceptibles. En cambio, con este ajuste de los limites en <img src="http://latex.codecogs.com/svg.latex?z" border="0"/>, aparece en blanco todo punto no coniderado. En especifico para esta función, su valor mínimo es de <img src="http://latex.codecogs.com/svg.latex?-5.23276" border="0"/> de acuerdo a Wolfram Alpha y su máximo como ya se había mencionado es <img src="http://latex.codecogs.com/svg.latex?1.30125" border="0"/>. La zona factible está delimitada por un rectangulo en lineas punteadas.
 
-Como puede observar en la Figura <a href="#fig2">2</a>, <img src="http://latex.codecogs.com/svg.latex?z" border="0"/> aumenta a medida que el color es más oscuro. Observe como la posición de <img src="http://latex.codecogs.com/svg.latex?(x,y)" border="0"/> se acerca cada vez a las zonas más altas de la función, en este caso como se encuentra en un óptimo local, la búsqueda se queda atrapada pues con esta forma de exploración no es posible salir. 
+Como puede observar en la Figura <a href="#fig2">2</a>, <img src="http://latex.codecogs.com/svg.latex?z" border="0"/> aumenta a medida que el color es más oscuro. Observe como la posición de <img src="http://latex.codecogs.com/svg.latex?(x,y)" border="0"/> se acerca cada vez a las zonas más altas de la función.
 </p>
 
 <p align="center">
@@ -120,7 +120,7 @@ Como puede observar en la Figura <a href="#fig2">2</a>, <img src="http://latex.c
 </div>
 </p>
 
-Por otro lado, si la búsqueda se movió cercano a una orilla en donde la función crece, repetidamente las soluciones se vuelven infactibles, pero se recupera su factibilad cuando se encuentran a distancia uno del conjunto factible (visualmente al tocar el borde exterior). La Figura <a href="#fig3">3</a> ilustra este comportamiento. Observe como el mantener información de la posición de la solución, aunque sea "ligeramente" infactible, permite encontar un nuevo incumbente. Note además, como el incumbente nunca se considera infactible, por lo que no puede salir del recuadro punteado interior. Éste también es un caso en donde la búsqueda se atrapa en un óptimo local.
+Por otro lado, si la búsqueda se movió cercano a una orilla en donde la función crece, repetidamente las soluciones se vuelven infactibles, pero se recupera su factibilad cuando se encuentran a distancia uno del conjunto factible (visualmente al tocar el borde exterior). La Figura <a href="#fig3">3</a> ilustra este comportamiento. Observe como el mantener información de la posición de la solución, aunque sea "ligeramente" infactible, permite encontar un nuevo incumbente. Note además, como el incumbente nunca se considera infactible, por lo que no puede salir del recuadro punteado interior. Ambos casos presentan situaciones en donde la búsqueda se queda atrapada alrededor de un óptimo local, y como éstas habrá muchas, de ahí el apellido de la búsqueda.
 
 <p align="center">
 <div id="fig3" style="width:300px; height=200px">
@@ -130,7 +130,7 @@ Por otro lado, si la búsqueda se movió cercano a una orilla en donde la funci�
 </p>
 
 ## Paralelismo
-Para tener una mejor aproximación de la solución óptima, podemos ejecutar el método `replica(t)` muchas veces. `t`se refiere a la cantidad de pasos que debe ejecutar la búsqueda para parar. Como cada búsqueda se hace por separado, aumentando `t`y haciendo múltiples búsquedas en paralelo, se puede encontar el incumbente de todas el cuál sería nuestra mejor aproximación hasta el momento. Las Figuras <a href="#fig4">4</a>, <a href="#fig5">5</a> y <a href="#fig5">5</a> muestran las soluciones encontradas para valores de `t`de 100, 1000 y 10,000, respectivamente para 100 búsquedas locales en cada caso.
+Para tener una mejor aproximación de la solución óptima, podemos ejecutar el método `replica(t)` muchas veces. `t`se refiere a la cantidad de pasos que debe ejecutar la búsqueda para parar. Como cada búsqueda se hace por separado, aumentando `t`y haciendo múltiples búsquedas en paralelo, se puede encontar el incumbente de todas el cuál sería nuestra mejor aproximación hasta el momento. Las Figuras <a href="#fig4">4</a>, <a href="#fig5">5</a> y <a href="#fig5">5</a> muestran las soluciones encontradas para valores de `t`de 100, 1000 y 10,000, respectivamente para 100 búsquedas locales en cada caso. Puede apreciarse como las soluciones se hacinan en todos los optimos locales, pero a medida que aumenta la longitud de la búsqueda se concentran en un sólo punto. Además, a partir de 1000 pasos, ya se encontró la solución óptima.
 
 <p align="center">
 <div id="fig4" style="width:300px; height=200px">
@@ -151,4 +151,11 @@ Para tener una mejor aproximación de la solución óptima, podemos ejecutar el 
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p7/p7_10000.png" height="40%" width="40%"/><br>
 <b>Figura 6.</b> Incumbente para 10,000 pasos.
 </div>
+</p>
+
+## Escapando de óptimos locales
+<p align="justified">
+Como podemos apreciar, la búsqueda local  está sentenciada una vez que se aproxima a un óptimo local. Por la forma de cambiar a la siguiente solución, no hay forma de escapar de estos puntos atractores. Una alternativa para romper este planteamiento es permitir cambiar a puntos que no mejoran la función objetivo. Una metodología para controlar esta permisión es el Recocido Simulado.
+  
+  
 </p>
