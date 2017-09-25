@@ -160,9 +160,20 @@ Como podemos apreciar, la búsqueda local  está sentenciada una vez que se apro
 ### Ajuste de parámetros
 Los parámetros de temperatura y factor de enfriamiento del Recocido Simulado deben de ser configurados adecuadamente para su mejor funcionamiento. Se realizó un diseño de experimentos en donde se variaron ambos parámetros: la temperatura puede tomar valores de 0.5, 1, 10, 100 y 1000; el factor de enfriamiento será 0.7, 0.8, 0.9, 0.95, 0.99, 0.995 ó 0.999. La variable de respuesta es el valor objetivo del incumbente encontrado por el algoritmo de SA. Para cada posibilidad se realizaron 100 réplicas. 
 
-De acuerdo a una prueba de Kruskal y Wallis se determina que la temperatura no es significativa en el desempeño del algoritmo con un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/>  de 0.07186; en adelante se utilizará el valor de uno para la temperatura. En el caso del factor de enfriamiento, 
-  
-  
+De acuerdo a una prueba de Kruskal y Wallis se determina que la temperatura no es significativa en el desempeño del algoritmo con un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/>  de 0.03368; en adelante se utilizará el valor de uno para la temperatura. En el caso del factor de enfriamiento, éste si es significativo para encontrar el incumbente con un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de <img src="http://latex.codecogs.com/svg.latex?2.5\times10^{-9}" border="0"/>. Una prueba de Dunn muestra los pares para los cuales existe diferencia significativa, estos son los resultados:
+```R
+    Comparison        Z      P.unadj        P.adj
+4   0.7 - 0.95 4.492154 7.050645e-06 3.701589e-05
+5   0.8 - 0.95 3.644638 2.677689e-04 9.371911e-04
+7   0.7 - 0.99 5.415122 6.124708e-08 1.286189e-06
+8   0.8 - 0.99 4.567605 4.933280e-06 3.453296e-05
+11 0.7 - 0.995 4.588102 4.472944e-06 4.696591e-05
+12 0.8 - 0.995 3.740586 1.835921e-04 7.710866e-04
+16 0.7 - 0.999 3.634591 2.784219e-04 8.352658e-04
+```
+El valor `P.adj`es el correspondiente al valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de la prueba. Muestra un diferencia entre un enfriamiento mas duro(factor de enfriamiento 0.7, 0.8) que uno mas suave (factor de enfriamiento mayor a 0.95). La Figura <a href="#fig7">7</a> muestra la gráfica de violines del efecto del factor de enfrimiento en encontrar el incumbente con SA. La linea azul une las medianas correspondientes a cada nivel y en naranja aparaecen los diagramas de bigotes correspondientes, los datos atipicos fueron omitidos para una mejor visualización. El valor objetivo de  aproximadamente 0.06 corresponde a la cima de la colina del centro (aproximadamente en <img src="http://latex.codecogs.com/svg.latex?(-0.3,-0.3)" border="0"/> ). Las cimas en donde corta la region factible en aproximadamente <img src="http://latex.codecogs.com/svg.latex?(-0.3,-6)" border="0"/> y <img src="http://latex.codecogs.com/svg.latex?(-6,-0.3)" border="0"/> tienen un valor objetivo de -0.42 aproximadamente. Las cimas en donde corta la region factible en aproximadamente <img src="http://latex.codecogs.com/svg.latex?(-0.3,5)" border="0"/> y <img src="http://latex.codecogs.com/svg.latex?(5,-0.3)" border="0"/> tienen un valor objetivo de 0.67 aproximadamente. Por último, la esquina superior derecha, <img src="http://latex.codecogs.com/svg.latex?(5,5)" border="0"/>, tiene una valor objetivo de 1.3 y es el punto máximo.
+
+ Observe como a pesar de que las medianas son iguales para todos los niveles, hay un mejor desempeño del algoritmo para enfriamientos suaves, esto gracias a que le fue mas fácil escapar del máximo local que se encuentra en el centro
 </p>
 
 
