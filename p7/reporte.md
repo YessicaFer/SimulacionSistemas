@@ -184,3 +184,9 @@ El valor `P.adj`es el correspondiente al valor-<img src="http://latex.codecogs.c
 </div>
 </p>
 
+De acuerdo a los resultados del experimento, optamos por tomar un factor de enfriamiento de 0.999. 
+
+###Resultados del Recocido Simulado
+Ya con los parámetros ajustados, se muestran algunos resultados que se obtuvieron cambiando la longitud de la búsqueda.
+  
+
