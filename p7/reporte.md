@@ -155,10 +155,21 @@ Para tener una mejor aproximación de la solución óptima, podemos ejecutar el 
 
 ## Escapando de óptimos locales
 <p align="justified">
-Como podemos apreciar, la búsqueda local  está sentenciada una vez que se aproxima a un óptimo local. Por la forma de cambiar a la siguiente solución, no hay forma de escapar de estos puntos atractores. Una alternativa para romper este planteamiento es permitir cambiar a puntos que no mejoran la función objetivo. Una metodología para controlar esta permisión es el Recocido Simulado. La idea es generar sólo un vecino <img src="http://latex.codecogs.com/svg.latex?x'" border="0"/> como posible movimiento de <img src="http://latex.codecogs.com/svg.latex?x" border="0"/>. Si <img src="http://latex.codecogs.com/svg.latex?g(x')>g(x)" border="0"/>, hacemos <img src="http://latex.codecogs.com/svg.latex?x=x'" border="0"/>. En caso contario, aceptamos cambiarnos a esta solución aunque no mejore con probabilidad <img src="http://latex.codecogs.com/svg.latex?e^{\frac{g(x')-g(x)}{T}}" border="0"/>, donde <img src="http://latex.codecogs.com/svg.latex?T" border="0"/> es un parámetro conocido como temperatura, el cuál irá disminuyendo conforme avance la búsqueda de acuerdo a un factor de enfriamiento <img src="http://latex.codecogs.com/svg.latex?\xi<1" border="0"/>. Por este proceso de enfriamiento es que lleva su nombre la metodología. La idea es que al principio casi cualquier solución sea permitida y a medida que avanza el tiempo, sólo aquellas que mejoran se aceptan.
+Como podemos apreciar, la búsqueda local  está sentenciada una vez que se aproxima a un óptimo local. Por la forma de cambiar a la siguiente solución, no hay forma de escapar de estos puntos atractores. Una alternativa para romper este planteamiento es permitir cambiar a puntos que no mejoran la función objetivo. Una metodología para controlar esta permisión es el Recocido Simulado (SA, por sus siglas en inglés). La idea es generar sólo un vecino <img src="http://latex.codecogs.com/svg.latex?x'" border="0"/> como posible movimiento de <img src="http://latex.codecogs.com/svg.latex?x" border="0"/>. Si <img src="http://latex.codecogs.com/svg.latex?g(x')>g(x)" border="0"/>, hacemos <img src="http://latex.codecogs.com/svg.latex?x=x'" border="0"/>. En caso contario, aceptamos cambiarnos a esta solución aunque no mejore con probabilidad <img src="http://latex.codecogs.com/svg.latex?e^{\frac{g(x')-g(x)}{T}}" border="0"/>, donde <img src="http://latex.codecogs.com/svg.latex?T" border="0"/> es un parámetro conocido como temperatura, el cuál irá disminuyendo conforme avance la búsqueda de acuerdo a un factor de enfriamiento <img src="http://latex.codecogs.com/svg.latex?\xi<1" border="0"/>. Por este proceso de enfriamiento es que lleva su nombre la metodología. La idea es que al principio casi cualquier solución sea permitida y a medida que avanza el tiempo, sólo aquellas que mejoran se aceptan.
 
 ### Ajuste de parámetros
-Los parámetros de temperatura y factor de enfriamiento del Recocido Simulado deben de ser configurados adecuadamente para su mejor funcionamiento. Se realizó un diseño de experimentos en donde se variaron ambos parámetros: la temperatura puede tomar valores de 0.5, 1, 10, 100 y 1000; el factor de enfriamiento será 0.999,0.997,0.995,0.99, 0.9 ó 0.8. Para cada posibilidad se realizaron 100 réplicas. De acuerdo a una prueba de Kruskal y wallis se determina que la temperatura no es significativa en el desempeño del algoritmo con un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/>  de 0.07186. 
+Los parámetros de temperatura y factor de enfriamiento del Recocido Simulado deben de ser configurados adecuadamente para su mejor funcionamiento. Se realizó un diseño de experimentos en donde se variaron ambos parámetros: la temperatura puede tomar valores de 0.5, 1, 10, 100 y 1000; el factor de enfriamiento será 0.7, 0.8, 0.9, 0.95, 0.99, 0.995 ó 0.999. La variable de respuesta es el valor objetivo del incumbente encontrado por el algoritmo de SA. Para cada posibilidad se realizaron 100 réplicas. 
+
+De acuerdo a una prueba de Kruskal y Wallis se determina que la temperatura no es significativa en el desempeño del algoritmo con un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/>  de 0.07186; en adelante se utilizará el valor de uno para la temperatura. En el caso del factor de enfriamiento, 
   
   
 </p>
+
+
+<p align="center">
+<div id="fig7" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p7/P7R2_Violines_enfriamiento.png" height="40%" width="40%"/><br>
+<b>Figura 7.</b> Gráfica de violines para el factor de enfriamiento.
+</div>
+</p>
+
