@@ -187,6 +187,14 @@ El valor `P.adj`es el correspondiente al valor-<img src="http://latex.codecogs.c
 De acuerdo a los resultados del experimento, optamos por tomar un factor de enfriamiento de 0.999. 
 
 ###Resultados del Recocido Simulado
-Ya con los parámetros ajustados, se muestran algunos resultados que se obtuvieron cambiando la longitud de la búsqueda.
-  
+<p align="justified">
+Ya con los parámetros ajustados se corrió el algoritmo para longitudes de búsqueda distintos; es decir cuando se hace la búsqueda por <img src="http://latex.codecogs.com/svg.latex?n" border="0"/> pasos. Las longitudes consideradas fueron <img src="http://latex.codecogs.com/svg.latex?10^k" border="0"/> con <img src="http://latex.codecogs.com/svg.latex?k\in\{2,3,4,5,6\}" border="0"/>. La Figura <a href="#fig8">8</a> muestra las gráficas de violines correspondientes.
+</p>
+
+<p align="center">
+<div id="fig7" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p7/P7R2_Violines_longitud.png" height="40%" width="40%"/><br>
+<b>Figura 8.</b> Gráfica de violines para distintas longitudes de la búsqueda.
+</div>
+</p>  
 
