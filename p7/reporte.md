@@ -198,3 +198,4 @@ Ya con los parámetros ajustados se corrió el algoritmo para longitudes de bús
 </div>
 </p>  
 
+Hay una tendencia hacia un mayor acercamiento al óptimo en cuanto crece el número de pasos realizados. A pesar de que la mediana en general no cambia, si lo hace la forma del histograma. En cuanto aumentamos los pasos, se observa un claro aumento de soluciones con un valor objetivo mayor. además, la panza correspondiente al óptimo local situado en el centro (con valor objetivo 0.06) disminuye. Así, podemos concluir el impacto del tiempo o duración de la exploración. 
