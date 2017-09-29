@@ -19,8 +19,9 @@ y los grandes se fragmentan de acuerdo a una distribución tipo sigmoide definid
  ## Versión paralelizada
  El objetivo de esta sección es visualizar el impacto de utilizar paralelismo en la simulación con respecto a la versión secuencial. En particular, se paralelizaron las rutinas correspondientes a la fragmentación de cúmulos (llamada `romperse`) y a la unión de éstos, compuesta por una sección en donde se decide cuáles se uniran (llamada `unirse`) y otra donde se realiza la unión (donde la variable `juntarse`es la protagonista). El resto de la parte principal de la simulación consta de actualizaciones y transformaciones del vector de `cumulos` como frecuencias de tamaños, las cuales no tiene sentido paralelizar. 
  
- Sin embargo; cada una de las rutinas que se paralelizan son totalmente sencillas de realizar, aún para el caso secuencial. En general, dentro de cada rutina se toman un par de decisiones `if-else`, se hacen unas cuantas operaciones aritméticas y se genera un vector como respuesta. Es de esperar que el proceso de gestión de trabajo para los núcleos sea más complicado que las operaciones que el trabajo en sí.
- 
- 
+ Sin embargo; cada una de las rutinas que se paralelizan son totalmente sencillas de realizar, aún para el caso secuencial. En general, dentro de cada rutina se toman un par de decisiones `if-else`, se hacen unas cuantas operaciones aritméticas y se genera un vector como respuesta. Quizá el proceso de gestión de trabajo para los núcleos sea más complicado que las operaciones que el trabajo en sí, para poder dormir tranquilos se hacen algunas pruebas estadísticas pertinentes. 
  
  Para matar dos pájaros de un tiro y hacer el primer reto, se realizó un experimento en donde se varía la duración de la simulación en 50, 100, 200, 300 y 400 pasos y; el número de cúmulos existentes al inicio como 10000, 20000, 30000, 40000 y 50000. Para cada tratamiento se realizan 30 réplicas. Para disminuir la variabilidad, ambos métodos parten de la misma lista inicial de cúmulos.
+ 
+ ### Secuencial contra paralelo
+ 
