@@ -34,3 +34,5 @@ y los grandes se fragmentan de acuerdo a una distribución tipo sigmoide definid
 <b>Figura 1.</b> Comparación entre implementación paralela y secuencial. 
 </div>
 </p>
+
+### Reto 1: Efecto del número inicial de cúmulos <img src="http://latex.codecogs.com/svg.latex?k" border="0"/>
