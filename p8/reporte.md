@@ -8,3 +8,7 @@ Esta práctica consta de la simulación del proceso de fragmentación y coalesce
  <p align="center">
 <img src="http://latex.codecogs.com/svg.latex?u(x)=e^{-frac{1}{c}x}" border="0"/>
   </p>
+y los grandes se fragmentan de acuerdo a una distribución tipo sigmoide definida por
+<p align="center">
+<img src="http://latex.codecogs.com/svg.latex?u(x)=\frac{1}{1+e^{\frac{c-x}{d}}}" border="0"/>
+  </p>
