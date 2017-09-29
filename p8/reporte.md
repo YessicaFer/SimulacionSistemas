@@ -29,8 +29,8 @@ y los grandes se fragmentan de acuerdo a una distribución tipo sigmoide definid
  </p>
  
 <p align="center">
-<div id="fig2" style="width:300px; height=200px">
+<div id="fig1" style="width:300px; height=200px">
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/secuencialParalelo.png" height="40%" width="40%"/><br>
-<b>Figura 2.</b> Búsqueda local atascada en un óptimo local. 
+<b>Figura 1.</b> Comparación entre implementación paralela y secuencial. 
 </div>
 </p>
