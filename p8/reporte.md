@@ -21,11 +21,11 @@ y los grandes se fragmentan de acuerdo a una distribución tipo sigmoide definid
  
  Sin embargo; cada una de las rutinas que se paralelizan son totalmente sencillas de realizar, aún para el caso secuencial. En general, dentro de cada rutina se toman un par de decisiones `if-else`, se hacen unas cuantas operaciones aritméticas y se genera un vector como respuesta. Quizá el proceso de gestión de trabajo para los núcleos sea más complicado que las operaciones que el trabajo en sí, para poder dormir tranquilos se hacen algunas pruebas estadísticas pertinentes. 
  
- Para matar dos pájaros de un tiro y hacer el primer reto, se realizó un experimento en donde se varía la duración de la simulación en 50, 100, 200, 300 y 400 pasos y; el número de cúmulos existentes al inicio como 10000, 20000, 30000, 40000 y 50000. Para cada tratamiento se realizan 30 réplicas. Para disminuir la variabilidad, ambos métodos parten de la misma lista inicial de cúmulos.
+ Para matar dos pájaros de un tiro y hacer el primer reto, se realizó un experimento en donde se varía la duración de la simulación en 50, 100, 200, 300 y 400 pasos y; el número de cúmulos existentes al inicio como 10000, 20000, 30000, 40000 y 50000. El número de partículas es <img src="http://latex.codecogs.com/svg.latex?n=30k." border="0"/> Para cada tratamiento se realizan 30 réplicas. Para disminuir la variabilidad, ambos métodos parten de la misma lista inicial de cúmulos.
  
  ### Secuencial contra paralelo
  <p align="justified">
- La Figura <a href="#fig1">1</a> muestra el comportamiento de la implementación secuencial contra la paralelizada variando la duración de la simulación, la linea en azul une las medianas de cada nivel. Observe como, aunque no hay una diferencia en órdenes de magnitud entre ambos enfoques, si hay un claro ganador... y tristemente es la implementación secuencial. Incluso se puede ver gracias a las gráficas de violines como las distribuciones correspondientes para ambos enfoques parecen estar sólo escalados. Una prueba de Wilcoxon determina con un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de que si hay una diferencia estadística entre las medianas de ambos enfoques y no sólo es apreciación en la gráfica.
+ La Figura <a href="#fig1">1</a> muestra el comportamiento de la implementación secuencial contra la paralelizada variando la duración de la simulación (el número inicial de cúmulos también varía pero se considera como efecto de variabilidad en los datos), la linea en azul une las medianas de cada nivel. Observe como, aunque no hay una diferencia en órdenes de magnitud entre ambos enfoques, si hay un claro ganador... y tristemente es la implementación secuencial. Incluso se puede ver gracias a las gráficas de violines como las distribuciones correspondientes para ambos enfoques parecen estar sólo escalados. Una prueba de Wilcoxon determina con un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de que si hay una diferencia estadística entre las medianas de ambos enfoques y no sólo es apreciación en la gráfica.
  </p>
  
 <p align="center">
@@ -35,4 +35,12 @@ y los grandes se fragmentan de acuerdo a una distribución tipo sigmoide definid
 </div>
 </p>
 
-### Reto 1: Efecto del número inicial de cúmulos <img src="http://latex.codecogs.com/svg.latex?k" border="0"/>
+### Reto 1: Efecto del número inicial de cúmulos <img src="http://latex.codecogs.com/svg.latex?k" border="0"/> en el tiempo de ejecución
+Ahora se hace la comparación entre la implementación secuencial y paralela pero variando el número inicial de cúmulos
+
+<p align="center">
+<div id="fig1" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/variandoK.png" height="50%" width="50%"/><br>
+<b>Figura 1.</b> Comparación entre implementación paralela y secuencial. 
+</div>
+</p>
