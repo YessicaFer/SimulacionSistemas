@@ -31,16 +31,16 @@ y los grandes se fragmentan de acuerdo a una distribución tipo sigmoide definid
 <p align="center">
 <div id="fig1" style="width:300px; height=200px">
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/secuencialParalelo.png" height="50%" width="50%"/><br>
-<b>Figura 1.</b> Comparación entre implementación paralela y secuencial. 
+<b>Figura 1.</b> Comparación entre implementación paralela y secuencial variando la duración de la simulación. 
 </div>
 </p>
 
 ### Reto 1: Efecto del número inicial de cúmulos <img src="http://latex.codecogs.com/svg.latex?k" border="0"/> en el tiempo de ejecución
-Ahora se hace la comparación entre la implementación secuencial y paralela pero variando el número inicial de cúmulos
+Ahora se hace la comparación entre la implementación secuencial y paralela pero variando el número inicial de cúmulos. De nuevo, la variable de respuesta es el tiempo de ejecución y la duración de la simulación sólo se usa para dar variabilidad al experimento. La Figura <a href="#fig2">2</a> muestra los resultados obtenidos.
 
 <p align="center">
-<div id="fig1" style="width:300px; height=200px">
+<div id="fig2" style="width:300px; height=200px">
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/variandoK.png" height="50%" width="50%"/><br>
-<b>Figura 1.</b> Comparación entre implementación paralela y secuencial. 
+<b>Figura 2.</b> Comparación entre implementación paralela y secuencial variando el número inicial de cúmulos. 
 </div>
 </p>
