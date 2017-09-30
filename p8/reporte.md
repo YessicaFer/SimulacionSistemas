@@ -71,10 +71,14 @@ Ahora se hace la comparación entre la implementación secuencial y paralela per
 La linea vertical en rojo corresponde al tamaño del filtro <img src="http://latex.codecogs.com/svg.latex?c" border="0"/>. Sin embargo; no es posible apreciar mucho del comportamiento de los cúmulos mas grandes salvo que no hay  cambios bruscos al histograma. Es decir; se mantiene en una proporción similar, el número de cúmulos pequeños y grandes. Si graficamos la cantidad de cúmulos grandes que hay durante la simulación, podemos ver que el comportamiento es similar independientemente del número inical de cúmulos, como puede apreciarse en la Figura <a href="#fig4">4</a>.
 
   <p align="center">
-<div id="fig3" style="width:300px; height=200px">
-<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/Crecimiento_k2000.gif" height="30%" width="30%"/>
-  <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/Crecimiento_k5000.gif" height="30%" width="30%"/>
-  <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/Crecimiento_k10000.gif" height="30%" width="30%"/><br>
-<b>Figura 3.</b> Histograma del tamaño de los cúmulos durante la simulación.
+<div id="fig4" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/Crecimiento_k2000.gif" height="32%" width="32%"/>
+  <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/Crecimiento_k5000.gif" height="32%" width="32%"/>
+  <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/Crecimiento_k10000.gif" height="32%" width="32%"/><br>
+<b>Figura 4.</b> Cúmulos mayores al filtro durante la simulación.
 </div>
 </p>
+
+<p align="justified">
+Note como al principio se inicia a un valor cercano al 30% del total de los cúmulos, esto como ya se había dicho, es el esperado porque los tamaños de los cúmulos se distribuyen normalmente. En la primer iteración, se hace un salto relativamente grande y desde ahí practicamente la cantidad de cúmulos permanece igual. La linea verde que aparece es el número promedio de cúmulos grandes durante toda la simulación; ese promedio permanece muy similar durante todas las réplicas. Si sacamos el promedio durante todas las réplicas obtenemos 341.68, 679.77, 1704.87 y 3373.93 para 1000, 2000, 5000 y 10000 cúmulos iniciales respectivamente. A simple vista, estos promedios pueden carecer de significado, pero si lo pasamos a porcentaje para escalarlos indepndientes de <img src="http://latex.codecogs.com/svg.latex?k" border="0"/>, obtenemos 34.16%, 33.98%, 34.09% y 33.73%, respectivamente. Es decir, el promedio de cúmulos grandes durante la simulación es del 33.99% del número inicial de cúmulos <img src="http://latex.codecogs.com/svg.latex?k" border="0"/>. Quizá hacer una aseveración desde aquí no sea conveniente, menos con tan pocos datos, pero me gustaría pensar que se puede extrapolar una relación con este promedio y el valor de <img src="http://latex.codecogs.com/svg.latex?c" border="0"/>.
+  </p>
