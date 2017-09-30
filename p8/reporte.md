@@ -61,9 +61,18 @@ Ahora se hace la comparación entre la implementación secuencial y paralela per
  Visualmente, el comportamiento de la simulación se puede representar con un histograma como el de la Figura <a href="#fig3">3</a>, el cual es un ejemplo para <img src="http://latex.codecogs.com/svg.latex?k=10000" border="0"/>.  
   </p>
   
-  p align="center">
+  <p align="center">
 <div id="fig3" style="width:300px; height=200px">
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/Histograma_k10000_rep2.gif" height="30%" width="30%"/><br>
+<b>Figura 3.</b> Histograma del tamaño de los cúmulos durante la simulación.
+</div>
+</p>
+
+La linea vertical en rojo corresponde al tamaño del filtro <img src="http://latex.codecogs.com/svg.latex?c" border="0"/>. Sin embargo; no es posible apreciar mucho del comportamiento de los cúmulos mas grandes salvo que no hay  cambios bruscos al histograma. Es decir; se mantiene en una proporción similar, el número de cúmulos pequeños y grandes. Si graficamos la cantidad de cúmulos grandes que hay durante la simulación, podemos ver que el comportamiento es similar independientemente del número inical de cúmulos, como puede apreciarse en la Figura <a href="#fig4">4</a>.
+
+  <p align="center">
+<div id="fig3" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/Crecimiento_k1000.gif" height="30%" width="30%"/><br>
 <b>Figura 3.</b> Histograma del tamaño de los cúmulos durante la simulación.
 </div>
 </p>
