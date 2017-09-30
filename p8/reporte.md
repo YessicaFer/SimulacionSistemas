@@ -26,7 +26,7 @@ y los grandes se fragmentan de acuerdo a una distribución tipo sigmoide definid
  
  ### Secuencial contra paralelo
  <p align="justified">
- La Figura <a href="#fig1">1</a> muestra el comportamiento de la implementación secuencial contra la paralelizada variando la duración de la simulación (el número inicial de cúmulos también varía pero se considera como efecto de variabilidad en los datos), la linea en azul une las medianas de cada nivel. Observe como, aunque no hay una diferencia en órdenes de magnitud entre ambos enfoques, si hay un claro ganador... y tristemente es la implementación secuencial. Incluso se puede ver gracias a las gráficas de violines como las distribuciones correspondientes para ambos enfoques parecen estar sólo escalados. Una prueba de Wilcoxon determina con un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de que si hay una diferencia estadística entre las medianas de ambos enfoques y no sólo es apreciación en la gráfica.
+ La Figura <a href="#fig1">1</a> muestra el comportamiento de la implementación secuencial contra la paralelizada variando la duración de la simulación (el número inicial de cúmulos también varía pero se considera como efecto de variabilidad en los datos), las lineas en azul  y rojo unen las medias de cada nivel. Observe como, aunque no hay una diferencia en órdenes de magnitud entre ambos enfoques, si hay un claro ganador... y tristemente es la implementación secuencial. Incluso se puede ver gracias a las gráficas de violines como las distribuciones correspondientes para ambos enfoques son muy similares, solo desfazadas; recuerde que ambas implementaciones parten de la misma lista de cúmulos, lo que hace pensar que en general los cambios en los cúmulos dependen fuertemente de la distribución inicial de éstos.  Una prueba de Wilcoxon determina con un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de que si hay una diferencia estadística entre las medianas de ambos enfoques y no sólo es apreciación en la gráfica. El tiempo promedio usando paralelismo es de 57.73 segundos contra 49.87 de la versión secuencial. 
  </p>
  
 <p align="center">
@@ -43,5 +43,27 @@ Ahora se hace la comparación entre la implementación secuencial y paralela per
 <div id="fig2" style="width:300px; height=200px">
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/variandoK.png" height="50%" width="50%"/><br>
 <b>Figura 2.</b> Comparación entre implementación paralela y secuencial variando el número inicial de cúmulos. 
+</div>
+</p>
+
+<p align="justified">
+  Por supuesto, la prueba estadística y las comparaciones de las medias son las mismas pues solo es una intepretación diferente de los mismos datos.
+  
+ </p>
+ 
+ ### Conclusiones
+ No siempre el uso de paralelismo es influyente en el tiempo de ejcución. Esta experimentación se hizo con siete núcleos, quizá teniendo más núcleos hacia donde repartir el trabajo, la disminución del tiempo de realizar los trabajos compensará la chamba de la secuenciación de éstos. Aunque no es una diferencia muy grande, casi ocho segundos en promedio, vale la pena en este caso realizar la versión secuencial sobre la paralelizada.
+ 
+ ## Reto 2: cambiando el tamaño del filtro
+ <p align="justified">
+ El segundo reta consta de monitorear qué pasa cuando se cambia el tamaño del filtro <img src="http://latex.codecogs.com/svg.latex?c" border="0"/> de la mediana de los cumúlos inicales a su media más la desviación estándar. Recordemos que el tamaño de los cúmulos se distribuye normalemnete (o al menos se asemeja mucho); por tanto, se espera que al principio cerca del 30.8% de los cúmulos sean mayores al filtro (de acuerdo a la acumulada de la normal estándar). Para apreciar algún comportamiento de los cúmulos mayores al filtro se tomaron diferentes valores de <img src="http://latex.codecogs.com/svg.latex?k" border="0"/>; es decir, de cúmulos iniciales. Los valores fueron <img src="http://latex.codecogs.com/svg.latex?k\in\{1000,2000,5000,10000\}" border="0"/>; el número de partículas se consideró como <img src="http://latex.codecogs.com/svg.latex?n=30k" border="0"/>. Como la duración sólo ayuda a la visualización, se tomó un valor que experimentalmente se concluyó permitía notar los cambios suficientes y es de 100 pasos. Para cada valor de <img src="http://latex.codecogs.com/svg.latex?k" border="0"/> se realizaron 30 réplicas.
+  
+ Visualmente, el comportamiento de la simulación se puede representar con un histograma como el de la Figura <a href="#fig3">3</a>, el cual es un ejemplo para <img src="http://latex.codecogs.com/svg.latex?k=10000" border="0"/>.  
+  </p>
+  
+  p align="center">
+<div id="fig3" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/Histograma_k10000_rep2.gif" height="50%" width="50%"/><br>
+<b>Figura 3.</b> Comparación entre implementación paralela y secuencial variando el número inicial de cúmulos. 
 </div>
 </p>
