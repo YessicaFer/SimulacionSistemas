@@ -54,7 +54,7 @@ Ahora se hace la comparación entre la implementación secuencial y paralela per
  ### Conclusiones
  No siempre el uso de paralelismo es influyente en el tiempo de ejcución. Esta experimentación se hizo con siete núcleos, quizá teniendo más núcleos hacia donde repartir el trabajo, la disminución del tiempo de realizar los trabajos compensará la chamba de la secuenciación de éstos. Aunque no es una diferencia muy grande, casi ocho segundos en promedio, vale la pena en este caso realizar la versión secuencial sobre la paralelizada.
  
- ## Reto 2: cambiando el tamaño del filtro
+ ## Reto 2: Cambiando el tamaño del filtro
  <p align="justified">
  El segundo reta consta de monitorear qué pasa cuando se cambia el tamaño del filtro <img src="http://latex.codecogs.com/svg.latex?c" border="0"/> de la mediana de los cumúlos inicales a su media más la desviación estándar. Recordemos que el tamaño de los cúmulos se distribuye normalemnete (o al menos se asemeja mucho); por tanto, se espera que al principio cerca del 30.8% de los cúmulos sean mayores al filtro (de acuerdo a la acumulada de la normal estándar). Para apreciar algún comportamiento de los cúmulos mayores al filtro se tomaron diferentes valores de <img src="http://latex.codecogs.com/svg.latex?k" border="0"/>; es decir, de cúmulos iniciales. Los valores fueron <img src="http://latex.codecogs.com/svg.latex?k\in\{1000,2000,5000,10000\}" border="0"/>; el número de partículas se consideró como <img src="http://latex.codecogs.com/svg.latex?n=30k" border="0"/>. Como la duración sólo ayuda a la visualización, se tomó un valor que experimentalmente se concluyó permitía notar los cambios suficientes y es de 100 pasos. Para cada valor de <img src="http://latex.codecogs.com/svg.latex?k" border="0"/> se realizaron 30 réplicas.
   
@@ -63,7 +63,7 @@ Ahora se hace la comparación entre la implementación secuencial y paralela per
   
   p align="center">
 <div id="fig3" style="width:300px; height=200px">
-<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/Histograma_k10000_rep2.gif" height="50%" width="50%"/><br>
-<b>Figura 3.</b> Comparación entre implementación paralela y secuencial variando el número inicial de cúmulos. 
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/Histograma_k10000_rep2.gif" height="30%" width="30%"/><br>
+<b>Figura 3.</b> Histograma del tamaño de los cúmulos durante la simulación.
 </div>
 </p>
