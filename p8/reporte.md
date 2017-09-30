@@ -13,15 +13,16 @@ y los grandes se fragmentan de acuerdo a una distribución tipo sigmoide definid
 <p align="center">
 <img src="http://latex.codecogs.com/svg.latex?u(x)=\frac{1}{1+e^{\frac{c-x}{d}}}," border="0"/>
   </p>
+ <p align="justified">
  en donde los cúmulos pequeños tienen muy poca probabilidad de fragmentarse y los grandes es casi seguro que se lo hagan. El valor crítico <img src="http://latex.codecogs.com/svg.latex?c" border="0"/> es fijado como la mediana de los tamaños y <img src="http://latex.codecogs.com/svg.latex?d" border="0"/> como su desviación estándar.
- 
+ </p>
  
  ## Versión paralelizada
  El objetivo de esta sección es visualizar el impacto de utilizar paralelismo en la simulación con respecto a la versión secuencial. En particular, se paralelizaron las rutinas correspondientes a la fragmentación de cúmulos (llamada `romperse`) y a la unión de éstos, compuesta por una sección en donde se decide cuáles se uniran (llamada `unirse`) y otra donde se realiza la unión (donde la variable `juntarse`es la protagonista). El resto de la parte principal de la simulación consta de actualizaciones y transformaciones del vector de `cumulos` como frecuencias de tamaños, las cuales no tiene sentido paralelizar. 
  
  Sin embargo; cada una de las rutinas que se paralelizan son totalmente sencillas de realizar, aún para el caso secuencial. En general, dentro de cada rutina se toman un par de decisiones `if-else`, se hacen unas cuantas operaciones aritméticas y se genera un vector como respuesta. Quizá el proceso de gestión de trabajo para los núcleos sea más complicado que las operaciones que el trabajo en sí, para poder dormir tranquilos se hacen algunas pruebas estadísticas pertinentes. 
  
- Para matar dos pájaros de un tiro y hacer el primer reto, se realizó un experimento en donde se varía la duración de la simulación en 50, 100, 200, 300 y 400 pasos y; el número de cúmulos existentes al inicio como 10000, 20000, 30000, 40000 y 50000. El número de partículas es <img src="http://latex.codecogs.com/svg.latex?n=30k." border="0"/> Para cada tratamiento se realizan 30 réplicas. Para disminuir la variabilidad, ambos métodos parten de la misma lista inicial de cúmulos.
+ Para matar dos pájaros de un tiro y hacer el primer reto, se realizó un experimento en donde se varía la duración de la simulación en 50, 100, 200, 300 y 400 pasos y; el número de cúmulos existentes al inicio como 1000, 2000, 5000, 10000, 20000 y 30000. El número de partículas es <img src="http://latex.codecogs.com/svg.latex?n=30k." border="0"/> Para cada tratamiento se realizan 30 réplicas. Para disminuir la variabilidad, ambos métodos parten de la misma lista inicial de cúmulos.
  
  ### Secuencial contra paralelo
  <p align="justified">
