@@ -72,7 +72,9 @@ La linea vertical en rojo corresponde al tamaño del filtro <img src="http://lat
 
   <p align="center">
 <div id="fig3" style="width:300px; height=200px">
-<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/Crecimiento_k1000.gif" height="30%" width="30%"/><br>
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/Crecimiento_k2000.gif" height="30%" width="30%"/><br>
+  <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/Crecimiento_k5000.gif" height="30%" width="30%"/><br>
+  <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p8/Crecimiento_k10000.gif" height="30%" width="30%"/><br>
 <b>Figura 3.</b> Histograma del tamaño de los cúmulos durante la simulación.
 </div>
 </p>
