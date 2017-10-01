@@ -12,7 +12,7 @@ Está práctica trata de la simulación del movimiento de las partículas en dep
   
   Se considera que la velocidad  de movimiento es inversamente proporcional a la masa de la partícula; es decir, partículas pequeñas se mueven más rápido que otras. Tal como se estaba haciendo la simulación hasta ahora, se puede entender el cambio de posición de una particula como <img src="http://latex.codecogs.com/svg.latex?x'=x+\delta{f}" border="0"/>, donde <img src="http://latex.codecogs.com/svg.latex?\delta" border="0"/> es un factor de reducción de movimiento. Como observamos la simulación un momento en el tiempo a la vez, entonces podemos entender a la velocidad de movimiento como <img src="http://latex.codecogs.com/svg.latex?|\delta{f}|" border="0"/>. Así, el nuevo cambio para considerar la masa será mover a una particula a su siguiente posición como <img src="http://latex.codecogs.com/svg.latex?x'=x+\frac{\delta{f}}{m}" border="0"/>, donde <img src="http://latex.codecogs.com/svg.latex?m" border="0"/> es la masa de la partícula.
   
- La Figura <a href="#fig1"> Figura 1</a> muestra la forma en que se comporta la velocidad de todas las particulas a lo largo de la simulación. Por un lado, se grafica en rojo la velocidad sin considerar la masa y para comparar en negro, la velocidad considerando la masa. Se gráfica masa contra velocidad promedio de cada partícula observada durante toda la simulación. Observe como para partículas con poca masa, la velocidad es mayor y desciende a medida que aumenta la masa. Note como la velocidad prueba en rojo se mantiene de cierta forma constante o sin cambio.
+ La Figura <a href="#fig1">1</a> muestra la forma en que se comporta la velocidad de todas las particulas a lo largo de la simulación. Por un lado, se grafica en rojo la velocidad sin considerar la masa y para comparar en negro, la velocidad considerando la masa. Se gráfica masa contra velocidad promedio de cada partícula observada durante toda la simulación. Observe como para partículas con poca masa, la velocidad es mayor y desciende a medida que aumenta la masa. Note como la velocidad prueba en rojo se mantiene de cierta forma constante o sin cambio.
 </p>
 
 <p align="center">
@@ -47,6 +47,12 @@ ggplot(p, aes(x=x, y=y,col=colores[p$g+6]))+
   ggtitle("Estado inicial")
 graphics.off()
 ```
- donde `fuente`es el tamaño de fuente de las gráficas. 
+ donde `fuente`es el tamaño de fuente de las gráficas. La simulación completa se muestra en la Figura <a href="#fig2">2</a>, observe como las partículas de menor masa se mueven más rápido que las más pesadas. Además, se aprecia la atracción y repulsión entre las partículas dependiendo de su color.
  </p>
 
+<p align="center">
+<div id="fig2" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p9/p9.gif" height="40%" width="40%"/><br>
+<b>Figura 2.</b> Movimiento de las partículas considerando su masa.
+</div>
+</p>
