@@ -52,8 +52,8 @@ graphics.off()
 
 <p align="center">
 <div id="fig2" style="width:300px; height=200px">
-<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p9/p9.gif" height="50%" width="50%"/>
-<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p9/p9_2.gif" height="50%" width="50%"/><br>
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p9/p9.gif" height="45%" width="45%"/>
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p9/p9_2.gif" height="45%" width="45%"/><br>
 <b>Figura 2.</b> Movimiento de las partículas considerando su masa.
 </div>
 </p>
