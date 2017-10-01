@@ -47,7 +47,7 @@ ggplot(p, aes(x=x, y=y,col=colores[p$g+6]))+
   ggtitle("Estado inicial")
 graphics.off()
 ```
- donde `fuente`es el tamaño de fuente de las gráficas. La simulación completa se muestra en la Figura <a href="#fig2">2</a>, observe como las partículas de menor masa se mueven más rápido que las más pesadas. Además, se aprecia la atracción y repulsión entre las partículas dependiendo de su color.
+ donde `fuente`es el tamaño de fuente de las gráficas. La simulación completa se muestra en la Figura <a href="#fig2">2</a>, observe como las partículas de menor masa se mueven más rápido que las más pesadas. Se aprecia la atracción y repulsión entre las partículas dependiendo de la diferencia entre su color. Note además, como las partículas que inician muya alejadas casi no tienen interación con las demás, o mejor dicho, las demás no tienen interacción con éstas, por tanto casi no se mueven. Cuando ya hay muchas partículas acumuladas, se aprecia como las de menor masa son expulsadas constantemente de un lado a otro.
  </p>
 
 <p align="center">
