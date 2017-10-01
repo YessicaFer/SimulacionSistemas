@@ -20,13 +20,13 @@ Está práctica trata de la simulación del movimiento de las partículas en dep
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p9/MasaVelocidad.png" height="40%" width="40%"/><br>
 <b>Figura 1.</b> Consideración de la masa de las partículas en su velocidad de movimiento.
 </div>
+</p>
 
 ## Reto 1: Visualización
 <p align="justified">
   Quizá la forma más sencilla de apreciar el efecto de la masa en la velocidad es visualizando su movimiento en sí. Para ello se gráfica  cada partícula como un círculo de radio igual a su masa. La imagen se realiza utilizando la libreria `ggplot2`, se muestra la escala de color que representa las cargas de las partículas y la referencia al tamaño del circulo como la masa. Para quitar un poco de información innecesaria se omiten los ejes. El código ejemplo que realiza una imagen es el siguiente:
   
 ```R
-fuente=26
 png(paste("p9_t", 0, ".png", sep=""),width = 800,height = 700)
 ggplot(p, aes(x=x, y=y,col=colores[p$g+6]))+
  geom_point(aes(size = m))+
@@ -34,12 +34,19 @@ ggplot(p, aes(x=x, y=y,col=colores[p$g+6]))+
   scale_color_manual(labels=seq(5,-5,-1),values=colores)+
   guides(col= guide_legend(override.aes = list(size=3, stroke=1.5))) +
   scale_size_continuous(breaks=seq(0,0.1,0.01),labels=seq(0,0.1,0.01))+
-  theme(axis.text.x = element_blank(),axis.ticks.x = element_blank(),axis.text.y = element_blank(),axis.ticks.y = element_blank(),
-        axis.title.x = element_text(size=fuente), axis.title.y = element_text(size=fuente,angle=0,vjust = 0.5),plot.title = element_text(size=fuente+2,hjust = 0.5,face='bold'),
-        legend.text=element_text(size=fuente-2),legend.title = element_text(size=fuente,face='bold'),legend.key.size = unit(1.5, 'lines'))+
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.x = element_text(size=fuente), 
+        axis.title.y = element_text(size=fuente,angle=0,vjust = 0.5),
+        plot.title = element_text(size=fuente+2,hjust = 0.5,face='bold'),
+        legend.text=element_text(size=fuente-2),
+        legend.title = element_text(size=fuente,face='bold'),
+        legend.key.size = unit(1.5, 'lines'))+
   ggtitle("Estado inicial")
 graphics.off()
 ```
-  
- </p<
-</p>
+ donde `fuente`es el tamaño de fuente de las gráficas. 
+ </p>
+
