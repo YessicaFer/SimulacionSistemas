@@ -14,3 +14,9 @@ Está práctica trata de la simulación del movimiento de las partículas en dep
  La Figura <a href="#fig1"> Figura 1</a> muestra la forma en que se comporta la velocidad de todas las particulas a lo largo de la simulación. Por un lado, se grafica en rojo la velocidad sin considerar la masa y para comparar en negro, la velocidad considerando la masa. Se gráfica masa contra velocidad promedio de cada partícula observada durante toda la simulación. Observe como para partículas con poca masa, la velocidad es mayor y desciende a medida que aumenta la masa. Note como la velocidad prueba en rojo se mantiene de cierta forma constante o sin cambio.
 </p>
 
+<p align="center">
+<div id="fig1" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p9/MasaVelocidad.png" height="40%" width="40%"/><br>
+<b>Figura 1.</b> Consideración de la masa de las partículas en su velocidad de movimiento.
+</div>
+</p>
