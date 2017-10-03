@@ -15,3 +15,12 @@ Los algoritmos genéticos son intrinsecamente fácil de paralelizar porque sus o
 ```R
 p <- as.data.frame(t(parSapply(cluster,1:init,function(i){return(round(runif(n)))})))
 ```
+La mutación consta de hacer un cambio aleatorio en una posición del vector; sin embargo, en esta implementación se concatenan los individuos originales y los mutados. De no ser así sería más rapido buscar una posición aleatoria en el dat frame y cambiar su valor. En este caso, primero decidimos cuáles individuos van a mutar y después invocamos a la mutación, ambos procesos se pueden paralelizar:
+
+```R
+mutan=sample(1:tam,round(pm*tam)) #Elegir cuales van a mutar con pm
+p <- rbind(p,(t(parSapply(cluster,mutan,function(i){return(mutacion(unlist(p[i,]), n))}))))
+```
+Aquí hay que hacer notar algunas de las complicaciones que tiene el usar esta librería para paralelismo, note la cantidad de manipulaciones que se tienen que hacer a los datos para poder concatenar los individuos; por ejemplo, el uso de `unlist` y `t`. Como éstas, notará múltiples manipulaciones en adelante para los otros métodos paralelizados.
+
+La reproducción se hace primero seleccionando los padres y después cruzando cada pareja seleccionada. En principio, ambos métodos se podrían y deberían unir para no perder tiempo en la administración de `parallel`. Pero pensando a futuro, se optó por seleccionar primero los individuos; así el método de selección puede ser manipulado. El código es el siguiente:
