@@ -30,6 +30,9 @@ padres <- parSapply(cluster,1:rep,function(x){return(sample(1:tam, 2, replace=FA
 hijos <- parSapply(cluster,1:rep,function(i){return(as.matrix(unlist(reproduccion(p[padres[1,i],], p[padres[2,i],], n)),ncol=n))})
 p = rbind(p,hijos)
 ```
-
-
+Por último, el cálculo de la aptitud de los individuos
+```R
+obj=parSapply(cluster,1:tam,function(i){return(objetivo(unlist(p[i,]), valores))})
+fact=parSapply(cluster,1:tam,function(i){return(factible(unlist(p[i,]), pesos, capacidad))})
+```
         
