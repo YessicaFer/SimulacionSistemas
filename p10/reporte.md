@@ -24,3 +24,12 @@ p <- rbind(p,(t(parSapply(cluster,mutan,function(i){return(mutacion(unlist(p[i,]
 Aquí hay que hacer notar algunas de las complicaciones que tiene el usar esta librería para paralelismo, note la cantidad de manipulaciones que se tienen que hacer a los datos para poder concatenar los individuos; por ejemplo, el uso de `unlist` y `t`. Como éstas, notará múltiples manipulaciones en adelante para los otros métodos paralelizados.
 
 La reproducción se hace primero seleccionando los padres y después cruzando cada pareja seleccionada. En principio, ambos métodos se podrían y deberían unir para no perder tiempo en la administración de `parallel`. Pero pensando a futuro, se optó por seleccionar primero los individuos; así el método de selección puede ser manipulado. El código es el siguiente:
+
+```R
+padres <- parSapply(cluster,1:rep,function(x){return(sample(1:tam, 2, replace=FALSE))}) #selección de padres        
+hijos <- parSapply(cluster,1:rep,function(i){return(as.matrix(unlist(reproduccion(p[padres[1,i],], p[padres[2,i],], n)),ncol=n))})
+p = rbind(p,hijos)
+```
+
+
+        
