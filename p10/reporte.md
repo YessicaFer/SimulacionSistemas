@@ -76,42 +76,35 @@ con un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de 0.
 </p>
 
 ### Ajuste de parámetros
-Aquí se procede a determinar que factores son significativos para cada tipo de método de selección. Las pruebas de Kruskal y Wallis corrspondientes nos permiten distinguir
-
+Aquí se procede a determinar que factores son significativos para cada tipo de método de selección. Las pruebas de Kruskal y Wallis correspondientes nos permiten distinguir <a href="#tab1">2</a>
+<div id="tab1">
 <table>
   <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
+    <th>Parámetro / Método de selección</th>
+    <th>Con ruleta </th>
+    <th>Sin ruleta</th>
   </tr>
   <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
+    <td>Tamaño de la población</td>
+    <td>*</td>
+    <td>*</td>
   </tr>
   <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
+    <td>CProbabilidad de mutación</td>
+    <td>0.699</td>
+    <td>0.289</td>
   </tr>
   <tr>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
+    <td>Cantidad de parejas a reproducirse</td>
+    <td>0.004</td>
+    <td>0.013</td>
   </tr>
   <tr>
-    <td>Island Trading</td>
-    <td>Helen Bennett</td>
-    <td>UK</td>
+    <td>Número de generaciones</td>
+    <td>0.438</td>
+    <td>0.254</td>
   </tr>
-  <tr>
-    <td>Laughing Bacchus Winecellars</td>
-    <td>Yoshi Tannamuri</td>
-    <td>Canada</td>
-  </tr>
-  <tr>
-    <td>Magazzini Alimentari Riuniti</td>
-    <td>Giovanni Rovelli</td>
-    <td>Italy</td>
-  </tr>
+  
 </table>
+<b>Figura 2.</b> Eficacia del método de selección por ruleta.
+</div>
