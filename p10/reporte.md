@@ -47,3 +47,7 @@ Se realizó un experimento para demostrar la eficacia de la implementación para
 <b>Figura 1.</b> Comparación de implementación secuencial y paralelo de AG.
 </div>
 </p>
+
+<p align="justified">
+ Los resultados son notorios aún y cuando se están considerando esfuerzos muy pequeños. El tiempo de ejecución promedio de la implementación secuencial es de 82.84 segundos contra 3.71 segundos del caso paralelo.  
+ </p>
