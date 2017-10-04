@@ -53,4 +53,5 @@ Se realizó un experimento para demostrar la eficacia de la implementación para
  </p>
  
  ## Reto 1: Selección por ruleta
+ 
  El primer reto consta de cambiar el método de selección de los individuos a reproducirse. El método de selección por ruleta consta de asignar una probabilidad de selección a cada padre que dependa directamente de su aptitud o valor objetivo. La forma clásica de hacerlo es transformar el vector de aptitudes a un vector de probabilidades, dividiendo la aptitud de cada individuo entre la aptitud total de la población. Así, un padre con mejor aptitud, tiene mayor probabilidad de ser seleccionado. Este método de selección, al igual que el de torneo,  imitan en cierta medida un comportamiento evolutivo natural. En R, implementar esto es muy sencillo, basta con introducir la nueva distribución modificar el parámetro `prob` de `sample`
