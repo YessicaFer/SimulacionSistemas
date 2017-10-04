@@ -43,7 +43,7 @@ Se realizó un experimento para demostrar la eficiencia de la implementación pa
 
 <p align="center">
 <div id="fig1" style="width:300px; height=200px">
-<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/secuencialParalelo.png" height="60%" width="60%"/><br>
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/secuencialParalelo1.png" height="60%" width="60%"/><br>
 <b>Figura 1.</b> Comparación de implementación secuencial y paralelo de AG.
 </div>
 </p>
@@ -70,7 +70,7 @@ con un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de 0.
  </p>
 <p align="center">
 <div id="fig2" style="width:300px; height=200px">
-<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/AjusteParametros.png" height="100%" width="100%"/><br>
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/AjusteParametros1.png" height="100%" width="100%"/><br>
 <b>Figura 2.</b> Eficacia del método de selección por ruleta.
 </div>
 </p>
