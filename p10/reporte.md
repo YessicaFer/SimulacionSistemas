@@ -78,6 +78,7 @@ con un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de 0.
 ### Ajuste de parámetros
 Aquí se procede a determinar que factores son significativos para cada tipo de método de selección. Las pruebas de Kruskal y Wallis correspondientes nos permiten distinguir <a href="#tab1">2</a>
 <div id="tab1">
+ <p align="center">
 <table>
   <tr>
     <th>Parámetro / Método de selección</th>
@@ -106,5 +107,6 @@ Aquí se procede a determinar que factores son significativos para cada tipo de 
   </tr>
   
 </table>
-<b>Figura 2.</b> Eficacia del método de selección por ruleta.
+<b>Tabla 1.</b> Resultados de pruebas de significancia de los parámetros.
+</p>
 </div>
