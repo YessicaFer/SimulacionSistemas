@@ -62,9 +62,12 @@ Se realizó un experimento para demostrar la eficiencia de la implementación pa
  <li> Probabilidad de mutación: 0.05, 0.1 y 0.2 </li>
  <li> Cantidad de parejas de padres a reproducrise (multiplicado por tamaño de población): 0.5, 1 y 2 </li>
  </ul>
- 
-Para cada tratamiento se realizaron diez réplicas. Se decidió tomar estos niveles para los factores antes mencionados con el fin de encontrar variabilidad en la respuesta, pues se puede decantar por un método de selección que sea mejor para cierto valor de estos parámetros. Por cada réplica se utiliza la misma población inicial para ambos casos. Cabe recordar que la hipótesis que se desea probar  es si hay diferencia al cambiar el método de selección, por tanto se utiliza como factor la interacción de todos los parámetros mencionados. En la Figura <a href="#fig2">2</a> aparece el diagrama de bigotes correspondiente, en el eje `x`está la interacción de los factores. 
 
+<p align="justified">
+Para cada tratamiento se realizaron diez réplicas. Se decidió tomar estos niveles para los factores antes mencionados con el fin de encontrar variabilidad en la respuesta, pues se puede decantar por un método de selección que sea mejor para cierto valor de estos parámetros. Por cada réplica se utiliza la misma población inicial para ambos casos. Cabe recordar que la hipótesis que se desea probar  es si hay diferencia al cambiar el método de selección, por tanto se utiliza como factor la interacción de todos los parámetros mencionados. En la Figura <a href="#fig2">2</a> aparece el diagrama de bigotes correspondiente, en el eje `x`está la interacción de los factores. Note que existe un comportamiento muy similar, de hecho, una prueba de Wilcoxon nos indica que no hay diferencia significativa
+con un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de 0.57. Sin embargo; pueden apreciarse tres grupos claramente distinguibles pero todos con el mismo comportamiento, éstos corresponde a la variación de la cantidad de padres del cruzamiento. Como la tendencia de estos tres grupos es a disminuir el GAP, se considera por el momento una mala calibración del algoritmo; así procedemos a hacer un ajuste de parámetros.
+ 
+ </p>
 <p align="center">
 <div id="fig2" style="width:300px; height=200px">
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/AjusteParametros.png" height="100%" width="100%"/><br>
@@ -72,4 +75,43 @@ Para cada tratamiento se realizaron diez réplicas. Se decidió tomar estos nive
 </div>
 </p>
 
+### Ajuste de parámetros
+Aquí se procede a determinar que factores son significativos para cada tipo de método de selección. Las pruebas de Kruskal y Wallis corrspondientes nos permiten distinguir
 
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>Ernst Handel</td>
+    <td>Roland Mendel</td>
+    <td>Austria</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>Helen Bennett</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Laughing Bacchus Winecellars</td>
+    <td>Yoshi Tannamuri</td>
+    <td>Canada</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Giovanni Rovelli</td>
+    <td>Italy</td>
+  </tr>
+</table>
