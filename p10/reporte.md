@@ -58,5 +58,8 @@ Se realizó un experimento para demostrar la eficiencia de la implementación pa
  Para probar la eficacia del método de selección se desarrolla experimentación variando todos los parámetros del algoritmo genético: 
  <ul>
  <li> Tamaño de la población: 50, 100 y 200</li>
+ <li> Cantidad de genraciones: 50, 100 y 200</li>
+ <li> Probabilidad de mutación: 0.05, 0.1, 0.2 </li>
+ <li> Cantidad de parejas de padres a reproducrise (multiplicado por tamaño de población): 0.5, 1, 2 </li>
  </ul>
  
