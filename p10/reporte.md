@@ -38,7 +38,7 @@ fact=parSapply(cluster,1:tam,function(i){return(factible(unlist(p[i,]), pesos, c
  
 ## Eficacia del paralelismo
 <p align="justified">
-Se realizó un experimento para demostrar la eficacia de la implementación paralela. Fue un diseño modesto, pero más que suficiente para visualizar el comportamiento. El tamaño de la población `init` fue 50, 100 y 200. Los demás parámetros fueron fijados en <img src="http://latex.codecogs.com/svg.latex?p_m=0.05" border="0"/>, `rep=50`y la cantidad de generaciones <img src="http://latex.codecogs.com/svg.latex?t_{\max}=50" border="0"/>. Como dije, es una experimentación muy modesta. La Figura <a href="#fig1">1</a> muestra el diagrama de bigotes correspondiente del tiempo de ejecución de ambas implementaciones.
+Se realizó un experimento para demostrar la eficiencia de la implementación paralela. Fue un diseño modesto, pero más que suficiente para visualizar el comportamiento. El tamaño de la población `init` fue 50, 100 y 200. Los demás parámetros fueron fijados en <img src="http://latex.codecogs.com/svg.latex?p_m=0.05" border="0"/>, `rep=50`y la cantidad de generaciones <img src="http://latex.codecogs.com/svg.latex?t_{\max}=50" border="0"/>. Como dije, es una experimentación muy modesta. La Figura <a href="#fig1">1</a> muestra el diagrama de bigotes correspondiente del tiempo de ejecución de ambas implementaciones.
 </p>
 
 <p align="center">
@@ -52,6 +52,11 @@ Se realizó un experimento para demostrar la eficacia de la implementación para
  Los resultados son notorios aún y cuando se están considerando esfuerzos muy pequeños. El tiempo de ejecución promedio de la implementación secuencial es de 82.84 segundos contra 3.71 segundos del caso paralelo.  
  </p>
  
- ## Reto 1: Selección por ruleta
+ ## Reto 1: Selección por ruleta 
+ El primer reto consta de cambiar el método de selección de los individuos a reproducirse. El método de selección por ruleta consta de asignar una probabilidad de selección a cada padre que dependa directamente de su aptitud o valor objetivo. La forma clásica de hacerlo es transformar el vector de aptitudes a un vector de probabilidades, dividiendo la aptitud de cada individuo entre la aptitud total de la población. Así, un padre con mejor aptitud, tiene mayor probabilidad de ser seleccionado. Este método de selección, al igual que el de torneo,  imitan en cierta medida un comportamiento evolutivo natural. En R, implementar esto es muy sencillo, basta con introducir la nueva distribución de probabilidad con el parámetro `prob` de `sample`. 
  
- El primer reto consta de cambiar el método de selección de los individuos a reproducirse. El método de selección por ruleta consta de asignar una probabilidad de selección a cada padre que dependa directamente de su aptitud o valor objetivo. La forma clásica de hacerlo es transformar el vector de aptitudes a un vector de probabilidades, dividiendo la aptitud de cada individuo entre la aptitud total de la población. Así, un padre con mejor aptitud, tiene mayor probabilidad de ser seleccionado. Este método de selección, al igual que el de torneo,  imitan en cierta medida un comportamiento evolutivo natural. En R, implementar esto es muy sencillo, basta con introducir la nueva distribución modificar el parámetro `prob` de `sample`
+ Para probar la eficacia del método de selección se desarrolla experimentación variando todos los parámetros del algoritmo genético: 
+ <ul>
+ <li> Tamaño de la población: 50, 100 y 200</li>
+ </ul>
+ 
