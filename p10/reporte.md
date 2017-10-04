@@ -67,7 +67,7 @@ Para cada tratamiento se realizaron diez réplicas. Se decidió tomar estos nive
 
 <p align="center">
 <div id="fig2" style="width:300px; height=200px">
-<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/CruzaRuleta.png" height="60%" width="60%"/><br>
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/AjusteParametros.png" height="60%" width="60%"/><br>
 <b>Figura 2.</b> Eficacia del método de selección por ruleta.
 </div>
 </p>
