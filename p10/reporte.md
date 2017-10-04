@@ -76,7 +76,10 @@ con un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de 0.
 </p>
 
 ### Ajuste de parámetros
-Aquí se procede a determinar que factores son significativos para cada tipo de método de selección. Las pruebas de Kruskal y Wallis correspondientes nos permiten distinguir <a href="#tab1">2</a>
+<p align="justified">
+Aquí se procede a determinar que factores son significativos para cada tipo de método de selección. Las pruebas de Kruskal y Wallis correspondientes nos permiten distinguir la significancia de cada parámetro en la calidad del resultado (GAP). La <a href="#tab1">Tabla 1</a> muestra los valores-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de las pruebas para cada método de selección. El símbolo * indica un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de <img src="http://latex.codecogs.com/svg.latex?2.2\times10^{-16}" border="0"/>.
+</p>
+
 <div id="tab1">
  <p align="center">
 <table>
@@ -110,3 +113,9 @@ Aquí se procede a determinar que factores son significativos para cada tipo de 
 <b>Tabla 1.</b> Resultados de pruebas de significancia de los parámetros.
 </p>
 </div>
+
+<p align="justified">
+ Note como los resultados para ambos métodos de selección de individuos son iguales. Tanto el tamaño de la población como la cantidad de padres seleccionados para reproducirse son significativos mientras que la probabilidad de mutación y la cantidad de generaciones no lo son. Se realizó una prueba de Dunn para determinar la significancia de los niveles de los factores significativos, con esta información y los valores de las medianas, se encontró que lo mejor es tener los mayores niveles de ambos factores.
+ 
+Para encontrar un buen punto de comparación del algoritmo, se experimentó con un incremento de los factores significativos para intentar mejorar. Se prueba con tamaños de población de 300 y 400 individuos y número de parejas de padres como tres y cuatro veces el tamaño de población. Los dos factores no significativos no quiere decir que no importen, sino que esos valores no lo hacen, para la probabilidad de mutación se experimenta con 0.01 y 0.3; es decir un valor menor y uno mayor. Respecto a la cantidad de generaciones, es de esperar que a medida que aumente se tenga más posibilidad de encontrar buenas soluciones, por eso se optó por incrementarlo a 
+ </p>
