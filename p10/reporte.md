@@ -58,8 +58,16 @@ Se realizó un experimento para demostrar la eficiencia de la implementación pa
  Para probar la eficacia del método de selección se desarrolla experimentación variando todos los parámetros del algoritmo genético: 
  <ul>
  <li> Tamaño de la población: 50, 100 y 200</li>
- <li> Cantidad de genraciones: 50, 100 y 200</li>
- <li> Probabilidad de mutación: 0.05, 0.1, 0.2 </li>
- <li> Cantidad de parejas de padres a reproducrise (multiplicado por tamaño de población): 0.5, 1, 2 </li>
+ <li> Cantidad de generaciones: 50, 100 y 200</li>
+ <li> Probabilidad de mutación: 0.05, 0.1 y 0.2 </li>
+ <li> Cantidad de parejas de padres a reproducrise (multiplicado por tamaño de población): 0.5, 1 y 2 </li>
  </ul>
  
+Para cada tratamiento se realizaron diez réplicas. Se decidió tomar estos niveles para los factores antes mencionados con el fin de encontrar variabilidad en la respuesta, pues se puede decantar por un método de selección que sea mejor para cierto valor de estos parámetros. Por cada réplica se utiliza la misma población inicial para ambos casos. Cabe recordar que la hipótesis que se desea probar  es si hay diferencia al cambiar el método de selección, por tanto se utiliza como factor la interacción de todos los parámetros mencionados. En la Figura <a href="#fig2">2</a> aparece el diagrama de bigotes correspondiente, en el eje `x`está la interacción de los factores pero no aparecen etiquetas pues no es visualmente cómodo mostrarlo. Si hay duda, la interacción fue hecha en el orden estrictamente mostrado en la lista anterior con la función `interaction`.
+
+<p align="center">
+<div id="fig2" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/CruzaRuleta.png" height="60%" width="60%"/><br>
+<b>Figura 2.</b> Eficacia del método de selección por ruleta.
+</div>
+</p>
