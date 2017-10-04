@@ -30,9 +30,20 @@ padres <- parSapply(cluster,1:rep,function(x){return(sample(1:tam, 2, replace=FA
 hijos <- parSapply(cluster,1:rep,function(i){return(as.matrix(unlist(reproduccion(p[padres[1,i],], p[padres[2,i],], n)),ncol=n))})
 p = rbind(p,hijos)
 ```
-Por último, el cálculo de la aptitud de los individuos
+Por último, el cálculo de la aptitud de la factibilidad de los individuos:
 ```R
 obj=parSapply(cluster,1:tam,function(i){return(objetivo(unlist(p[i,]), valores))})
 fact=parSapply(cluster,1:tam,function(i){return(factible(unlist(p[i,]), pesos, capacidad))})
 ```
-        
+ 
+## Eficacia del paralelismo
+<p align="justified">
+Se realizó un experimento para demostrar la eficacia de la implementación paralela. Fue un diseño modesto, pero más que suficiente para visualizar el comportamiento. El tamaño de la población `init` fue 50, 100 y 200. Los demás parámetros fueron fijados en <img src="http://latex.codecogs.com/svg.latex?p_m=0.05" border="0"/>, `rep=50`y la cantidad de generaciones <img src="http://latex.codecogs.com/svg.latex?t_{\max}=50" border="0"/>. Como dije, es una experimentación muy modesta. La Figura <a href="#fig1">1</a> muestra el diagrama de bigotes correspondiente del tiempo de ejecución de ambas implementaciones.
+</p>
+
+<p align="center">
+<div id="fig1" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/secuencialParalelo.png" height="40%" width="40%"/><br>
+<b>Figura 1.</b> Comparación de implementación secuencial y paralelo de AG.
+</div>
+</p>
