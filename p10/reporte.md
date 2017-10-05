@@ -136,5 +136,7 @@ Observe como aunque se observa una mejora más rápida del método de selección
 </div>
 </p>
 
+Note como la distribución se va asemejando cada vez mas a la uniforme, haciendo que en las últimas generaciones ambos métodos sean equivalentes. La razón de que sea uniforme al final puede verse en la densidad de los valores objetivos; tras el paso de las generaciones, los individuos se van pareciendo cada vez más entre sí, dando lugar a un fenómeno conocido como deriva genética. Esto puede apreciarse en la forma en que aumenta la curtosis de la densidad pues gran parte de los individuos son el mismo (teniendo un mismo valor objetivo y una misma probabilidad de ser seleccionados). La densidad también nos sirve para ver en el hecho de la deriva genética como van apareciendo óptimos locales como pequeñas cimas. 
+
  ## Reto 2: Método de supervivencia por ruleta
  
