@@ -131,7 +131,7 @@ Observe como aunque se observa una mejora más rápida del método de selección
  </p>
 <p align="center">
 <div id="fig4" style="width:300px; height=200px">
-<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/R1_Ruleta.png" height="100%" width="100%"/><br>
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/R1_Ruleta.gif" height="100%" width="100%"/><br>
 <b>Figura 4.</b> Evolución de la ruleta de selección
 </div>
 </p>
