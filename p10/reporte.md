@@ -117,16 +117,24 @@ Para cada tratamiento se realizaron diez réplicas. Se decidió tomar estos nive
 </div>
 </p>
 
-Como medio más ilustrativo, se siguió la evolución de una población de individuos para ver su desempeño. Consideramos como punto de partida la misma población inicial y desde ahí se calculó el incumbente en cada generación utilizando los dos diferentes métodos de selección. Los reultados pueden verse en la <a href="#fig3">Figura 3</a>; en negro, aparece la evolución cuando no se considera el método por ruleta y enrojo, cuando si se considera. La linea verde corresponde al valor objetivo óptimo.
+Como medio más ilustrativo, se siguió la evolución de una población de individuos para ver su desempeño, de acuerdo a la mejor configuración de parámetros. Consideramos como punto de partida la misma población inicial y desde ahí se calculó el incumbente en cada generación utilizando los dos diferentes métodos de selección. Los reultados pueden verse en la <a href="#fig3">Figura 3</a>; en negro, aparece la evolución cuando no se considera el método por ruleta y enrojo, cuando si se considera. La linea verde corresponde al valor objetivo óptimo.
 
  </p>
 <p align="center">
-<div id="fig2" style="width:300px; height=200px">
+<div id="fig3" style="width:300px; height=200px">
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/R1.png" height="100%" width="100%"/><br>
-<b>Figura 3.</b> Desempeño de ambos métodos de selcción durante la evolución.
+<b>Figura 3.</b> Desempeño de ambos métodos de selección durante la evolución.
 </div>
 </p>
+Observe como aunque se observa una mejora más rápida del método de selección por ruleta, al final no hay una diferencia apreciable en el incumbente; razón por la cuál no se encontró diferencia significativa. Una explicación gráfica se muestra en la <a href="#fig4">Figura 4</a> en donde se graficó la distribución de probabilidad para la selección en cada generación. En otras palabras, se grafican los valores de la ruleta, los datos se ordenan en orden decreciente por su valor objetivo para verlo claramente. En rojo se muestra la densidad de los valores objetivo de la población.
 
+ </p>
+<p align="center">
+<div id="fig4" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/R1_Ruleta.png" height="100%" width="100%"/><br>
+<b>Figura 4.</b> Evolución de la ruleta de selección
+</div>
+</p>
 
  ## Reto 2: Método de supervivencia por ruleta
  
