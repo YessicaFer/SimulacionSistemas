@@ -38,7 +38,7 @@ fact=parSapply(cluster,1:tam,function(i){return(factible(unlist(p[i,]), pesos, c
  
 ## Eficacia del paralelismo
 <p align="justified">
-Se realizó un experimento para demostrar la eficiencia de la implementación paralela. Fue un diseño modesto, pero más que suficiente para visualizar el comportamiento. El tamaño de la población `init` fue 50, 100 y 200. Los demás parámetros fueron fijados en <img src="http://latex.codecogs.com/svg.latex?p_m=0.05" border="0"/>, `rep=50`y la cantidad de generaciones <img src="http://latex.codecogs.com/svg.latex?t_{\max}=50" border="0"/>. Como dije, es una experimentación muy modesta. La Figura <a href="#fig1">1</a> muestra el diagrama de bigotes correspondiente del tiempo de ejecución de ambas implementaciones.
+Se realizó un experimento para demostrar la eficiencia de la implementación paralela. Fue un diseño modesto, pero más que suficiente para visualizar el comportamiento. El tamaño de la población `init` fue 50, 100 y 200. Los demás parámetros fueron fijados en <img src="http://latex.codecogs.com/svg.latex?p_m=0.05" border="0"/>, `rep=50`y la cantidad de generaciones <img src="http://latex.codecogs.com/svg.latex?t_{\max}=50" border="0"/>. Como dije, es una experimentación muy modesta. La <a href="#fig1">Figura 1</a> muestra el diagrama de bigotes correspondiente del tiempo de ejecución de ambas implementaciones.
 </p>
 
 <p align="center">
@@ -52,32 +52,9 @@ Se realizó un experimento para demostrar la eficiencia de la implementación pa
  Los resultados son notorios aún y cuando se están considerando esfuerzos muy pequeños. El tiempo de ejecución promedio de la implementación secuencial es de 82.84 segundos contra 3.71 segundos del caso paralelo.  
  </p>
  
- ## Reto 1: Selección por ruleta 
- El primer reto consta de cambiar el método de selección de los individuos a reproducirse. El método de selección por ruleta consta de asignar una probabilidad de selección a cada padre que dependa directamente de su aptitud o valor objetivo. La forma clásica de hacerlo es transformar el vector de aptitudes a un vector de probabilidades, dividiendo la aptitud de cada individuo entre la aptitud total de la población. Así, un padre con mejor aptitud, tiene mayor probabilidad de ser seleccionado. Este método de selección, al igual que el de torneo,  imitan en cierta medida un comportamiento evolutivo natural. En R, implementar esto es muy sencillo, basta con introducir la nueva distribución de probabilidad con el parámetro `prob` de `sample`. 
- 
- Para probar la eficacia del método de selección se desarrolla experimentación variando todos los parámetros del algoritmo genético: 
- <ul>
- <li> Tamaño de la población: 50, 100 y 200</li>
- <li> Cantidad de generaciones: 50, 100 y 200</li>
- <li> Probabilidad de mutación: 0.05, 0.1 y 0.2 </li>
- <li> Cantidad de parejas de padres a reproducrise (multiplicado por tamaño de población): 0.5, 1 y 2 </li>
- </ul>
-
+ ## Ajuste de parámetros
 <p align="justified">
-Para cada tratamiento se realizaron diez réplicas. Se decidió tomar estos niveles para los factores antes mencionados con el fin de encontrar variabilidad en la respuesta, pues se puede decantar por un método de selección que sea mejor para cierto valor de estos parámetros. Por cada réplica se utiliza la misma población inicial para ambos casos. Cabe recordar que la hipótesis que se desea probar  es si hay diferencia al cambiar el método de selección, por tanto se utiliza como factor la interacción de todos los parámetros mencionados. En la Figura <a href="#fig2">2</a> aparece el diagrama de bigotes correspondiente, en el eje `x`está la interacción de los factores. Note que existe un comportamiento muy similar, de hecho, una prueba de Wilcoxon nos indica que no hay diferencia significativa
-con un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de 0.57. Sin embargo; pueden apreciarse tres grupos claramente distinguibles pero todos con el mismo comportamiento, éstos corresponde a la variación de la cantidad de padres del cruzamiento. Como la tendencia de estos tres grupos es a disminuir el GAP, se considera por el momento una mala calibración del algoritmo; así procedemos a hacer un ajuste de parámetros.
- 
- </p>
-<p align="center">
-<div id="fig2" style="width:300px; height=200px">
-<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/AjusteParametros1.png" height="100%" width="100%"/><br>
-<b>Figura 2.</b> Eficacia del método de selección por ruleta.
-</div>
-</p>
-
-### Ajuste de parámetros
-<p align="justified">
-Aquí se procede a determinar que factores son significativos para cada tipo de método de selección. Las pruebas de Kruskal y Wallis correspondientes nos permiten distinguir la significancia de cada parámetro en la calidad del resultado (GAP). La <a href="#tab1">Tabla 1</a> muestra los valores-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de las pruebas para cada método de selección. El símbolo * indica un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de <img src="http://latex.codecogs.com/svg.latex?2.2\times10^{-16}" border="0"/>.
+Aquí se procede a determinar que factores son significativos para cada tipo de método de selección. Las pruebas de Kruskal y Wallis correspondientes nos permiten distinguir la significancia de cada parámetro en la calidad del resultado (GAP). La <a href="#tab1">Tabla 1</a> muestra los valores-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de las pruebas para cada método de selección. El símbolo * indica un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de <img src="http://latex.codecogs.com/svg.latex?1.817\times10^{-5}" border="0"/>.
 </p>
 
 <div id="tab1">
@@ -91,22 +68,22 @@ Aquí se procede a determinar que factores son significativos para cada tipo de 
   <tr>
     <td>Tamaño de la población</td>
     <td>*</td>
-    <td>*</td>
+    <td>0.001</td>
   </tr>
   <tr>
-    <td>CProbabilidad de mutación</td>
-    <td>0.699</td>
-    <td>0.289</td>
+    <td>Probabilidad de mutación</td>
+    <td>0.066</td>
+    <td>0.288</td>
   </tr>
   <tr>
     <td>Cantidad de parejas a reproducirse</td>
+    <td>0.023</td>
     <td>0.004</td>
-    <td>0.013</td>
   </tr>
   <tr>
     <td>Número de generaciones</td>
-    <td>0.438</td>
-    <td>0.254</td>
+    <td>0.365</td>
+    <td>0.006</td>
   </tr>
   
 </table>
@@ -115,7 +92,41 @@ Aquí se procede a determinar que factores son significativos para cada tipo de 
 </div>
 
 <p align="justified">
- Note como los resultados para ambos métodos de selección de individuos son iguales. Tanto el tamaño de la población como la cantidad de padres seleccionados para reproducirse son significativos mientras que la probabilidad de mutación y la cantidad de generaciones no lo son. Se realizó una prueba de Dunn para determinar la significancia de los niveles de los factores significativos, con esta información y los valores de las medianas, se encontró que lo mejor es tener los mayores niveles de ambos factores.
- 
-Para encontrar un buen punto de comparación del algoritmo, se experimentó con un incremento de los factores significativos para intentar mejorar. Se prueba con tamaños de población de 300 y 400 individuos y número de parejas de padres como tres y cuatro veces el tamaño de población. Los dos factores no significativos no quiere decir que no importen, sino que esos valores no lo hacen, para la probabilidad de mutación se experimenta con 0.01 y 0.3; es decir un valor menor y uno mayor. Respecto a la cantidad de generaciones, es de esperar que a medida que aumente se tenga más posibilidad de encontrar buenas soluciones, por eso se optó por incrementarlo a 
+ Basados en la significancia (y no significancia de los factores) se puede encaminar a encontrar una buena configuración de éstos para el algoritmo.  Por ahora, se puede notar que se prefieren tamaños de población más grandes y pocas parejas en la reproducción. De los otros dos factores, no hay una significancia clara para los dós métodos simultáneamente de acuerdo a los valores-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> pero el diagrama de bigotes nos muestra la tendencia por aparte, eligiendo como la mejor configuración hasta el momento 1000 individuos, probabilidad de mutación del 10%, 20% de padres seleccionados para reproducirse y 300 generaciones. En adelante, sólo se considerará aumentar el tamaño de la población y disminuir la cantidad de padres seleccionados para futuras experimentaciones.
  </p>
+ 
+ 
+ ## Reto 1: Selección por ruleta 
+ El primer reto consta de cambiar el método de selección de los individuos a reproducirse. El método de selección por ruleta consta de asignar una probabilidad de selección a cada padre que dependa directamente de su aptitud o valor objetivo. La forma clásica de hacerlo es transformar el vector de aptitudes a un vector de probabilidades, dividiendo la aptitud de cada individuo entre la aptitud total de la población. Así, un padre con mejor aptitud, tiene mayor probabilidad de ser seleccionado. Este método de selección, al igual que el de torneo,  imitan en cierta medida un comportamiento evolutivo natural. En R, implementar esto es muy sencillo, basta con introducir la nueva distribución de probabilidad con el parámetro `prob` de `sample`. 
+ 
+ Para probar la eficacia del método de selección se desarrolla experimentación variando todos los parámetros del algoritmo genético: 
+ <ul>
+ <li> Tamaño de la población: 500 y 1000</li>
+ <li> Cantidad de generaciones: 200 y 300</li>
+ <li> Probabilidad de mutación: 0.05 y 0.1</li>
+ <li> Cantidad de parejas de padres a reproducrise (multiplicado por tamaño de población): 0.1 y 0.25 </li>
+ </ul>
+
+<p align="justified">
+Para cada tratamiento se realizaron diez réplicas. Se decidió tomar estos niveles para los factores antes mencionados con el fin de encontrar variabilidad en la respuesta, pues se puede decantar por un método de selección que sea mejor para cierto valor de estos parámetros. Por cada réplica se utiliza la misma población inicial para ambos casos. Cabe recordar que la hipótesis que se desea probar  es si hay diferencia al cambiar el método de selección, por tanto se utiliza como factor la interacción de todos los parámetros mencionados. En la <a href="#fig2"> Figura 2</a> aparece el diagrama de bigotes correspondiente, en el eje `x`está la interacción de los factores. Note que existe un comportamiento muy similar en los resultados para ambos métodos de selección. Una prueba de Wilcoxon nos indica que no hay diferencia significativa con un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de 0.466. 
+  </p>
+<p align="center">
+<div id="fig2" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/AjusteParametros.png" height="100%" width="100%"/><br>
+<b>Figura 2.</b> Eficacia del método de selección por ruleta.
+</div>
+</p>
+
+Como medio más ilustrativo, se siguió la evolución de una población de individuos para ver su desempeño. Consideramos como punto de partida la misma población inicial y desde ahí se calculó el incumbente en cada generación utilizando los dos diferentes métodos de selección. Los reultados pueden verse en la <a href="#fig3">Figura 3</a>; en negro, aparece la evolución cuando no se considera el método por ruleta y enrojo, cuando si se considera. La linea verde corresponde al valor objetivo óptimo.
+
+ </p>
+<p align="center">
+<div id="fig2" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/R1.png" height="100%" width="100%"/><br>
+<b>Figura 3.</b> Desempeño de ambos métodos de selcción durante la evolución.
+</div>
+</p>
+
+
+ ## Reto 2: Método de supervivencia por ruleta
+ 
