@@ -148,4 +148,15 @@ Note como la distribución se va asemejando cada vez mas a la uniforme, haciendo
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/R2.png" height="100%" width="100%"/><br>
 <b>Figura 5.</b> Desempeño del algoritmo con supervivencia por ruleta.
 </div>
+
+
+ </p>
+<p align="center">
+<div id="fig6" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/R2_SinRuleta.gif" height="45%" width="45%"/>
+ <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/R2_ConRuleta.gif" height="45%" width="45%"/>
+ <br>
+<b>Figura 6.</b> Desempeño del algoritmo con supervivencia por ruleta.
+</div>
+
 </p>
