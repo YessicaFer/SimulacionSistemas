@@ -117,7 +117,7 @@ Para cada tratamiento se realizaron diez réplicas. Se decidió tomar estos nive
 </div>
 </p>
 
-Como medio más ilustrativo, se siguió la evolución de una población de individuos para ver su desempeño. Consideramos como punto de partida la misma población inicial y desde ahí se calculó el incumbente en cada generación utilizando los dos diferentes métodos de selección. Los reultados pueden verse en la <a href="#fig3">Figura 3</a>; en negro, aparece la evolución cuando no se considera el método por ruleta y enrojo, cuando si se considera. La linea verde corresponde al valor objetivo óptimo.
+Como medio más ilustrativo, se siguió la evolución de una población de individuos para ver su desempeño. Consideramos como punto de partida la misma población inicial y desde ahí se calculó el incumbente en cada generación utilizando los dos diferentes métodos de selección. Los reultados pueden verse en la <a href="#fig3">Figura 3</a>; en negro, aparece la evolución cuando no se considera el método por ruleta y en rojo, cuando si se considera. La linea verde corresponde al valor objetivo óptimo.
 
  </p>
 <p align="center">
@@ -138,9 +138,50 @@ Observe como aunque se observa una mejora más rápida del método de selección
 
 Note como la distribución se va asemejando cada vez mas a la uniforme, haciendo que en las últimas generaciones ambos métodos sean equivalentes. La razón de que sea uniforme al final puede verse en la densidad de los valores objetivos; tras el paso de las generaciones, los individuos se van pareciendo cada vez más entre sí, dando lugar a un fenómeno conocido como deriva genética. Esto puede apreciarse en la forma en que aumenta la curtosis de la densidad pues gran parte de los individuos son el mismo (teniendo un mismo valor objetivo y una misma probabilidad de ser seleccionados). La densidad también nos sirve para ver en el hecho de la deriva genética como van apareciendo óptimos locales como pequeñas cimas. 
 
+## Ajuste de parámetros
+Una de las razones por las que la prueba estadística nos dice que no importa el método de selección es porque se pudo haber hecho experimentación sobre valores de los parámetros que no conducen diferencias. Algo que sí podemos notar en la <a href="#fig2"> Figura 2</a> es como hay configuraciones que ayudan al algoritmo a acercarse al valor óptimo. Si logramos acercarnos más al óptimo y en este punto la prueba sigue diciendo que no hay diferencia significativa entre los métodos de selcción entonces tendríamos una justificación más aceptable.
+
+Para estimar cuál es la mejor configuración y deducir un camino en el que se observaría un mejor comportamiento, se hacen pruebas de Kruskal y Wallis para cada factor (parámetro) que nos indiquen si éstos influyen estadísticamente en el valor objetivo obtenido. La <a href="#tab1"> Tabla 1</a> muestra los valores-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> correspondientes a cada prueba. 
+
+<table>
+  <tr>
+    <th>Parámetro / Método de selección</th>
+    <th>Sin ruleta</th>
+    <th>Con ruleta</th>
+  </tr>
+  <tr>
+    <td>Tamaño de población</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Probabilidad de mutación</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Porcentaje de parejas de padres seleccionadas</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Número de generaciones</td>
+    <td></td>
+    <td></td>
+  </tr> 
+</table>
+
+
+
  ## Reto 2: Método de supervivencia por ruleta
  El segundo reto consta de extender la ruleta para seleccionar a los individuos que pasen a la siguiente generación; es decir, ahora la probabilidad de supervivencia es proporcional al valor objetivo. Aquí se hace la consideración de que primero se pasan los <img src="http://latex.codecogs.com/svg.latex?k" border="0"/> mejores individuos y los restantes se seleccionan de acuerdo a la ruleta. Esto para asegurar que los mejores individuos pasen a la siguiente generación. La <a href="#fig5">Figura 5</a> muestra la evolución del incumbente cuando se utiliza la supervivencia por ruleta (en rojo) y cuando no (en negro).
 
+ </p>
+<p align="center">
+<div id="fig5" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/BoxplotSupervivencia.png" height="100%" width="100%"/><br>
+<b>Figura 5.</b> Desempeño del algoritmo con supervivencia por ruleta.
+</div>
 
  </p>
 <p align="center">
