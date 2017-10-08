@@ -138,7 +138,7 @@ Observe como aunque se observa una mejora más rápida del método de selección
 
 Note como la distribución se va asemejando cada vez mas a la uniforme, haciendo que en las últimas generaciones ambos métodos sean equivalentes. La razón de que sea uniforme al final puede verse en la densidad de los valores objetivos; tras el paso de las generaciones, los individuos se van pareciendo cada vez más entre sí, dando lugar a un fenómeno conocido como deriva genética. Esto puede apreciarse en la forma en que aumenta la curtosis de la densidad pues gran parte de los individuos son el mismo (teniendo un mismo valor objetivo y una misma probabilidad de ser seleccionados). La densidad también nos sirve para ver en el hecho de la deriva genética como van apareciendo óptimos locales como pequeñas cimas. 
 
-## Ajuste de parámetros
+## "Ajuste" de parámetros
 Una de las razones por las que la prueba estadística nos dice que no importa el método de selección es porque se pudo haber hecho experimentación sobre valores de los parámetros que no conducen diferencias. Algo que sí podemos notar en la <a href="#fig2"> Figura 2</a> es como hay configuraciones que ayudan al algoritmo a acercarse al valor óptimo. Si logramos acercarnos más al óptimo y en este punto la prueba sigue diciendo que no hay diferencia significativa entre los métodos de selcción entonces tendríamos una justificación más aceptable.
 
 Para estimar cuál es la mejor configuración y deducir un camino en el que se observaría un mejor comportamiento, se hacen pruebas de Kruskal y Wallis para cada factor (parámetro) que nos indiquen si éstos influyen estadísticamente en el valor objetivo obtenido. La <a href="#tab1"> Tabla 1</a> muestra los valores-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> correspondientes a cada prueba. 
@@ -171,33 +171,52 @@ Para estimar cuál es la mejor configuración y deducir un camino en el que se o
   </tr> 
 </table>
 
-
+Donde el símbolo * significa un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de <img src="http://latex.codecogs.com/svg.latex?1.817\times10^{-5}" border="0"/>. Para ambos métodos de selección, el tamaño de la población y la cantidad de parejas seleccionadas para reproducirse son estadíticamente significativos. Los otros dos factores tienen significancia contrapuesta en cada caso. Haciendo uso de la los valores de las medianas de cada nivel y del diagrama de bigotes de la <a href="#fig5">Figura 2</a>, elegimos como una buena configuración la de tamaño de población 1000, probabilidad de mutación 0.1, cantidad de parejas 0.1 y número de generaciones 300. Además se analiza el caso de aumentar el tamaño de población y disminuir la cantidad de parejas seleccionadas pues hacia allá apunta (al menos por el momento) que el algoritmo tiene mejor desempeño.
 
  ## Reto 2: Método de supervivencia por ruleta
- El segundo reto consta de extender la ruleta para seleccionar a los individuos que pasen a la siguiente generación; es decir, ahora la probabilidad de supervivencia es proporcional al valor objetivo. Aquí se hace la consideración de que primero se pasan los <img src="http://latex.codecogs.com/svg.latex?k" border="0"/> mejores individuos y los restantes se seleccionan de acuerdo a la ruleta. Esto para asegurar que los mejores individuos pasen a la siguiente generación. La <a href="#fig5">Figura 5</a> muestra la evolución del incumbente cuando se utiliza la supervivencia por ruleta (en rojo) y cuando no (en negro).
-
+ <p align="justified">
+ El segundo reto consta de extender la ruleta para seleccionar a los individuos que pasen a la siguiente generación; es decir, ahora la probabilidad de supervivencia es proporcional al valor objetivo. Aquí se hace la consideración de que primero se pasan los <img src="http://latex.codecogs.com/svg.latex?k" border="0"/> mejores individuos y los restantes se seleccionan de acuerdo a la ruleta. Esto para asegurar que los mejores individuos pasen a la siguiente generación. Para medir la eficacia de la supervivencia por ruleta se realizó un experimento en donde, considerando el "ajuste" de parámetros previo, se consideraron los siguientes valores de los parámetros:
  </p>
+ 
+ <ul>
+ <li> Tamaño de población: 2000 y 3000</li>
+ <li> Probabilidad de mutación: 0.1 </li>
+ <li> Numero de parejas: 0.05 y 0.1 </li>
+ <li> Número de generaciones: 300 </li>
+ <li> Número de soluciones elite (<img src="http://latex.codecogs.com/svg.latex?k" border="0"/>): 0.05 y 0.1 </li>
+ </ul>
+ 
+ <p align="justified">
+ La <a href="#fig5">Figura 5</a> muestra los diagramas de bigotes correspondientes al experimento con diez réplicas en cada tratamiento. El valor de <img src="http://latex.codecogs.com/svg.latex?k" border="0"/>, se utiliza sólo como variabilidad en la prueba pues no es un parámetro comparable. Aprovechando e intentando salir de dudas en la conclusión del Reto 1, se analizó también el caso del algoritmo original. En verde, aparecen los resultados cuando no se utiliza ruleta en la seleción; en rojo, cuando se utiliza selección por ruleta y; en azul, el caso en que hay selección y supervivencia por ruleta.
+</p>
 <p align="center">
 <div id="fig5" style="width:300px; height=200px">
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/BoxplotSupervivencia.png" height="100%" width="100%"/><br>
-<b>Figura 5.</b> Desempeño del algoritmo con supervivencia por ruleta.
+<b>Figura 5.</b> Diagrama de bigotes para ambos métodos de supervivencia.
 </div>
+<p align="justified">
+Lo primero es notar que no hay mucha diferencia entre los métodos de selección y una prueba de Wilcoxon con un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de 0.41 justifica nuestra observación.
 
- </p>
-<p align="center">
-<div id="fig5" style="width:300px; height=200px">
-<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/R2.png" height="100%" width="100%"/><br>
-<b>Figura 5.</b> Desempeño del algoritmo con supervivencia por ruleta.
-</div>
-
-
+Respecto al método de supervivencia si se nota una clara mejora en la calidad de las soluciones, la cuál es justificada por una prueba estadística homóloga. de paso, podemos ver fácilmente como la mejor configuración de parámetros encontrada es con una ´pobalción de tamaño 3000, 10% de parejas selccionadas para cruzamiento y, de acuerdo a una prueba de Kruskall y Wallis, un valor de <img src="http://latex.codecogs.com/svg.latex?k" border="0"/> de 0.1, correspondiente al 10% de individuos elite pasados de generación a generación.
+ 
+ La <a href="#fig6">Figura 6</a> muestra la evolución del incumbente cuando se utiliza la supervivencia por ruleta (en rojo) y cuando no (en negro).
  </p>
 <p align="center">
 <div id="fig6" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/R2.png" height="100%" width="100%"/><br>
+<b>Figura 6.</b> Desempeño del algoritmo con supervivencia por ruleta.
+</div>
+
+Note como la supervivencia por ruleta permite llegar a la solución óptima desde casi la mitad de la evolución, el caso de selección elitista (sin ruleta) tuvo un rápido acercamiento pero se quedó atorado en un óptimo local. Una vez más se aprecia como seleccionar soluciones que no sean tan buenas nos permite llegar a un futuro a mejores soluciones que con una selección completamente voraz.
+
+Por último, se incluye los cambios de la densidad de valores objetivo durante la evolución. Por visualización éstos fueron escalados y no se muestran su valores en el eje `x` (véase <a href="#fig7">Figura 7</a>). Note como en el caso en el que se permite supervivencia por ruleta la densidad se carga  a la derecha, decantando la deriva genética hacia la solución óptima; mientras que en el otro caso, la deriva se atoró en un óptimo local (en el centro) aunque si se acercó a la solución óptima como ya vimos.
+
+<p align="center">
+<div id="fig7" style="width:300px; height=200px">
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/R2_SinRuleta.gif" height="45%" width="45%"/>
  <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p10/R2_ConRuleta.gif" height="45%" width="45%"/>
  <br>
-<b>Figura 6.</b> Desempeño del algoritmo con supervivencia por ruleta.
+<b>Figura 7.</b> Desempeño del algoritmo con supervivencia por ruleta.
 </div>
 
 </p>
