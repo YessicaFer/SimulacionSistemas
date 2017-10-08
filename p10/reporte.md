@@ -151,23 +151,23 @@ Para estimar cuál es la mejor configuración y deducir un camino en el que se o
   </tr>
   <tr>
     <td>Tamaño de población</td>
-    <td></td>
-    <td></td>
+    <td>*</td>
+    <td>0.0011</td>
   </tr>
   <tr>
     <td>Probabilidad de mutación</td>
-    <td></td>
-    <td></td>
+    <td>0.0663</td>
+    <td>0.2885</td>
   </tr>
   <tr>
     <td>Porcentaje de parejas de padres seleccionadas</td>
-    <td></td>
-    <td></td>
+    <td>0.0234</td>
+    <td>0.0041</td>
   </tr>
   <tr>
     <td>Número de generaciones</td>
-    <td></td>
-    <td></td>
+    <td>0.3658</td>
+    <td>0.0063</td>
   </tr> 
 </table>
 
