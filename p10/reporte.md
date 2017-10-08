@@ -209,7 +209,7 @@ Respecto al método de supervivencia si se nota una clara mejora en la calidad d
 
 Note como la supervivencia por ruleta permite llegar a la solución óptima desde casi la mitad de la evolución, el caso de selección elitista (sin ruleta) tuvo un rápido acercamiento pero se quedó atorado en un óptimo local. Una vez más se aprecia como seleccionar soluciones que no sean tan buenas nos permite llegar a un futuro a mejores soluciones que con una selección completamente voraz.
 
-Por último, se incluye los cambios de la densidad de valores objetivo durante la evolución. Por visualización éstos fueron escalados y no se muestran su valores en el eje `x` (véase <a href="#fig7">Figura 7</a>). Note como en el caso en el que se permite supervivencia por ruleta la densidad se carga  a la derecha, decantando la deriva genética hacia la solución óptima; mientras que en el otro caso, la deriva se atoró en un óptimo local (en el centro) aunque si se acercó a la solución óptima como ya vimos.
+Por último, se incluye los cambios de la densidad de valores objetivo durante la evolución. Por visualización éstos fueron escalados y no se muestran su valores en el eje `x` (véase <a href="#fig7">Figura 7</a>). Note como en el caso en el que se permite supervivencia por ruleta la densidad se carga  a la derecha, decantando la deriva genética hacia la solución óptima y se aprecia una mayor variedad de soluciones; mientras que en el otro caso, la deriva se atoró en un óptimo local con una curtósis muy alta (en el centro), aunque si se acercó a la solución óptima como ya vimos.
 
 <p align="center">
 <div id="fig7" style="width:300px; height=200px">
