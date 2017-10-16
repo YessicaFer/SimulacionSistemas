@@ -52,44 +52,6 @@ Se realizó un experimento para demostrar la eficiencia de la implementación pa
  Los resultados son notorios aún y cuando se están considerando esfuerzos muy pequeños. El tiempo de ejecución promedio de la implementación secuencial es de 82.84 segundos contra 3.71 segundos del caso paralelo.  
  </p>
  
- ## Ajuste de parámetros
-<p align="justified">
-Aquí se procede a determinar que factores son significativos para cada tipo de método de selección. Las pruebas de Kruskal y Wallis correspondientes nos permiten distinguir la significancia de cada parámetro en la calidad del resultado (GAP). La <a href="#tab1">Cuadro 1</a> muestra los valores-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de las pruebas para cada método de selección. El símbolo * indica un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de <img src="http://latex.codecogs.com/svg.latex?1.817\times10^{-5}" border="0"/>.
-</p>
-
-<div id="tab1">
- <p align="center">
-<table>
-  <tr>
-    <th>Parámetro / Método de selección</th>
-    <th>Con ruleta </th>
-    <th>Sin ruleta</th>
-  </tr>
-  <tr>
-    <td>Tamaño de la población</td>
-    <td>*</td>
-    <td>0.001</td>
-  </tr>
-  <tr>
-    <td>Probabilidad de mutación</td>
-    <td>0.066</td>
-    <td>0.288</td>
-  </tr>
-  <tr>
-    <td>Cantidad de parejas a reproducirse</td>
-    <td>0.023</td>
-    <td>0.004</td>
-  </tr>
-  <tr>
-    <td>Número de generaciones</td>
-    <td>0.365</td>
-    <td>0.006</td>
-  </tr>
-  
-</table>
-<b>Cuadro 1.</b> Resultados de pruebas de significancia de los parámetros.
-</p>
-</div>
 
 <p align="justified">
  Basados en la significancia (y no significancia de los factores) se puede encaminar a encontrar una buena configuración de éstos para el algoritmo.  Por ahora, se puede notar que se prefieren tamaños de población más grandes y pocas parejas en la reproducción. De los otros dos factores, no hay una significancia clara para los dós métodos simultáneamente de acuerdo a los valores-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> pero el diagrama de bigotes nos muestra la tendencia por aparte, eligiendo como la mejor configuración hasta el momento 1000 individuos, probabilidad de mutación del 10%, 20% de padres seleccionados para reproducirse y 300 generaciones. En adelante, sólo se considerará aumentar el tamaño de la población y disminuir la cantidad de padres seleccionados para futuras experimentaciones.
