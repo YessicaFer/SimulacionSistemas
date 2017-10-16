@@ -54,7 +54,7 @@ Se realizó un experimento para demostrar la eficiencia de la implementación pa
  
  ## Ajuste de parámetros
 <p align="justified">
-Aquí se procede a determinar que factores son significativos para cada tipo de método de selección. Las pruebas de Kruskal y Wallis correspondientes nos permiten distinguir la significancia de cada parámetro en la calidad del resultado (GAP). La <a href="#tab1">Tabla 1</a> muestra los valores-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de las pruebas para cada método de selección. El símbolo * indica un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de <img src="http://latex.codecogs.com/svg.latex?1.817\times10^{-5}" border="0"/>.
+Aquí se procede a determinar que factores son significativos para cada tipo de método de selección. Las pruebas de Kruskal y Wallis correspondientes nos permiten distinguir la significancia de cada parámetro en la calidad del resultado (GAP). La <a href="#tab1">Cuadro 1</a> muestra los valores-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de las pruebas para cada método de selección. El símbolo * indica un valor-<img src="http://latex.codecogs.com/svg.latex?p" border="0"/> de <img src="http://latex.codecogs.com/svg.latex?1.817\times10^{-5}" border="0"/>.
 </p>
 
 <div id="tab1">
@@ -87,7 +87,7 @@ Aquí se procede a determinar que factores son significativos para cada tipo de 
   </tr>
   
 </table>
-<b>Tabla 1.</b> Resultados de pruebas de significancia de los parámetros.
+<b>Cuadro 1.</b> Resultados de pruebas de significancia de los parámetros.
 </p>
 </div>
 
