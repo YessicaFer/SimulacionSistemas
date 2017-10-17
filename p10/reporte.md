@@ -167,7 +167,7 @@ assert(tam == init)
 #reactualizar ruleta para la seleccion
 ruleta=obj[mantener]/sum(obj[mantener])
 factibles <- p[p$fact == TRUE,]
-            ```
+```
 
 
  
