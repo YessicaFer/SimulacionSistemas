@@ -11,7 +11,7 @@ La codificación de los individuos esta dada por un vector de <img src="http://l
 ## Versión con paralelismo
 Los algoritmos genéticos son intrinsecamente fácil de paralelizar porque sus operadores trabajan con unos pocos individuos y se repiten muchas veces. Se utilizó la libreria `parallel` para la implementación de la versión paralela. 
 
-###Población inicial
+### Población inicial
 La  generación de la población inicial, se puede generar pidiendo la generación de un individuo por núcleo, esto se hace de la siguiente forma:
 ```R
 p <- as.data.frame(t(parSapply(cluster,1:init,function(i){return(round(runif(n)))})))
@@ -142,7 +142,11 @@ Donde el símbolo * significa un valor-<img src="http://latex.codecogs.com/svg.l
 
  ## Reto 2: Método de supervivencia por ruleta
  <p align="justified">
- El segundo reto consta de extender la ruleta para seleccionar a los individuos que pasen a la siguiente generación; es decir, ahora la probabilidad de supervivencia es proporcional al valor objetivo. Aquí se hace la consideración de que primero se pasan los <img src="http://latex.codecogs.com/svg.latex?k" border="0"/> mejores individuos y los restantes se seleccionan de acuerdo a la ruleta. Esto para asegurar que los mejores individuos pasen a la siguiente generación. Para medir la eficacia de la supervivencia por ruleta se realizó un experimento en donde, considerando el "ajuste" de parámetros previo, se consideraron los siguientes valores de los parámetros:
+ El segundo reto consta de extender la ruleta para seleccionar a los individuos que pasen a la siguiente generación; es decir, ahora la probabilidad de supervivencia es proporcional al valor objetivo. Aquí se hace la consideración de que primero se pasan los <img src="http://latex.codecogs.com/svg.latex?k" border="0"/> mejores individuos y los restantes se seleccionan de acuerdo a la ruleta. Esto para asegurar que los mejores individuos pasen a la siguiente generación. 
+ 
+Los valores objetivo de las soluciones infactibles son escalados para que el mejor de los infactibles no supere al peor de los factibles. Con esta idea, las soluciones infactibles pueden pasar a la siguiente generación, pero con poca probabilidad.
+ 
+ Para medir la eficacia de la supervivencia por ruleta se realizó un experimento en donde, considerando el "ajuste" de parámetros previo, se consideraron los siguientes valores de los parámetros:
  </p>
  
  <ul>
