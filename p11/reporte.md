@@ -36,13 +36,24 @@ val=matrix(parSapply(cluster,1:(k*n),function(pos){
       }), nrow=n, ncol=k, byrow=TRUE)
 ```
 
-Para determinar si el uso de paralelismo en verdad disminuye el tiempo de ejecución se realizó un experimento computacional en donde se varía el número de soluciones que se generan en 100, 200 y 300. Se calcula el frente y se mide el tiempo de ejcución necesario. Por cada número de soluciones se realizaron 30 réplicas. Los resultados se pueden apreciar en la  <a href="#fig1">Figura 1</a>
+Para determinar si el uso de paralelismo en verdad disminuye el tiempo de ejecución se realizó un experimento computacional en donde se varía el número de soluciones que se generan en 100, 200 y 300. Se calcula el frente y se mide el tiempo de ejcución necesario. Por cada número de soluciones se realizaron 30 réplicas. Los resultados se pueden apreciar en la  <a href="#fig1">Figura 1</a> donde se observa con los diagramas de bigotes que la implementación paralela es más rápida. Por la diferencia de los tiempos en todos los niveles estudiados no es necesario hacer una prueba estadística. 
 
 
 <p align="center">
 <div id="fig1" style="width:300px; height=200px">
-<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/secuencialParalelo.png" height="60%" width="60%"/><br>
-<b>Figura 1.</b> Comparación de implementación secuencial y paralelo de AG.
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/secuencialParalelo.png" height="70%" width="70%"/><br>
+<b>Figura 1.</b> Comparación de implementación secuencial y paralelo.
 </div>
 </p>
+
+## ¿Cuántos objetivos considerar?
+Hay una tendencia natural a aumentar el número de objetivos que se consideran simultánemante. Podría pensarse que se está haciendo más realista el problema, lo cuál puede ser cierto. Sin embargo; uno no puede ofrecer un buen método de solución al aire probándolo sobre problemas que decimos nosotros son mas realistas y le aumentamos los objetivos. ¿Porqué? la respuesta puede inferirse a partir de un ejemplo con esta sencilla forma de calcular un frente de Pareto. Se realizó un experimento en donde se varía el número de soluciones generadas en 100, 200 y 300. Además, se consideran de 2 a 16 objetivos simultáneamente y 30 réplicas por cada tratamiento. Los resultados aparecen en la <a href="#fig2">Figura 2</a>
+
+<p align="center">
+<div id="fig1" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/secuencialParalelo.png" height="70%" width="70%"/><br>
+<b>Figura 2.</b> Comparación de implementación secuencial y paralelo de AG.
+</div>
+</p>
+
 
