@@ -51,7 +51,7 @@ Hay una tendencia natural a aumentar el número de objetivos que se consideran s
 
 <p align="center">
 <div id="fig1" style="width:300px; height=200px">
-<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/abejitas.png" height="70%" width="70%"/><br>
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/abejitas.png" height="95%" width="95%"/><br>
 <b>Figura 2.</b> Efecto del número de objetivos en la densidad del frente de Pareto.
 </div>
 </p>
