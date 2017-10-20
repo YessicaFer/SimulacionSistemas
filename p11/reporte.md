@@ -49,7 +49,7 @@ Para determinar si el uso de paralelismo en verdad disminuye el tiempo de ejecuc
 ## ¿Cuántos objetivos considerar?
 Hay una tendencia natural a aumentar el número de objetivos que se consideran simultánemante. Podría pensarse que se está haciendo más realista el problema, lo cuál puede ser cierto. Sin embargo; uno no puede ofrecer un buen método de solución al aire probándolo sobre problemas que decimos nosotros son mas realistas y le aumentamos los objetivos. ¿Porqué? la respuesta puede inferirse a partir de un ejemplo con esta sencilla forma de calcular un frente de Pareto. Se realizó un experimento en donde se varía el número de soluciones generadas en 100, 200 y 300. Además, se consideran de 2 a 16 objetivos simultáneamente y 30 réplicas por cada tratamiento. 
 
-Los resultados del experimento aparecen en la <a href="#fig2">Figura 2</a>, los puntos a colores representan la densidad de los porcentajes de soluciones no dominadas.
+Los resultados del experimento aparecen en la <a href="#fig2">Figura 2</a>, los puntos a colores representan la densidad de los porcentajes de soluciones no dominadas. El número de soluciones sólo se utiliza para agregar variedad al experimento.
 
 <p align="center">
 <div id="fig1" style="width:300px; height=200px">
@@ -66,5 +66,15 @@ Aunque estadísticamente de acuerdo a una prueba de Dunn con 0.001 de significan
 
 Este análisis es muy ilustrativo para quienes trabajan con optimización multiobjetivo y deja una clara advertencia: plantéate si debes seguir tratando de resolver el problema si tiene más de cuatro objetivos...
 
-
+La <a href="#fig2">Figura 2</a> se obtiene con las instrucciones siguientes. No se utilizaron diagramas de violin por la dificultad de escalarlos y tener una buena visualización.
+```R
+library(beeswarm)
+png("abejitas.png",width=1200,height=800)
+par(mar=c(5, 5, 4, 2))
+beeswarm(data=datos,porcentaje~k,col=rainbow(15),pch=19,method = "square",log = FALSE,corral="gutter",corralWidth=1,cex=1.5,cex.axis=2,cex.lab=2,ylab='Porcentaje de soluciones no dominadas',xaxt='n',xlab='Número de funciones objetivo')
+axis(1,at=1:15,labels = rep('',15), cex.axis=2)
+boxplot(data=datos,porcentaje~k,add=TRUE,col= rgb(0,0,1.0,alpha=0),outline=F,xaxt='n',yaxt='n')
+text(labels=2:16, col=rainbow(15),x=1:15+0.25,y=-8.5,srt = 0, pos = 2, xpd = TRUE,cex=2)
+graphics.off()
+```
 
