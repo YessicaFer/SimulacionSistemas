@@ -60,11 +60,11 @@ Los resultados del experimento aparecen en la <a href="#fig2">Figura 2</a>, los 
 
 De aquí podríamos inferir algunas consideraciones a hacer a la hora de hacer un algoritmo multiobjetivo. Primero, no parece muy conveniente utilizarlo cuando se tienen más de cinco objetivos, ¿porqué? pues porque no tiene mucho sentido implementar un algoritmo que busque un subconjunto de soluciones que cada vez se parece más al conjunto original. Esto porque con seis objetivos nuestro subconjunto correspondería al 87% de nuestro conjunto original. Este comportamiento es fácil de visualizar a partir de las cajas de bigotes correspondientes a cada objetivo. 
 
+Observe como el porcentaje de soluciones no dominadas tiene poca variabilidad cuando hay dos objetivos. Ésta comienza a aumentar y en 4, 5 y 6 objetivos es altísima. Podríamos decir que utilizar nuestro algoritmo de búsqueda de soluciones no dominadas sería riesgoso utilizarlo, porque puede suceder que no tenga sentido hacerlo si mi frente es todo el conjunto.
+
 Aunque estadísticamente de acuerdo a una prueba de Dunn con 0.001 de significancia los porcentajes de soluciones no dominadas son equivalentes a partir de ocho objetivos; se graficó hasta 16 objetivos para analizar el cambio en las densidades de los porcentajes. Note como la variabilidad va disminuyendo a medida que aumentamos los objetivos hasta que en 16 ya casi con seguridad toda solución es no dominada.
 
-Observe como el porcentaje de soluciones no dominadas tiene poca variabilidad cuando hay dos objetivos. Ésta comienza a aumentar y en 4, 5 y 6 objetivos es altísima. Podríamos decir que 
+Este análisis es muy ilustrativo para quienes trabajan con optimización multiobjetivo y deja una clara advertencia: plantéate si debes seguir tratando de resolver el problema si tiene más de cuatro objetivos...
 
 
-
-Primero, note como para dos objetivos, la cantidad de soluciones no dominadas es muy pequeña, 18.3% en promedio. A medida que los objetivos aumentan, lo hace también el porcentaje de soluciones no dominadas. A partir de 11 objetivos, en promedio el 99% de las soluciones ¡son no dominadas! De igual forma, se puede analizar el cambio de las densidades respecto a los objetivos mostrando una gran variabilidad para4, 5 y 6 objetivos
 
