@@ -71,7 +71,8 @@ La <a href="#fig2">Figura 2</a> se obtiene con las instrucciones siguientes. No 
 library(beeswarm)
 png("abejitas.png",width=1200,height=800)
 par(mar=c(5, 5, 4, 2))
-beeswarm(data=datos,porcentaje~k,col=rainbow(15),pch=19,method = "square",log = FALSE,corral="gutter",corralWidth=1,cex=1.5,cex.axis=2,cex.lab=2,
+beeswarm(data=datos,porcentaje~k,col=rainbow(15),pch=19,method = "square",
+  log = FALSE,corral="gutter",corralWidth=1,cex=1.5,cex.axis=2,cex.lab=2,
   ylab='Porcentaje de soluciones no dominadas',xaxt='n',
   xlab='Número de funciones objetivo')
 axis(1,at=1:15,labels = rep('',15), cex.axis=2)
