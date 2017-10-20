@@ -47,7 +47,9 @@ Para determinar si el uso de paralelismo en verdad disminuye el tiempo de ejecuc
 </p>
 
 ## ¿Cuántos objetivos considerar?
-Hay una tendencia natural a aumentar el número de objetivos que se consideran simultánemante. Podría pensarse que se está haciendo más realista el problema, lo cuál puede ser cierto. Sin embargo; uno no puede ofrecer un buen método de solución al aire probándolo sobre problemas que decimos nosotros son mas realistas y le aumentamos los objetivos. ¿Porqué? la respuesta puede inferirse a partir de un ejemplo con esta sencilla forma de calcular un frente de Pareto. Se realizó un experimento en donde se varía el número de soluciones generadas en 100, 200 y 300. Además, se consideran de 2 a 16 objetivos simultáneamente y 30 réplicas por cada tratamiento. Los resultados aparecen en la <a href="#fig2">Figura 2</a>
+Hay una tendencia natural a aumentar el número de objetivos que se consideran simultánemante. Podría pensarse que se está haciendo más realista el problema, lo cuál puede ser cierto. Sin embargo; uno no puede ofrecer un buen método de solución al aire probándolo sobre problemas que decimos nosotros son mas realistas y le aumentamos los objetivos. ¿Porqué? la respuesta puede inferirse a partir de un ejemplo con esta sencilla forma de calcular un frente de Pareto. Se realizó un experimento en donde se varía el número de soluciones generadas en 100, 200 y 300. Además, se consideran de 2 a 16 objetivos simultáneamente y 30 réplicas por cada tratamiento. 
+
+Los resultados del experimento aparecen en la <a href="#fig2">Figura 2</a>, los puntos a colores representan la densidad de los porcentajes de soluciones no dominadas.
 
 <p align="center">
 <div id="fig1" style="width:300px; height=200px">
@@ -56,4 +58,13 @@ Hay una tendencia natural a aumentar el número de objetivos que se consideran s
 </div>
 </p>
 
+De aquí podríamos inferir algunas consideraciones a hacer a la hora de hacer un algoritmo multiobjetivo. Primero, no parece muy conveniente utilizarlo cuando se tienen más de cinco objetivos, ¿porqué? pues porque no tiene mucho sentido implementar un algoritmo que busque un subconjunto de soluciones que cada vez se parece más al conjunto original. Esto porque con seis objetivos nuestro subconjunto correspondería al 87% de nuestro conjunto original. Este comportamiento es fácil de visualizar a partir de las cajas de bigotes correspondientes a cada objetivo. 
+
+Aunque estadísticamente de acuerdo a una prueba de Dunn con 0.001 de significancia los porcentajes de soluciones no dominadas son equivalentes a partir de ocho objetivos; se graficó hasta 16 objetivos para analizar el cambio en las densidades de los porcentajes. Note como la variabilidad va disminuyendo a medida que aumentamos los objetivos hasta que en 16 ya casi con seguridad toda solución es no dominada.
+
+Observe como el porcentaje de soluciones no dominadas tiene poca variabilidad cuando hay dos objetivos. Ésta comienza a aumentar y en 4, 5 y 6 objetivos es altísima. Podríamos decir que 
+
+
+
+Primero, note como para dos objetivos, la cantidad de soluciones no dominadas es muy pequeña, 18.3% en promedio. A medida que los objetivos aumentan, lo hace también el porcentaje de soluciones no dominadas. A partir de 11 objetivos, en promedio el 99% de las soluciones ¡son no dominadas! De igual forma, se puede analizar el cambio de las densidades respecto a los objetivos mostrando una gran variabilidad para4, 5 y 6 objetivos
 
