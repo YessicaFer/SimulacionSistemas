@@ -89,15 +89,16 @@ Dado un frente de Pareto (o un frente incumbente) <img src="http://latex.codecog
 <p align="center">
 <img src="http://latex.codecogs.com/svg.latex?M_{\mathcal{F}}=\sum_{[i]=1}^{n-1}\text{d}(i,i+1)" border="0"/>, 
  </p> 
+ 
  <p align="justified">
  donde <img src="http://latex.codecogs.com/svg.latex?n=|\mathcal{F}|" border="0"/>  y <img src="http://latex.codecogs.com/svg.latex?\text{d}(i,j)" border="0"/> corresponde a la distancia entre los puntos <img src="http://latex.codecogs.com/svg.latex?i" border="0"/>
   y <img src="http://latex.codecogs.com/svg.latex?j" border="0"/>.
   
   La diversidad relativa <img src="http://latex.codecogs.com/svg.latex?\text{D}(\cdot)" border="0"/> de un subconjunto del frente de Pareto <img src="http://latex.codecogs.com/svg.latex?\mathcal{F_S}\subseteq\mathcal{F}" border="0"/>, se define como el porcentaje
-</p> de la medida de <img src="http://latex.codecogs.com/svg.latex?\mathcal{F_S}" border="0"/> respecto a la medida de <img src="http://latex.codecogs.com/svg.latex?\mathcal{F}" border="0"/> proporcional a su cardinalidad. Es decir;
+de la medida de <img src="http://latex.codecogs.com/svg.latex?\mathcal{F_S}" border="0"/> respecto a la medida de <img src="http://latex.codecogs.com/svg.latex?\mathcal{F}" border="0"/> proporcional a su cardinalidad. Es decir;
 </p>
 <p align="center">
-<img src="http://latex.codecogs.com/svg.latex?\text{D}(\mathcal{F_S})=\frac{1}{|\mathcal{F_S})}\frac{100M_{\mathcal{F_S}}}{M_{\mathcal{F}}}" border="0"/>, 
+<img src="http://latex.codecogs.com/svg.latex?\text{D}(\mathcal{F_S})=\frac{1}{|\mathcal{F_S}|}\frac{100M_{\mathcal{F_S}}}{M_{\mathcal{F}}}" border="0"/>, 
  </p> 
 
 
