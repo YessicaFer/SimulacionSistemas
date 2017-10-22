@@ -134,6 +134,12 @@ diversidad <- function(seleccion){
 ```
 
 ### Métodos de selección
+Se probaron dos métodos de selección del subconjunto. Uno basado en 
 
 
 
+
+## Referencias
+<blockquote><p>This is a longer block quote.</p>
+  <p>It uses paragraph elements.</p>
+</blockquote>
