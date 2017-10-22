@@ -101,5 +101,8 @@ de la medida de <img src="http://latex.codecogs.com/svg.latex?\mathcal{F_S}" bor
 <img src="http://latex.codecogs.com/svg.latex?\text{D}(\mathcal{F_S})=\frac{1}{|\mathcal{F_S}|}\frac{100M_{\mathcal{F_S}}}{M_{\mathcal{F}}}" border="0"/>, 
  </p> 
 
+<p align="justified">
+  Con esta definición, se puede asegurar que <img src="http://latex.codecogs.com/svg.latex?M_{\mathcal{F}}<=M_{\mathcal{F_S}}\quad\forall\mathcal{F_S}\in2^{\mathcal{F}}" border="0"/>
+
 
 
