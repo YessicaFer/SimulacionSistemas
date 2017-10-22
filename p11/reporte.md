@@ -134,7 +134,7 @@ diversidad <- function(seleccion){
 ```
 <blockquote cite="http://ieeexplore.ieee.org/document/6782674/">
 <p>Se pueden encontrar otras métricas de diversidad en </p>
-<footer>— <a href="http://www.imdb.com/character/ch0000672/quotes">Li, M., Yang, S., & Liu, X. (2014). Diversity comparison of Pareto front approximations in many-objective optimization. IEEE Transactions on Cybernetics, 44(12), 2568-2584.</a></footer>
+<footer>— <a href="http://bura.brunel.ac.uk/bitstream/2438/12056/1/DCI.pdf">Li, M., Yang, S., & Liu, X. (2014). Diversity comparison of Pareto front approximations in many-objective optimization. IEEE Transactions on Cybernetics, 44(12), 2568-2584.</a></footer>
 </blockquote>
 ### Métodos de selección
 Se probaron dos métodos de selección del subconjunto. Uno basado en 
