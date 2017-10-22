@@ -80,4 +80,10 @@ boxplot(data=datos,porcentaje~k,add=TRUE,col= rgb(0,0,1.0,alpha=0),outline=F,xax
 text(labels=2:16, col=rainbow(15),x=1:15+0.25,y=-8.5,srt = 0, pos = 2, xpd = TRUE,cex=2)
 graphics.off()
 ```
+## Selección diversificada
+El primer reto consta de seleccionar un subconjunto diversificado del frente de Pareto. Es decir, un subconjunto de soluciones que no se encuentren muy cerca unas de otras. Es complicado hacer una estimación de cuan agrupadas estás las soluciones seleccionadas. En un intento por medir el nivel de diversificación se propone la siguiente métrica:
+
+Sea <img src="http://latex.codecogs.com/svg.latex?M_F" border="0"/>
+
+
 
