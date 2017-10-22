@@ -84,9 +84,14 @@ graphics.off()
 <p align="justified">
 El primer reto consta de seleccionar un subconjunto diversificado del frente de Pareto. Es decir, un subconjunto de soluciones que no se encuentren muy cerca unas de otras. Es complicado hacer una estimación de cuan agrupadas estás las soluciones seleccionadas. En un intento por medir el nivel de diversificación se propone la siguiente métrica:
 
-Dado un frente de Pareto (o un frente incumbente) <img src="http://latex.codecogs.com/svg.latex?\mathcal{F}" border="0"/> y una secuencia de recorrido u orden de las soluciones no dominadas <img src="http://latex.codecogs.com/svg.latex?S" border="0"/>, este puede ser el orden creciente en un objetivo. Por facilidad denotamos como <img src="http://latex.codecogs.com/svg.latex?[i]" border="0"/>  al indice en el orden <img src="http://latex.codecogs.com/svg.latex?S" border="0"/> correspondiente al <img src="http://latex.codecogs.com/svg.latex?i" border="0"/>-ésimo elemento de <img src="http://latex.codecogs.com/svg.latex?\mathcal{F}" border="0"/>.  Sea <img src="http://latex.codecogs.com/svg.latex?M_{\mathcal{F}}=\sum_{[i]=1}^{n-1}\text{d}(i,i+1)" border="0"/>, donde <img src="http://latex.codecogs.com/svg.latex?n=|\mathcal{F}|" border="0"/>  
-
-
+Dado un frente de Pareto (o un frente incumbente) <img src="http://latex.codecogs.com/svg.latex?\mathcal{F}" border="0"/> y una secuencia de recorrido u orden de las soluciones no dominadas <img src="http://latex.codecogs.com/svg.latex?S" border="0"/>, este puede ser el orden creciente en un objetivo. Por facilidad denotamos como <img src="http://latex.codecogs.com/svg.latex?[i]" border="0"/>  al indice en el orden <img src="http://latex.codecogs.com/svg.latex?S" border="0"/> correspondiente al <img src="http://latex.codecogs.com/svg.latex?i" border="0"/>-ésimo elemento de <img src="http://latex.codecogs.com/svg.latex?\mathcal{F}" border="0"/>.  Sea
 </p>
+<p align="jcenter">
+<img src="http://latex.codecogs.com/svg.latex?M_{\mathcal{F}}=\sum_{[i]=1}^{n-1}\text{d}(i,i+1)" border="0"/>, 
+ </p> 
+ donde <img src="http://latex.codecogs.com/svg.latex?n=|\mathcal{F}|" border="0"/>  
+
+
+
 
 
