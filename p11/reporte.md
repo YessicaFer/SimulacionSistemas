@@ -104,7 +104,7 @@ de la medida de <img src="http://latex.codecogs.com/svg.latex?\mathcal{F_S}" bor
  </p> 
 
 <p align="justified">
-  Con esta definición, se puede asegurar que <img src="http://latex.codecogs.com/svg.latex?M_{\mathcal{F}}\leqM_{\mathcal{F_S}},\quad\forall\mathcal{F_S}\in2^{\mathcal{F}}" border="0"/>, con lo que la métrica puede ser utilizada como medida de diversidad. 
+  Con esta definición, se puede asegurar que <img src="http://latex.codecogs.com/svg.latex?M_{\mathcal{F}}\leq{M}_{\mathcal{F_S}},\quad\forall\mathcal{F_S}\in2^{\mathcal{F}}" border="0"/>, con lo que la métrica puede ser utilizada como medida de diversidad. 
   
  Para implementarla, se ordena el frente de forma creciente para el primer objetivo y se utiliza la distancia Manhattan. La medida de un frente se calcula con la función:
  ```R
