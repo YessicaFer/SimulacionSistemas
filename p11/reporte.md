@@ -84,7 +84,7 @@ graphics.off()
 <p align="justified">
 El primer reto consta de seleccionar un subconjunto diversificado del frente de Pareto. Es decir, un subconjunto de soluciones que no se encuentren muy cerca unas de otras. Es complicado hacer una estimación de cuan agrupadas estás las soluciones seleccionadas. En un intento por medir el nivel de diversificación se propone la siguiente métrica:
 
-Dado un frente de Pareto (o un frente incumbente) <img src="http://latex.codecogs.com/svg.latex?\mathcal{F}" border="0"/> y una secuencia de recorrido u orden de las soluciones no dominadas <img src="http://latex.codecogs.com/svg.latex?S" border="0"/>. Por facilidad denotamos como <img src="http://latex.codecogs.com/svg.latex?[i]" border="0"/>  al indice en el orden <img src="http://latex.codecogs.com/svg.latex?S" border="0"/> correspondiente al <img src="http://latex.codecogs.com/svg.latex?i" border="0"/>-ésimo elemento de <img src="http://latex.codecogs.com/svg.latex?\mathcal{F}" border="0"/>.  Sea
+Dado un frente de Pareto (o un frente incumbente) <img src="http://latex.codecogs.com/svg.latex?\mathcal{F}" border="0"/> y una secuencia de recorrido u orden de las soluciones no dominadas <img src="http://latex.codecogs.com/svg.latex?S" border="0"/>. Por facilidad denotamos como <img src="http://latex.codecogs.com/svg.latex?[i]" border="0"/>  al indice en el orden <img src="http://latex.codecogs.com/svg.latex?S" border="0"/> correspondiente al <img src="http://latex.codecogs.com/svg.latex?i" border="0"/>-ésimo elemento de <img src="http://latex.codecogs.com/svg.latex?\mathcal{F}" border="0"/>.  La medida del frente se define como
 </p>
 <p align="center">
 <img src="http://latex.codecogs.com/svg.latex?M_{\mathcal{F}}=\sum_{[i]=1}^{n-1}\text{d}(i,i+1)" border="0"/>, 
@@ -93,9 +93,12 @@ Dado un frente de Pareto (o un frente incumbente) <img src="http://latex.codecog
  donde <img src="http://latex.codecogs.com/svg.latex?n=|\mathcal{F}|" border="0"/>  y <img src="http://latex.codecogs.com/svg.latex?\text{d}(i,j)" border="0"/> corresponde a la distancia entre los puntos <img src="http://latex.codecogs.com/svg.latex?i" border="0"/>
   y <img src="http://latex.codecogs.com/svg.latex?j" border="0"/>.
   
-  La diversidad relativa <img src="http://latex.codecogs.com/svg.latex?\text{D}(\cdot)" border="0"/> de un subconjunto del frente de Pareto <img src="http://latex.codecogs.com/svg.latex?\mathcal{F_S}\subseteq\mathcal{F}" border="0"/>
+  La diversidad relativa <img src="http://latex.codecogs.com/svg.latex?\text{D}(\cdot)" border="0"/> de un subconjunto del frente de Pareto <img src="http://latex.codecogs.com/svg.latex?\mathcal{F_S}\subseteq\mathcal{F}" border="0"/>, se define como el porcentaje
+</p> de la medida de <img src="http://latex.codecogs.com/svg.latex?\mathcal{F_S}" border="0"/> respecto a la medida de <img src="http://latex.codecogs.com/svg.latex?\mathcal{F}" border="0"/> proporcional a su cardinalidad. Es decir;
 </p>
-
+<p align="center">
+<img src="http://latex.codecogs.com/svg.latex?\text{D}(\mathcal{F_S})=\frac{1}{|\mathcal{F_S})}\frac{100M_{\mathcal{F_S}}}{M_{\mathcal{F}}}" border="0"/>, 
+ </p> 
 
 
 
