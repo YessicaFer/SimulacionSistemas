@@ -93,7 +93,7 @@ Dado un frente de Pareto (o un frente incumbente) <img src="http://latex.codecog
  donde <img src="http://latex.codecogs.com/svg.latex?n=|\mathcal{F}|" border="0"/>  y <img src="http://latex.codecogs.com/svg.latex?\text{d}(i,j)" border="0"/> corresponde a la distancia entre los puntos <img src="http://latex.codecogs.com/svg.latex?i" border="0"/>
   y <img src="http://latex.codecogs.com/svg.latex?j" border="0"/>.
   
-  La diversidad relativa <img src="http://latex.codecogs.com/svg.latex?\text{D}(\cdot)" border="0"/> de un subconjunto del frente de Pareto <img src="http://latex.codecogs.com/svg.latex?\mathcal{f}\subseteq\mathcal{F}" border="0"/>
+  La diversidad relativa <img src="http://latex.codecogs.com/svg.latex?\text{D}(\cdot)" border="0"/> de un subconjunto del frente de Pareto <img src="http://latex.codecogs.com/svg.latex?\mathcal{F_S}\subseteq\mathcal{F}" border="0"/>
 </p>
 
 
