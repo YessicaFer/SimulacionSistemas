@@ -82,8 +82,10 @@ graphics.off()
 ```
 ## Selección diversificada
 <p align="justified">
-El primer reto consta de seleccionar un subconjunto diversificado del frente de Pareto. Es decir, un subconjunto de soluciones que no se encuentren muy cerca unas de otras. Es complicado hacer una estimación de cuan agrupadas estás las soluciones seleccionadas. En un intento por medir el nivel de diversificación se propone la siguiente métrica:
-
+El primer reto consta de seleccionar un subconjunto diversificado del frente de Pareto. Es decir, un subconjunto de soluciones que no se encuentren muy cerca unas de otras. Es complicado hacer una estimación de cuan agrupadas estás las soluciones seleccionadas. En un intento por medir el nivel de diversificación se propone una métrica para cuantificarla.
+  
+  
+### Medida de diversidad relativa
 Dado un frente de Pareto (o un frente incumbente) <img src="http://latex.codecogs.com/svg.latex?\mathcal{F}" border="0"/> y una secuencia de recorrido u orden de las soluciones no dominadas <img src="http://latex.codecogs.com/svg.latex?S" border="0"/>. Por facilidad denotamos como <img src="http://latex.codecogs.com/svg.latex?[i]" border="0"/>  al indice en el orden <img src="http://latex.codecogs.com/svg.latex?S" border="0"/> correspondiente al <img src="http://latex.codecogs.com/svg.latex?i" border="0"/>-ésimo elemento de <img src="http://latex.codecogs.com/svg.latex?\mathcal{F}" border="0"/>.  La medida del frente se define como
 </p>
 <p align="center">
@@ -102,7 +104,36 @@ de la medida de <img src="http://latex.codecogs.com/svg.latex?\mathcal{F_S}" bor
  </p> 
 
 <p align="justified">
-  Con esta definición, se puede asegurar que <img src="http://latex.codecogs.com/svg.latex?M_{\mathcal{F}}<=M_{\mathcal{F_S}}\quad\forall\mathcal{F_S}\in2^{\mathcal{F}}" border="0"/>
+  Con esta definición, se puede asegurar que <img src="http://latex.codecogs.com/svg.latex?M_{\mathcal{F}}\leqM_{\mathcal{F_S}},\quad\forall\mathcal{F_S}\in2^{\mathcal{F}}" border="0"/>, con lo que la métrica puede ser utilizada como medida de diversidad. 
+  
+ Para implementarla, se ordena el frente de forma creciente para el primer objetivo y se utiliza la distancia Manhattan. La medida de un frente se calcula con la función:
+ ```R
+ medida <- function (frente){
+  nf=length(frente)  
+  orden=sort(frente,index.return=T)
+  posibles=frente[orden$ix]
+  suma=0
+  while(length(posibles)>1){
+    x=posibles[1]
+    posibles=posibles[2:length(posibles)]
+    suma=suma+min(sapply(posibles,function(y){return(manhattan(x,y))}))
+  }  
+  return(suma)
+}
+```
+
+y la diversidad con
+```R
+diversidad <- function(seleccion){
+  if(length(which(no.dom))==1){
+    return (0)
+  }else{
+    return(100*medida(seleccion)/(medida(which(no.dom) )*length(seleccion)))
+  }
+}
+```
+
+### Métodos de selección
 
 
 
