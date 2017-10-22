@@ -132,13 +132,50 @@ diversidad <- function(seleccion){
   }
 }
 ```
-<blockquote cite="http://ieeexplore.ieee.org/document/6782674/">
+<blockquote>
 <p>Se pueden encontrar otras métricas de diversidad en </p>
 <footer>— <a href="http://ieeexplore.ieee.org/document/6782674/">Li, M., Yang, S., & Liu, X. (2014). Diversity comparison of Pareto front approximations in many-objective optimization. IEEE Transactions on Cybernetics, 44(12), 2568-2584.</a></footer>
 </blockquote>
-### Métodos de selección
-Se probaron dos métodos de selección del subconjunto. Uno basado en 
 
+### Métodos de selección
+
+#### Descartando nichos de soluciones
+Para encontrar el subconjunto diverso se ordenan las soluciones de acuerdo a uno de los objetivos y se inicia en la mejor solución correspondiente al objetivo seleccionado. A partir de la solución seleccionada, se descartan las soluciones que esten a una distancia menor que un umbral. Cuando se localiza la siguiente solución que no puede ser descartada, se selecciona y se repite mientras queden soluciones. El resultado es un subconjunto de soluciones que no están agrupadas (o en nichos) y están a una distancia de al menos el umbral entre ellas. Obviamente, la selección del umbral es un parámetro, en este caso se consideró como la décima parte de la medida del subconjunto que tiene las mejores soluciones de cada objetivo. 
+
+Este procedimiento se podría hacer seleccionando una solución aleatoriemente y después eliminar las que estén a menos de un umbral de ésta. Sin embargo, el proceso de determinar las cercanas es tardado y si se ordenan las soluciones desde un inicio (al menos para dos objetivos) se pueden descartar fácilmente las soluciones cercanas.
+
+```R
+seleccionM <- parSapply(cluster,1:k,function(i){return(which.max(sign[i] * val[,i]))})
+        posibles=setdiff(which(no.dom),seleccionM)
+        orden=sort(val[posibles,1],index.return=T)$ix
+        umbral=manhattan(seleccionM[1],seleccionM[2])/10
+        #Eliminar cercanos
+        i=1
+        j=1
+        quitar=c()
+        while(TRUE){
+          if(length(orden)<j)break
+          if (manhattan(seleccionM[i],posibles[orden[j]])<umbral){ #lEiminar
+            quitar=c(quitar,orden[j])
+            j=j+1
+          }else{
+            seleccionM=c(seleccionM,posibles[orden[j]])
+            quitar=c(quitar,orden[j])
+            orden=setdiff(orden,quitar)
+            i=length(seleccionM)
+            j=1
+            quitar=c()
+          }
+```
+
+#### Utilizando distancia de hacinamiento
+El segundo método de selcción se hace utilizando la distancia de hacinamiento o crowding-distance. Esta "distancia" podría verse como una medida que indica que tan hacinada está cada solución, midiendo la distancia que hay entre un punto y los dos que están a sus lados, respecto a cada uno de los objetivos.
+<blockquote>
+<p>La distancia de hacinamiento se describe  a detalle en </p>
+<footer>— <a href="http://ieeexplore.ieee.org/abstract/document/996017/">Deb, K., Pratap, A., Agarwal, S., & Meyarivan, T. A. M. T. (2002). A fast and elitist multiobjective genetic algorithm: NSGA-II. IEEE transactions on evolutionary computation, 6(2), 182-197.</a></footer>
+</blockquote>
+
+Si determinamos 
 
 
 
