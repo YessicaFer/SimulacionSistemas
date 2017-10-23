@@ -200,9 +200,9 @@ Los resultados del experimento se observan en la <a href="#fig4">Figura 4</a>.
 
 <p align="center">
 <div id="fig3" style="width:300px; height=200px">
-<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/DiversidadDiversidad.png" height="50%" width="50%"/>
-<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/DiversidadTiempo.png" height="50%" width="50%"/><br>
-<b>Figura 3.</b> Comparación entre métodos de selección.
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/DiversidadDiversidad.png" height="45%" width="45%"/>
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/DiversidadTiempo.png" height="45%" width="45%"/><br>
+<b>Figura 4.</b> Resultados de comparación entre métodos de selección.
 </div>
 </p>
 
