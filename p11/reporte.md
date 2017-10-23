@@ -223,6 +223,37 @@ factibilidad=rep(0,n) #todos son factibles
 ```
 
 ### Aptitud
-Se considera como valor de aptitud de un individuo al número de soluciones que lo dominan. Esto es, entre menos individuos lo dominen, más posibilidades tiene de estar en el frente de Pareto. Así, aquellos con aptitud de cero conforman el frente incumbente.
-Para manejar la factibilidad se añade en la aptitud el grado de infactibilidad de la solución medida como la distancia al intervalo [0,1] en cada objetivo
+Se considera como parte de la aptitud de un individuo al número de soluciones que lo dominan. Esto es, entre menos individuos lo dominen, más posibilidades tiene de estar en el frente de Pareto. Para manejar la factibilidad se añade en la aptitud el grado de infactibilidad de la solución medida como la distancia al intervalo [0,1] en cada objetivo. Así, aquellos con aptitud de cero conforman el frente incumbente.
+```R
+aptitud=parSapply(cluster,1:tam,function(i){
+  d <- logical()
+  for (j in 1:n) {
+    d <- c(d, domin.by(sign * val[i,], sign * val[j,], k))
+  }
+  cuantos <- sum(d)
+  return(cuantos)
+})    
+no.dom = (aptitud+factibilidad)==0
+frente <- subset(val, no.dom) # solamente las no dominadas
+```
 
+### Mutación
+Se considera que un individuo muta con probabilidad `pm` haciendo una perturbación aletaoria en algunas de sus variables. Primero se seleccionan cuántas y cuáles variables van a cambier y a éstas se les agrega una perturbación elegida uniformemente en el intervalo [-0.1,0.1].
+```R
+mutacion <- function(solu) {
+  cuantos=sample(1:vc,1)#cuantos 
+  cuales=sample(1:vc,cuantos) #cuales  
+  for(i in cuales){
+    solu[i]=solu[i]+runif(1,-0.1,0.1) #como
+  }  
+  return(solu)
+}
+```
+
+### Reproducción
+En el algoritmo se seleccionan `rep` parejas de padres para reproducirse. Dados dos padres se les aplica un cruzamiento denominado BLX-<img src="http://latex.codecogs.com/svg.latex?\alpha" border="0"/> para variables continuas. La idea es que cada gen de un hijo se encuentre a no más de una distancia <img src="http://latex.codecogs.com/svg.latex?\alpha" border="0"/> del gen correspondiente de cualquiera de sus padres.
+
+<blockquote>
+<p>El cruzamiento BLX-<img src="http://latex.codecogs.com/svg.latex?\alpha" border="0"/> se describe en:</p>
+<footer>— <a href="https://pdfs.semanticscholar.org/11ec/6378801e6f8a800260b565439ff1cd9c5f5a.pdf">Fonseca, C. M., & Fleming, P. J. (1993, June). Genetic Algorithms for Multiobjective Optimization: FormulationDiscussion and Generalization. In Icga (Vol. 93, No. July, pp. 416-423).</a></footer>
+</blockquote>
