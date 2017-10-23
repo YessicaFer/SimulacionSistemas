@@ -52,7 +52,7 @@ Hay una tendencia natural a aumentar el número de objetivos que se consideran s
 Los resultados del experimento aparecen en la <a href="#fig2">Figura 2</a>, los puntos a colores representan la densidad de los porcentajes de soluciones no dominadas. El número de soluciones sólo se utiliza para agregar variedad al experimento.
 
 <p align="center">
-<div id="fig1" style="width:300px; height=200px">
+<div id="fig2" style="width:300px; height=200px">
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/abejitas.png" height="95%" width="95%"/><br>
 <b>Figura 2.</b> Efecto del número de objetivos en la densidad del frente de Pareto.
 </div>
@@ -146,26 +146,26 @@ Este procedimiento se podría hacer seleccionando una solución aleatoriemente y
 
 ```R
 seleccionM <- parSapply(cluster,1:k,function(i){return(which.max(sign[i] * val[,i]))})
-        posibles=setdiff(which(no.dom),seleccionM)
-        orden=sort(val[posibles,1],index.return=T)$ix
-        umbral=manhattan(seleccionM[1],seleccionM[2])/10
-        #Eliminar cercanos
-        i=1
-        j=1
-        quitar=c()
-        while(TRUE){
-          if(length(orden)<j)break
-          if (manhattan(seleccionM[i],posibles[orden[j]])<umbral){ #lEiminar
-            quitar=c(quitar,orden[j])
-            j=j+1
-          }else{
-            seleccionM=c(seleccionM,posibles[orden[j]])
-            quitar=c(quitar,orden[j])
-            orden=setdiff(orden,quitar)
-            i=length(seleccionM)
-            j=1
-            quitar=c()
-          }
+posibles=setdiff(which(no.dom),seleccionM)
+orden=sort(val[posibles,1],index.return=T)$ix
+umbral=manhattan(seleccionM[1],seleccionM[2])/10
+#Eliminar cercanos
+i=1
+j=1
+quitar=c()
+while(TRUE){
+  if(length(orden)<j)break
+  if (manhattan(seleccionM[i],posibles[orden[j]])<umbral){ #lEiminar
+    quitar=c(quitar,orden[j])
+    j=j+1
+  }else{
+    seleccionM=c(seleccionM,posibles[orden[j]])
+    quitar=c(quitar,orden[j])
+    orden=setdiff(orden,quitar)
+    i=length(seleccionM)
+    j=1
+    quitar=c()
+  }
 ```
 
 #### Utilizando distancia de hacinamiento
@@ -175,7 +175,7 @@ El segundo método de selcción se hace utilizando la distancia de hacinamiento 
 <footer>— <a href="http://ieeexplore.ieee.org/abstract/document/996017/">Deb, K., Pratap, A., Agarwal, S., & Meyarivan, T. A. M. T. (2002). A fast and elitist multiobjective genetic algorithm: NSGA-II. IEEE transactions on evolutionary computation, 6(2), 182-197.</a></footer>
 </blockquote>
 
-Si determinamos que tan hacinada está cada solución, basta con seleccionar las menos hacinadas (mayor distancia de hacinamiento) y tendremos un subconjunto diversificado. La pregunta es... ¿cuántas soluciones seleccionamos? Para poder comparar seleccionamos la misma cantidad de soluciones que se seleccionan con el método anterior.
+Si determinamos que tan hacinada está cada solución, basta con seleccionar las menos hacinadas (mayor distancia de hacinamiento) y tendremos un subconjunto diversificado. La pregunta es... ¿cuántas soluciones seleccionamos? Para poder comparar, seleccionamos la misma cantidad de soluciones que se seleccionan con el método anterior.
 
 ```R
  distancia=crowding.distance(frente)
@@ -183,5 +183,13 @@ Si determinamos que tan hacinada está cada solución, basta con seleccionar las
  seleccionC=which(no.dom)[temp$ix[1:length(seleccionM)]]
 ```
 
+#### Comparación
+Visualmente se puede observar como ejemplo en la <a href="#fig3">Figura 3</a> dos selecciones (en rojo) de soluciones no dominadas utilizando los dieferentes métodos de selección
 
 
+<p align="center">
+<div id="fig3" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/diversidad.png" height="95%" width="95%"/><br>
+<b>Figura 3.</b> Comparación entre métodos de selección.
+</div>
+</p>
