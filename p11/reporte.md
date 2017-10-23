@@ -195,14 +195,34 @@ Visualmente se puede observar como ejemplo en la <a href="#fig3">Figura 3</a> do
 
 Para poder determinar si existe un mejor método de selección, con respecto a nuestra medida de diversidad, se realizó un experimento donde se genera una instancia con <img src="http://latex.codecogs.com/svg.latex?k" border="0"/> objetivos, se generan <img src="http://latex.codecogs.com/svg.latex?n" border="0"/> soluciones y sus correspondientes evaluaciones. A partir de éstas últimas se encuentra el frente de Pareto y se procede a seleccionar dos subconjuntos, primero descartando nichos y después usando la distancia de hacinamiento, ambas con la misma cardinalidad. Se desarrollaron instancias con 2, 3 y 4 objetivos y 100, 200 y 300 soluciones. Para cada tratamiento se realizaron 30 réplicas. Además de la diversidad de la selección se midió el tiempo de ejecución para cada método.
 
-Los resultados del experimento se observan en la <a href="#fig4">Figura 4</a>.
-
+Los resultados del experimento se observan en la <a href="#fig4">Figura 4</a>. Note como hay una clara diferencia en los resultados de los métodos de selección. El método de selección por nichos tiene una mayor diversidad y en un tiempo menor que el que usa distancia de hacinmainto, haciéndolo claro ganador. Como observación adicional, note como la medida de diversidad de los subconjuntos se ve afectada por el número de objetivos con una tendencia decreciente.
 
 <p align="center">
-<div id="fig3" style="width:300px; height=200px">
+<div id="fig4" style="width:300px; height=200px">
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/DiversidadDiversidad.png" height="45%" width="45%"/>
 <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/DiversidadTiempo.png" height="45%" width="45%"/><br>
 <b>Figura 4.</b> Resultados de comparación entre métodos de selección.
 </div>
 </p>
+
+## En busca del frente de Pareto
+El último reto consta de adaptar el algoritmo genético de la práctica 10 para buscar el frente de Pareto. Básicamente se plantean enseguida los métodos y operadores esenciales del algoritmo y las instrucciones que lo implementan. En cada paso se trató de paralelizar todo lo posible para disminuir el tiempo de ejecución, aunque no se compara con una versión secuencial. 
+
+### Población inicial
+Se hace la consideración de que una solución es factible si está dentro del cuadrado unitario. Esto para manejar restricciones en el algoritmo. La población inicial consta de `n`individuos factibles
+```R
+sol <- matrix(runif(vc * n), nrow=n, ncol=vc)    
+#evaluación de soluciones
+val=matrix(parSapply(cluster,1:(k*n),function(pos){
+  i <- floor((pos - 1) / k) + 1
+  j <- ((pos - 1) %% k) + 1
+  return(eval(obj[[j]], sol[i,], tc))
+}), nrow=n, ncol=k, byrow=TRUE)
+tam=n
+factibilidad=rep(0,n) #todos son factibles
+```
+
+### Aptitud
+Se considera como valor de aptitud de un individuo al número de soluciones que lo dominan. Esto es, entre menos individuos lo dominen, más posibilidades tiene de estar en el frente de Pareto. Así, aquellos con aptitud de cero conforman el frente incumbente.
+Para manejar la factibilidad se añade en la aptitud el grado de infactibilidad de la solución medida como la distancia al intervalo [0,1] en cada objetivo
 
