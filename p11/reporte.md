@@ -184,8 +184,7 @@ Si determinamos que tan hacinada está cada solución, basta con seleccionar las
 ```
 
 #### Comparación
-Visualmente se puede observar como ejemplo en la <a href="#fig3">Figura 3</a> dos selecciones (en rojo) de soluciones no dominadas utilizando los dieferentes métodos de selección
-
+Visualmente se puede observar como ejemplo en la <a href="#fig3">Figura 3</a> dos selecciones (en rojo) de soluciones no dominadas utilizando los diferentes métodos de selección. Se observa una selección de soluciones, aunque claramente cada método seleccionó un subconjunto diferente. En la esquina inferior izquierda también se muestra el valor de su diversidad calculado con la métrica descrita, en este caso la selección por nichos es mejor que la que uas distancia de hacinamiento.
 
 <p align="center">
 <div id="fig3" style="width:300px; height=200px">
@@ -193,3 +192,17 @@ Visualmente se puede observar como ejemplo en la <a href="#fig3">Figura 3</a> do
 <b>Figura 3.</b> Comparación entre métodos de selección.
 </div>
 </p>
+
+Para poder determinar si existe un mejor método de selección, con respecto a nuestra medida de diversidad, se realizó un experimento donde se genera una instancia con <img src="http://latex.codecogs.com/svg.latex?k" border="0"/> objetivos, se generan <img src="http://latex.codecogs.com/svg.latex?n" border="0"/> soluciones y sus correspondientes evaluaciones. A partir de éstas últimas se encuentra el frente de Pareto y se procede a seleccionar dos subconjuntos, primero descartando nichos y después usando la distancia de hacinamiento, ambas con la misma cardinalidad. Se desarrollaron instancias con 2, 3 y 4 objetivos y 100, 200 y 300 soluciones. Para cada tratamiento se realizaron 30 réplicas. Además de la diversidad de la selección se midió el tiempo de ejecución para cada método.
+
+Los resultados del experimento se observan en la <a href="#fig4">Figura 4</a>.
+
+
+<p align="center">
+<div id="fig3" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/DiversidadDiversidad.png" height="50%" width="50%"/>
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/DiversidadTiempo.png" height="50%" width="50%"/><br>
+<b>Figura 3.</b> Comparación entre métodos de selección.
+</div>
+</p>
+
