@@ -277,14 +277,13 @@ elite <- order(factibilidad, aptitud)
 mantener=elite[1:n]
 ```
 
-### Resultados
-La población evoluciona por `tmax`generaciones y el resultado es una aproximación al frente de Pareto. La <a href="#fig5">Figura 5</a> muestra algunos ejemplos de la evolución de algunos problemas instancia de dos objetivos. En negro se grafican todas las soluciones en el espacio de los objetivos, en verde las soluciones que se encuentran en el frente de Pareto incumbente y, en rojo las soluciones infactibles.
+### Resultados visuales
+La población evoluciona por `tmax`generaciones y el resultado es una aproximación al frente de Pareto. La <a href="#fig5">Figura 5</a> muestra algunos ejemplos de la evolución de algunos problemas instancia de dos objetivos. En negro se grafican todas las soluciones en el espacio de los objetivos, en verde las soluciones que se encuentran en el frente de Pareto incumbente y, en rojo las soluciones infactibles. En la izquierda se observa un ejemplo de un problema min-max y el segundo max-min.
 
 <p align="center">
 <div id="fig5" style="width:300px; height=200px">
-<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/evolucion_mono.gif" height="30%" width="30%"/>
-  <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/evolucion_min_max.gif" height="30%" width="30%"/>
-  <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/evolucion_max_min.gif" height="30%" width="30%"/><br>
+  <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/evolucion_min_max.gif" height="45%" width="45%"/>
+  <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/evolucion_max_min.gif" height="45%" width="45%"/><br>
 <b>Figura 5.</b> Visualización del algoritmo genético.
 </div>
 </p>
