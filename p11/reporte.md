@@ -208,7 +208,7 @@ Los resultados del experimento se observan en la <a href="#fig4">Figura 4</a>. N
 ## En busca del frente de Pareto
 El último reto consta de adaptar el algoritmo genético de la práctica 10 para buscar el frente de Pareto. Básicamente se plantean enseguida los métodos y operadores esenciales del algoritmo y las instrucciones que lo implementan. En cada paso se trató de paralelizar todo lo posible para disminuir el tiempo de ejecución, aunque no se compara con una versión secuencial. 
 
-### Población inicial
+#### Población inicial
 Se hace la consideración de que una solución es factible si está dentro del cuadrado unitario. Esto para manejar restricciones en el algoritmo. La población inicial consta de `n`individuos factibles
 ```R
 sol <- matrix(runif(vc * n), nrow=n, ncol=vc)    
@@ -222,7 +222,7 @@ tam=n
 factibilidad=rep(0,n) #todos son factibles
 ```
 
-### Aptitud
+#### Aptitud
 Se considera como parte de la aptitud de un individuo al número de soluciones que lo dominan. Esto es, entre menos individuos lo dominen, más posibilidades tiene de estar en el frente de Pareto. Para manejar la factibilidad se añade en la aptitud el grado de infactibilidad de la solución medida como la distancia al intervalo [0,1] en cada objetivo. Así, aquellos con aptitud de cero conforman el frente incumbente.
 ```R
 aptitud=parSapply(cluster,1:tam,function(i){
@@ -237,7 +237,7 @@ no.dom = (aptitud+factibilidad)==0
 frente <- subset(val, no.dom) # solamente las no dominadas
 ```
 
-### Mutación
+#### Mutación
 Se considera que un individuo muta con probabilidad `pm` haciendo una perturbación aletaoria en algunas de sus variables. Primero se seleccionan cuántas y cuáles variables van a cambier y a éstas se les agrega una perturbación elegida uniformemente en el intervalo [-0.1,0.1].
 ```R
 mutacion <- function(solu) {
@@ -250,10 +250,41 @@ mutacion <- function(solu) {
 }
 ```
 
-### Reproducción
-En el algoritmo se seleccionan `rep` parejas de padres para reproducirse. Dados dos padres se les aplica un cruzamiento denominado BLX-<img src="http://latex.codecogs.com/svg.latex?\alpha" border="0"/> para variables continuas. La idea es que cada gen de un hijo se encuentre a no más de una distancia <img src="http://latex.codecogs.com/svg.latex?\alpha" border="0"/> del gen correspondiente de cualquiera de sus padres.
+#### Reproducción
+En el algoritmo se seleccionan `rep` parejas de padres para reproducirse, la selección se hace mediante el método de la ruleta acorde a su aptitud. Dados dos padres se les aplica un cruzamiento denominado BLX-<img src="http://latex.codecogs.com/svg.latex?\alpha" border="0"/> para variables continuas. La idea es que cada gen de un hijo se encuentre a no más de una distancia <img src="http://latex.codecogs.com/svg.latex?\alpha" border="0"/> del gen correspondiente de cualquiera de sus padres.
 
 <blockquote>
 <p>El cruzamiento BLX-<img src="http://latex.codecogs.com/svg.latex?\alpha" border="0"/> se describe en:</p>
 <footer>— <a href="https://pdfs.semanticscholar.org/11ec/6378801e6f8a800260b565439ff1cd9c5f5a.pdf">Fonseca, C. M., & Fleming, P. J. (1993, June). Genetic Algorithms for Multiobjective Optimization: FormulationDiscussion and Generalization. In Icga (Vol. 93, No. July, pp. 416-423).</a></footer>
 </blockquote>
+
+```R
+reproduccion <- function(x, y,num_hijos=2,alfa=0.05) {
+  hijos=c()
+  for(i in 1:vc){
+    lw=min(x[i],y[i])-alfa*abs(x[i]-y[i])
+    up=max(x[i],y[i])+alfa*abs(x[i]-y[i])
+    hijos=c(hijos,runif(num_hijos,lw,up))
+  }
+  return(matrix(hijos,ncol=vc))
+}
+```
+
+#### Supervivencia
+Agrupando los individuos de la población, sus mutaciones y a su progenie, se seleccionan `n` individuos para formar la nueva población. La forma de supervivencia de los individuos es acorde a su aptitud y factibilidad de forma elitista
+```R
+elite <- order(factibilidad, aptitud)
+mantener=elite[1:n]
+```
+
+### Resultados
+La población evoluciona por `tmax`generaciones y el resultado es una aproximación al frente de Pareto. La <a href="#fig5">Figura 5</a> muestra algunos ejemplos de la evolución de algunos problemas instancia de dos objetivos. En negro se grafican todas las soluciones en el espacio de los objetivos, en verde las soluciones que se encuentran en el frente de Pareto incumbente y, en rojo las soluciones infactibles.
+
+<p align="center">
+<div id="fig5" style="width:300px; height=200px">
+<img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/evolucion_mono.gif" height="30%" width="30%"/>
+  <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/evolucion_min_max.gif" height="30%" width="30%"/>
+  <img src="https://github.com/eduardovaldesga/SimulacionSistemas/blob/master/p11/evolucion_max_min.gif" height="30%" width="30%"/><br>
+<b>Figura 5.</b> Visualización del algoritmo genético.
+</div>
+</p>
