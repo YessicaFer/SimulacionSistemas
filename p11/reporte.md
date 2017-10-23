@@ -171,11 +171,17 @@ seleccionM <- parSapply(cluster,1:k,function(i){return(which.max(sign[i] * val[,
 #### Utilizando distancia de hacinamiento
 El segundo método de selcción se hace utilizando la distancia de hacinamiento o crowding-distance. Esta "distancia" podría verse como una medida que indica que tan hacinada está cada solución, midiendo la distancia que hay entre un punto y los dos que están a sus lados, respecto a cada uno de los objetivos.
 <blockquote>
-<p>La distancia de hacinamiento se describe  a detalle en </p>
+<p>La distancia de hacinamiento se describe  a detalle en:</p>
 <footer>— <a href="http://ieeexplore.ieee.org/abstract/document/996017/">Deb, K., Pratap, A., Agarwal, S., & Meyarivan, T. A. M. T. (2002). A fast and elitist multiobjective genetic algorithm: NSGA-II. IEEE transactions on evolutionary computation, 6(2), 182-197.</a></footer>
 </blockquote>
 
-Si determinamos 
+Si determinamos que tan hacinada está cada solución, basta con seleccionar las menos hacinadas (mayor distancia de hacinamiento) y tendremos un subconjunto diversificado. La pregunta es... ¿cuántas soluciones seleccionamos? Para poder comparar seleccionamos la misma cantidad de soluciones que se seleccionan con el método anterior.
+
+```R
+ distancia=crowding.distance(frente)
+ temp=sort(distancia,index.return=T,decreasing = T)
+ seleccionC=which(no.dom)[temp$ix[1:length(seleccionM)]]
+```
 
 
 
